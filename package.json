@@ -1,0 +1,23 @@
+{
+  "name": "wish-cvue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm -C play dev",
+    "preinstall": "npx only-allow pnpm -y"
+  },
+  "dependencies": {
+    "@cvue/components": "workspace:*",
+    "@cvue/core": "workspace:*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^17.0.13",
+    "element-plus": "^1.3.0-beta.9",
+    "typescript": "^4.5.5",
+    "vue": "^3.2.29"
+  }
+}

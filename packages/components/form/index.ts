@@ -5,3 +5,5 @@ Form.install = (app)=>{
 }
 
 export default Form;
+
+export * from './src/form';

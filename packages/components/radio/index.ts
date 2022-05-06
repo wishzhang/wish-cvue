@@ -5,3 +5,5 @@ Radio.install = (app)=>{
 }
 
 export default Radio;
+
+export * from './src/radio';

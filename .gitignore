@@ -1,4 +1,12 @@
+# Bundle
+dist
+
+# Package Manager
 node_modules
-.history
-.vscode
+.pnpm-debug.log*
+
+# Editor directories and files
 .idea
+.vscode
+.history
+

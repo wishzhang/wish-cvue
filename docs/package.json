@@ -1,0 +1,19 @@
+{
+  "name": "wish-cvue-docs",
+  "version": "1.0.0",
+  "description": "wish-cvue-docs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "author": "wishzhang",
+  "license": "MIT",
+  "dependencies": {
+    "@vuepress/client": "^2.0.0-beta.53",
+    "element-plus": "^2.2.22"
+  },
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.53"
+  }
+}

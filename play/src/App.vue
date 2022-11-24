@@ -7,7 +7,7 @@
     <!--    <cvue-form v-model="form" :option="option" @submit="onSubmit"></cvue-form>-->
 
     <!--    表格-->
-    <cvue-table :columns="columns" :data="data"></cvue-table>
+    <cvue-table :columns="columns" :data="data" :pagination="{position: 'right'}" @on-load="onLoad"></cvue-table>
   </div>
 </template>
 
@@ -62,6 +62,10 @@
       address: '广州'
     }
   ])
+
+  const onLoad = () => {
+    console.log('onload')
+  }
 </script>
 
 <style>

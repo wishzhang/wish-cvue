@@ -1,3 +1,3 @@
-export function buildProps(option){
-   return option;
+export function buildProps<T>(option: T): T {
+  return option
 }

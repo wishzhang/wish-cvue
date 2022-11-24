@@ -5,6 +5,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
   resolve: {
+    extensions: ['.ts', 'tsx'],
     alias: [
       {
         find: /^cvue$/,
@@ -17,6 +18,8 @@ export default defineConfig({
     ],
   },
   plugins: [
-    vue()
+    vue({
+      reactivityTransform: true
+    })
   ]
 })

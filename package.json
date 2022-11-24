@@ -33,7 +33,7 @@
     "@vitejs/plugin-vue": "2.1.0",
     "vite": "2.5.10",
     "chalk": "4.1.2",
-    "element-plus": "^1.3.0-beta.9",
+    "element-plus": "^2.2.22",
     "fs-extra": "10.0.0",
     "gulp": "^4.0.2",
     "only-allow": "^1.1.0",

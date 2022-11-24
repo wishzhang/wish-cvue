@@ -1,9 +1,3 @@
-<script lang="ts">
-export default {
-  name: 'CvueRadio'
-}
-</script>
-
 <script setup lang="ts">
 import {reactive, ref, watch, watchEffect} from "vue";
 

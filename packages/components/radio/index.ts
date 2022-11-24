@@ -1,9 +1,7 @@
 import Radio from '@cvue/components/radio/src/radio.vue';
 
-export * from '@cvue/components/radio/src/radio.vue';
-
 Radio['install'] = (app) => {
-  app.component(Radio.name, Radio);
+  app.component('CvueRadio', Radio);
 }
 
 export default Radio

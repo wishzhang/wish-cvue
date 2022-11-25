@@ -4,15 +4,17 @@
     <!--    <cvue-radio v-model="radio" :dic-data="radioDicData" size="small"></cvue-radio>-->
 
     <!-- 表单 -->
-    <!--    <cvue-form v-model="form" :option="option" @submit="onSubmit"></cvue-form>-->
+    <cvue-form v-model="form" :columns="formColumns"></cvue-form>
 
     <!--    表格-->
-    <cvue-table :columns="columns" :data="data" :pagination="{position: 'right'}" @on-load="onLoad"></cvue-table>
+    <!--        <cvue-table :columns="columns" :data="data" :pagination="{position: 'right'}" @on-load="onLoad"></cvue-table>-->
   </div>
 </template>
 
 <script setup lang="ts">
   import {reactive, ref, watch} from "vue";
+
+  const dd = ref(null)
 
   let radio = ref(null);
   let radioDicData = [
@@ -25,26 +27,33 @@
       value: 2,
     },
   ];
+  //----------------------------------------
   let form = reactive({
-    hi: "",
+    prop1: "",
+    prop2: 1
   });
-  let option = reactive({
-    columns: [
-      {
-        type: "input",
-        prop: "hi",
-        label: "姓名",
-      },
-    ],
-  });
-  const onSubmit = (form: any) => {
-    console.log(form);
-  };
+  let formColumns = reactive([
+    {
+      type: "input",
+      prop: "prop1",
+      label: "姓名",
+    },
+    {
+      type: 'cvue-radio',
+      prop: 'prop2',
+      label: '单选',
+      dicData: [
+        {label: 'yes', value: 1},
+        {label: 'no', value: 2},
+      ]
+    }
+  ]);
 
   watch(radio, (newVal) => {
     console.log(newVal)
   })
 
+  //----------------------------------------
   const columns = reactive([{
     label: '标题1',
     prop: 'date'

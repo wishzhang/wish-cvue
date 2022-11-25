@@ -1,17 +1,22 @@
-export function getOptionType(type: string) {
-    let name = type;
-    if (!type.startsWith('cvue-')) {
-        name = 'el-' + type;
-    }
-    return name;
+import {Component} from 'vue'
+
+export function getOptionType(name: string = '', component: string) {
+  if (component) {
+    return component
+  }
+  // is not the cvue component that had been registered
+  if (!name.toLowerCase().startsWith('cvue-')) {
+    name = 'el-' + name;
+  }
+  return name;
 }
 
 const cvue = {
-    install(app) {
-        app.config.globalProperties.$cvue = {
-            _getOptionType: getOptionType
-        }
+  install(app) {
+    app.config.globalProperties.$cvue = {
+      _getComponentName: getOptionType
     }
+  }
 }
 
 export default cvue;

@@ -28,7 +28,7 @@ async function buildFullEntry(minify: boolean) {
         isProduction: true
       }),
       nodeResolve({
-        extensions: ['.mjs', '.js', '.json', '.ts'],
+        extensions: ['.mjs', '.js', '.ts'],
       }),
       commonjs(),
       esbuild({

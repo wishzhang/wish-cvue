@@ -1,24 +1,22 @@
-<script lang="ts">
+<script lang="ts" setup>
+  import TableFooter from '@cvue/components/table/src/TableFooter.vue'
   import {ElTable, ElTableColumn} from 'element-plus'
-  import {TableFooterProps} from "./TableFooter.vue";
+  import type {TableFooterProps} from '@cvue/components/table/src/TableFooter.vue'
 
-  export type ElTableType = typeof ElTable
-  export type ElTableColumnType = typeof ElTableColumn
+  type ElTableType = typeof ElTable
+  type ElTableColumnType = typeof ElTableColumn
 
   export interface Column {
     prop: String
     label: String
   }
 
-  export type Columns = Array<Column>
+  type Columns = Array<Column>
 
-  export interface TableProps {
+  interface TableProps {
     pagination?: TableFooterProps
     columns: Array<ElTableColumnType>
   }
-</script>
-<script lang="ts" setup>
-  import TableFooter from './TableFooter.vue'
 
   const {columns = [], pagination} = defineProps<TableProps>()
   const emit = defineEmits<{
@@ -48,11 +46,11 @@
         </el-table-column>
       </template>
 
-      <template v-if="$slots.append" #append="scope">
+      <template #append="scope">
         <slot v-bind="scope" name="append"></slot>
       </template>
 
-      <template v-if="$slots.empty" #empty="scope">
+      <template #empty="scope">
         <slot v-bind="scope" name="empty"></slot>
       </template>
     </el-table>
@@ -63,9 +61,3 @@
   </div>
 
 </template>
-
-<style scoped lang="scss">
-  .cvue-table {
-
-  }
-</style>

@@ -1,10 +1,7 @@
-<script lang="ts">
-  export interface TableFooterProps {
+<script lang="ts" setup>
+  export type TableFooterProps = {
     position: 'left' | 'right'
   }
-</script>
-
-<script lang="ts" setup>
   const {position = 'right'} = defineProps<TableFooterProps>()
 </script>
 
@@ -13,14 +10,3 @@
     <el-pagination background layout="prev, pager, next" :total="50" v-bind="$attrs"/>
   </div>
 </template>
-
-<style scoped lang="scss">
-  .avue-table-footer {
-    display: flex;
-    align-items: center;
-    margin: 16px 0;
-    >>> .active{
-      background: red !important;
-    }
-  }
-</style>

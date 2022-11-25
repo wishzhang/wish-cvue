@@ -1,13 +1,13 @@
 <template>
   <div>
     <!-- 单选按钮 -->
-    <!--    <cvue-radio v-model="radio" :dic-data="radioDicData" size="small"></cvue-radio>-->
+        <cvue-radio v-model="radio" :dic-data="radioDicData" size="small"></cvue-radio>
 
     <!-- 表单 -->
     <cvue-form v-model="form" :columns="formColumns"></cvue-form>
 
     <!--    表格-->
-    <!--        <cvue-table :columns="columns" :data="data" :pagination="{position: 'right'}" @on-load="onLoad"></cvue-table>-->
+            <cvue-table :columns="columns" :data="data" :pagination="{position: 'right'}" @on-load="onLoad"></cvue-table>
   </div>
 </template>
 
@@ -37,15 +37,17 @@
       type: "input",
       prop: "prop1",
       label: "姓名",
+      span: 12,
     },
     {
       type: 'cvue-radio',
       prop: 'prop2',
-      label: '单选',
+      label: '性别',
       dicData: [
         {label: 'yes', value: 1},
         {label: 'no', value: 2},
-      ]
+      ],
+      hide: true
     }
   ]);
 

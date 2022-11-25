@@ -1,26 +1,34 @@
-<script lang="ts" setup>
-  import {defineComponent, reactive, ref, watch} from "vue";
+<script setup lang="ts" >
   import {cloneDeep} from 'lodash-es'
+  import {defineComponent, reactive, ref, watch} from "vue";
 
-  type Columns = Array<{
+  type FormColumns = Array<{
     prop: string,
     label: string,
     type: string,
+    hide?: boolean,
     component?: string
+    span?: number
   }>;
 
-  interface FormProps {
+  export interface FormProps {
     modelValue: any
-    columns: Columns
+    columns: FormColumns
   }
 
-  const {modelValue, columns = []} = defineProps<FormProps>()
+  const {modelValue, columns = []} = defineProps<FormProps>();
   const emit = defineEmits<{
     (e: 'update:modelValue', value: FormProps['modelValue'])
   }>()
 
-  const formValue = reactive(modelValue)
+  let innerColumns = reactive(cloneDeep(columns));
+  innerColumns = innerColumns.map((el) => {
+    return Object.assign({}, {
+      span: 6
+    }, el);
+  })
 
+  let formValue = reactive(modelValue)
   watch(formValue, (val) => {
     emit('update:modelValue', val)
   })
@@ -29,19 +37,19 @@
 <template>
   <div class="avue-form">
     <el-form v-bind="$attrs" v-model="formValue" label-width="120px">
-      <template v-for="(item, index) in columns" :key="index">
-        <el-form-item :label="item.label" :prop="item.prop">
-          <component v-model="formValue[item.prop]"
-                     v-bind="item"
-                     :is="$cvue._getComponentName(item.type, item.component)"></component>
-        </el-form-item>
-      </template>
+      <el-row>
+        <template v-for="(item, index) in innerColumns" :key="index">
+          <el-col :span="item.span">
+            <el-form-item :label="item.label" :prop="item.prop" :class="{'avue-form-item-hide': item.hide}">
+              <component v-model="formValue[item.prop]"
+                         v-bind="item"
+                         :is="$cvue._getComponentName(item.type, item.component)"></component>
+            </el-form-item>
+          </el-col>
+        </template>
+        <!--slot-->
+        <slot name="append"></slot>
+      </el-row>
     </el-form>
   </div>
 </template>
-
-<style scoped lang="scss">
-  .avue-form {
-
-  }
-</style>

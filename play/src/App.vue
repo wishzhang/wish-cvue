@@ -14,6 +14,9 @@
                   @on-load="onLoad"></cvue-table>
     </div>
 
+    <cvue-checkbox v-model="checkboxValue"
+                   :dic="[{label:'选项1', value: 1}, {label: '选项2', value: 2}]"></cvue-checkbox>
+
     <!--    搜索-->
     <!--    <cvue-query-filter :columns="queryColumns" @search="handleSearch"/>-->
   </div>
@@ -145,6 +148,9 @@
   const handleSearch = (val: any) => {
     console.log(val)
   }
+
+  //----------------------------------------
+  const checkboxValue = reactive([])
 </script>
 
 <style>

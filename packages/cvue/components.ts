@@ -5,6 +5,7 @@ import QueryFilter from "@cvue/components/query-filter";
 import Input from '@cvue/components/input';
 import Checkbox from '@cvue/components/checkbox';
 import InputNumberRange from '@cvue/components/input-number-range';
+import Select from '@cvue/components/select';
 
 export default [
   Form,
@@ -13,5 +14,6 @@ export default [
   QueryFilter,
   Input,
   Checkbox,
-  InputNumberRange
+  InputNumberRange,
+  Select
 ]

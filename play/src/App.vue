@@ -20,6 +20,8 @@
 
     <cvue-input-number-range v-model="inputNumberRangeValue"></cvue-input-number-range>
 
+    <cvue-select v-model="selectValue" :dic="selectDic"></cvue-select>
+
     <!--    搜索-->
     <!--    <cvue-query-filter :columns="queryColumns" @search="handleSearch"/>-->
   </div>
@@ -157,6 +159,17 @@
 
   //----------------------------------------
   const inputNumberRangeValue = reactive([1])
+
+  //----------------------------------------
+  const selectValue = ref('')
+  const selectDic = ref([{
+    value: 'Option1',
+    label: 'Option1',
+  },
+    {
+      value: 'Option2',
+      label: 'Option2',
+    }])
 </script>
 
 <style>

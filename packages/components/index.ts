@@ -5,3 +5,4 @@ export * from '@cvue/components/query-filter';
 export * from '@cvue/components/input'
 export * from '@cvue/components/checkbox'
 export * from '@cvue/components/input-number-range'
+export * from '@cvue/components/select'

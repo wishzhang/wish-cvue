@@ -1,13 +1,13 @@
 <script setup lang="ts">
   import {reactive, ref, watch, watchEffect} from "vue";
 
-  interface InputProps {
+  export interface InputProps {
     modelValue?: string
     placeholder?: string
     clearable?: boolean
   }
 
-  interface InputEmits {
+  export interface InputEmits {
     (e: 'update:modelValue', value: InputProps['modelValue']): void
   }
 

@@ -4,14 +4,14 @@
   interface RadioProps {
     size?: String
     modelValue?: Number
-    dicData?: Array<Record<string, any>>
+    dic?: Array<Record<string, any>>
   }
 
   interface RadioEmits {
     (e: 'update:modelValue', value: RadioProps['modelValue']): void
   }
 
-  const {modelValue, dicData = [], ...rest} = defineProps<RadioProps>();
+  const {modelValue, dic = [], ...rest} = defineProps<RadioProps>();
   const restProps = reactive(rest)
   const emit = defineEmits<RadioEmits>();
 
@@ -22,8 +22,8 @@
 </script>
 
 <template>
-  <el-radio-group v-model="innerValue">
-    <template v-for="(item, index) in dicData">
+  <el-radio-group v-bind="$attrs" v-model="innerValue">
+    <template v-for="(item, index) in dic">
       <el-radio
           v-bind="restProps"
           :label="item?.value">

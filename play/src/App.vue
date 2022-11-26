@@ -7,20 +7,32 @@
     <!--    <cvue-form v-model="form" :columns="formColumns"></cvue-form>-->
 
     <!--表格-->
-    <div style="width: calc(100% - 200px);">
-      <cvue-table size="large" :operation="{width: 200}" :search="search" :columns="columns"
-                  :data="data"
-                  @row-add="handleRowAdd"
-                  @on-load="onLoad"></cvue-table>
-    </div>
+    <!--    <div style="width: calc(100% - 200px);">-->
+    <!--      <cvue-table size="large" :operation="{width: 200}" :search="search" :columns="columns"-->
+    <!--                  :data="data"-->
+    <!--                  @row-add="handleRowAdd"-->
+    <!--                  @on-load="onLoad"></cvue-table>-->
+    <!--    </div>-->
 
-    <cvue-checkbox v-model="checkboxValue"
-                   :dic="[{label:'选项1', value: 1}, {label: '选项2', value: 2}]"></cvue-checkbox>
+    <!--    <cvue-checkbox v-model="checkboxValue"-->
+    <!--                   :dic="[{label:'选项1', value: 1}, {label: '选项2', value: 2}]"></cvue-checkbox>-->
 
 
-    <cvue-input-number-range v-model="inputNumberRangeValue"></cvue-input-number-range>
+    <!--    <cvue-input-number-range v-model="inputNumberRangeValue"></cvue-input-number-range>-->
 
-    <cvue-select v-model="selectValue" :dic="selectDic"></cvue-select>
+    <!--    <cvue-select v-model="selectValue" :dic="selectDic"></cvue-select>-->
+
+    <el-button text @click="dialogVisible = true">
+      click to open the Dialog
+    </el-button>
+
+    <cvue-dialog
+        v-model="dialogVisible"
+        title="Tips"
+        @confirm="handleConfirm"
+    >
+      <template #header>dd</template>
+    </cvue-dialog>
 
     <!--    搜索-->
     <!--    <cvue-query-filter :columns="queryColumns" @search="handleSearch"/>-->
@@ -170,6 +182,15 @@
       value: 'Option2',
       label: 'Option2',
     }])
+  //-------------------------------------------
+  let dialogVisible = ref(false)
+  const handleConfirm = ({startLoading, stopLoading, done}) => {
+    startLoading()
+    setTimeout(() => {
+      stopLoading()
+      done()
+    }, 2000)
+  }
 </script>
 
 <style>

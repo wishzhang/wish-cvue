@@ -6,6 +6,7 @@ import Input from '@cvue/components/input';
 import Checkbox from '@cvue/components/checkbox';
 import InputNumberRange from '@cvue/components/input-number-range';
 import Select from '@cvue/components/select';
+import Dialog from '@cvue/components/dialog';
 
 export default [
   Form,
@@ -15,5 +16,6 @@ export default [
   Input,
   Checkbox,
   InputNumberRange,
-  Select
+  Select,
+  Dialog
 ]

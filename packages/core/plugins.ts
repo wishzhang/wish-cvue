@@ -5,9 +5,14 @@ export function getOptionType(name: string = 'input', component: string) {
     return component
   }
   name = name.toLowerCase().trim()
-  // is not the cvue component that had been registered
-  if (!name.startsWith('cvue-')) {
-    name = 'el-' + name;
+  if (name.startsWith('cvue-')) {
+    return name
+  }
+  if (!name.startsWith('el-')) {
+    name = 'el-' + name
+  }
+  if (name === 'el-input') {
+    return 'cvue-input'
   }
   return name;
 }

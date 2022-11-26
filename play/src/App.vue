@@ -8,7 +8,8 @@
 
     <!--表格-->
     <div style="width: calc(100% - 200px);">
-      <cvue-table size="large" :operation="{width: 200}" :search="search" :columns="columns" :data="data" :pagination="{position: 'right'}"
+      <cvue-table size="large" :operation="{width: 200}" :search="search" :columns="columns"
+                  :data="data"
                   @row-add="handleRowAdd"
                   @on-load="onLoad"></cvue-table>
     </div>
@@ -86,15 +87,15 @@
       date: '2022-12-12',
       name: 'wishzhang',
       address: '广州'
-    },   {
+    }, {
       date: '2022-12-12',
       name: 'wishzhang',
       address: '广州'
-    },    {
+    }, {
       date: '2022-12-12',
       name: 'wishzhang',
       address: '广州'
-    },    {
+    }, {
       date: '2022-12-12',
       name: 'wishzhang',
       address: '广州'
@@ -109,7 +110,7 @@
     console.log(val)
   }
 
-  const handleRowAdd = ()=>{
+  const handleRowAdd = () => {
     console.log('handleRowAdd')
   }
 
@@ -151,7 +152,8 @@
     margin: 0;
     padding: 0;
   }
-  body{
+
+  body {
     background: #eee;
   }
 </style>

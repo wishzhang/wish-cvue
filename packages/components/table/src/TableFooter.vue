@@ -1,12 +1,61 @@
 <script lang="ts" setup>
-  export type TableFooterProps = {
+  import {reactive, useAttrs, ref} from 'vue'
+
+  export interface TableFooterProps {
     position: 'left' | 'right'
+    currentPage?: number
+    pageSize?: number
+    background?: boolean
+    layout?: string
+    hideOnSinglePage?: boolean
+    total?: number
   }
-  const {position = 'right'} = defineProps<TableFooterProps>()
+
+  export interface TableFooterEmits {
+    (e: 'change', val: Record<string, any>): void
+    (e: 'current-change', currentPage: number): void
+    (e: 'size-change', pageSize: number): void
+  }
+
+  const {
+    position = 'right', currentPage = 1, pageSize = 20, total = 0,
+    background = true, hideOnSinglePage = false, layout = 'prev, pager, next'
+  } = defineProps<TableFooterProps>()
+
+  const emit = defineEmits<TableFooterEmits>()
+
+  const innerCurrentPage = ref(currentPage)
+  const innerPageSize = ref(pageSize)
+
+  const onChange = () => {
+    emit('change', {
+      currentPage: innerCurrentPage.value,
+      pageSize: innerPageSize.value
+    })
+  }
+
+  const handleCurrentChange = (current) => {
+    innerCurrentPage.value = current
+    onChange()
+    emit('current-change', innerCurrentPage.value)
+  }
+
+  const handleSizeChange = (size) => {
+    innerPageSize.value = size;
+    onChange()
+    emit('size-change', size)
+  }
+
 </script>
 
 <template>
   <div class="avue-table-footer" :style="{justifyContent: position === 'right'? 'flex-end': 'flex-start'}">
-    <el-pagination background layout="prev, pager, next" :total="50" v-bind="$attrs"/>
+    <el-pagination v-bind="$attrs"
+                   background
+                   :current-page="currentPage"
+                   :hide-on-single-page="hideOnSinglePage"
+                   :page-size="pageSize"
+                   :total="total"
+                   @current-change="handleCurrentChange" @size-change="handleSizeChange"/>
   </div>
 </template>

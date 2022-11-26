@@ -1,41 +1,70 @@
 <script lang="ts" setup>
   import TableFooter from '@cvue/components/table/src/TableFooter.vue'
   import {ElTable, ElTableColumn} from 'element-plus'
-  import type {TableFooterProps} from '@cvue/components/table/src/TableFooter.vue'
+  import {TableFooterProps} from '@cvue/components/table/src/TableFooter.vue'
+  import TableSearch, {TableSearchProps} from './TableSearch.vue'
+  import {reactive} from 'vue'
 
-  type ElTableType = typeof ElTable
-  type ElTableColumnType = typeof ElTableColumn
+  export type ElTableType = typeof ElTable
+  export type ElTableColumnType = typeof ElTableColumn
 
   export interface Column {
     prop: String
     label: String
   }
 
-  type Columns = Array<Column>
+  export type Columns = Array<Column>
 
   export interface TableProps {
+    search?: TableSearchProps
     pagination?: TableFooterProps
     columns: Array<ElTableColumnType>
   }
 
   export interface TableEmits {
-    (e: 'on-load', searchValue: any): Promise<any> | void
+    (e: 'on-load', searchValue: Record<string, any>): Promise<any> | void
   }
 
-  const {columns = [], pagination} = defineProps<TableProps>()
+  const {columns = [], pagination, search} = defineProps<TableProps>()
   const emit = defineEmits<TableEmits>()
 
+  let searchFormValue = reactive<Record<string, any>>({})
+  let pageValue = reactive<Record<string, any>>({
+    currentPage: 1,
+    pageSize: 20
+  })
+  let params = reactive<object>({})
+
   const handleSizeChange = () => {
-    emit('on-load', 'handleSizeChange')
   }
 
   const handleCurrentChange = () => {
-    emit('on-load', 'handleCurrentChange')
+  }
+
+  const onLoad = () => {
+    params = Object.assign(params, searchFormValue, pageValue)
+    emit('on-load', params)
+  }
+
+  const handleSearchClick = (val) => {
+    searchFormValue = Object.assign(searchFormValue, val)
+    onLoad()
+  }
+
+  const handleFooterChange = (page) => {
+    pageValue = Object.assign(pageValue, {
+      currentPage: page.currentPage,
+      pageSize: page.pageSize
+    })
+    onLoad()
   }
 </script>
 
 <template>
   <div class="cvue-table">
+    <div class="cvue-talbe-search-box">
+      <TableSearch v-bind="search" @search="handleSearchClick"/>
+    </div>
     <el-table v-bind="$attrs">
       <template v-for="(column, index) in columns">
         <el-table-column v-bind="column">
@@ -58,7 +87,9 @@
     </el-table>
 
     <!-- footer -->
-    <TableFooter @size-change="handleSizeChange" @current-change="handleCurrentChange"
+    <TableFooter :total="100" @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                 :current-page="pageValue.currentPage" :page-size="pageValue.pageSize"
+                 @change="handleFooterChange"
                  v-bind="pagination"></TableFooter>
   </div>
 

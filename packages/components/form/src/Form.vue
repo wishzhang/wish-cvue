@@ -6,7 +6,7 @@
   import {cloneDeep} from 'lodash-es'
   import {defineComponent, reactive, ref, watch, watchEffect} from "vue";
 
-  type FormColumns = Array<{
+  export type FormColumns = Array<{
     prop: string,
     label: string,
     type: string,

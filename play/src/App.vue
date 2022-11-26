@@ -6,18 +6,19 @@
     <!-- 表单 -->
     <!--    <cvue-form v-model="form" :columns="formColumns"></cvue-form>-->
 
-    <!--    表格-->
-    <!--    <cvue-table :columns="columns" :data="data" :pagination="{position: 'right'}" @on-load="onLoad"></cvue-table>-->
+    <!--表格-->
+    <div style="width: calc(100% - 200px);">
+      <cvue-table :search="search" :columns="columns" :data="data" :pagination="{position: 'right'}"
+                  @on-load="onLoad"></cvue-table>
+    </div>
 
     <!--    搜索-->
-    <cvue-query-filter :columns="queryColumns" @search="handleSearch"/>
+    <!--    <cvue-query-filter :columns="queryColumns" @search="handleSearch"/>-->
   </div>
 </template>
 
 <script setup lang="ts">
   import {reactive, ref, watch} from "vue";
-
-  const dd = ref(null)
 
   let radio = ref(null);
   let radioDicData = [
@@ -77,9 +78,34 @@
     }
   ])
 
-  const onLoad = () => {
-    console.log('onload')
+  const onLoad = (val: Record<string, any>) => {
+    console.log(val)
   }
+
+  const search = reactive({
+    columns: [
+      {
+        label: 'label1',
+        prop: 'prop1'
+      },
+      {
+        label: 'label2',
+        prop: 'prop2'
+      },
+      {
+        label: 'label3',
+        prop: 'prop3'
+      },
+      {
+        label: 'label4',
+        prop: 'prop4'
+      },
+      {
+        label: 'label5',
+        prop: 'prop5'
+      }
+    ]
+  })
 
   //---------------------------------------
   const queryColumns = reactive(Array(6).fill(0).map((el, index) => ({label: 'label' + index, prop: 'prop' + index})))

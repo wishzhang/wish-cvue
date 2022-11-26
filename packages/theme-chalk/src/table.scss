@@ -1,3 +1,41 @@
-.cvue-table {
 
+.cvue-table {
+  .cvue-table-search-box {
+    background: white;
+    padding: 24px 16px 0;
+    margin: 16px;
+    border-radius: 8px;
+
+    .el-form-item {
+      margin-bottom: 24px !important;
+    }
+  }
+
+  .cvue-table-menu-box {
+    background: white;
+    margin-bottom: 12px;
+  }
+
+  .cvue-table-main-box {
+    background: white;
+    padding: 16px 24px;
+    margin: 16px;
+    border-radius: 8px;
+
+    .el-table__header-wrapper {
+      .el-table__header {
+        .el-table__cell {
+          color: rgba(0, 0, 0, 0.88);
+        }
+      }
+    }
+  }
+
+  .cvue-table-footer {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 16px 0 8px;
+  }
 }

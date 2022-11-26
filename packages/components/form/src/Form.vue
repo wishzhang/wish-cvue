@@ -16,11 +16,12 @@
   }>;
 
   export interface FormProps {
+    labelWidth?: number
     modelValue: any
     columns: FormColumns
   }
 
-  const {modelValue, columns = []} = defineProps<FormProps>();
+  const {modelValue, columns = [], labelWidth = 90} = defineProps<FormProps>();
   const emit = defineEmits<{
     (e: 'update:modelValue', value: FormProps['modelValue'])
   }>()
@@ -59,7 +60,7 @@
 
 <template>
   <div class="avue-form">
-    <el-form v-bind="$attrs" v-model="formValue" label-width="120px">
+    <el-form v-bind="$attrs" v-model="formValue" :label-width="labelWidth">
       <el-row>
         <template v-for="(item, index) in innerColumns">
           <el-col :span="item.span" :class="{'avue-form-item-hide': item.hide}">

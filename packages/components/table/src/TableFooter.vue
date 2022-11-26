@@ -49,13 +49,11 @@
 </script>
 
 <template>
-  <div class="avue-table-footer" :style="{justifyContent: position === 'right'? 'flex-end': 'flex-start'}">
-    <el-pagination v-bind="$attrs"
-                   background
-                   :current-page="currentPage"
-                   :hide-on-single-page="hideOnSinglePage"
-                   :page-size="pageSize"
-                   :total="total"
-                   @current-change="handleCurrentChange" @size-change="handleSizeChange"/>
-  </div>
+  <el-pagination v-bind="$attrs"
+                 background
+                 :current-page="currentPage"
+                 :hide-on-single-page="hideOnSinglePage"
+                 :page-size="pageSize"
+                 :total="total"
+                 @current-change="handleCurrentChange" @size-change="handleSizeChange"/>
 </template>

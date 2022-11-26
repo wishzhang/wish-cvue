@@ -8,7 +8,8 @@
 
     <!--表格-->
     <div style="width: calc(100% - 200px);">
-      <cvue-table :search="search" :columns="columns" :data="data" :pagination="{position: 'right'}"
+      <cvue-table size="large" :operation="{width: 200}" :search="search" :columns="columns" :data="data" :pagination="{position: 'right'}"
+                  @row-add="handleRowAdd"
                   @on-load="onLoad"></cvue-table>
     </div>
 
@@ -75,17 +76,47 @@
       date: '2022-12-12',
       name: 'wishzhang',
       address: '广州'
-    }
+    },
+    {
+      date: '2022-12-12',
+      name: 'wishzhang',
+      address: '广州'
+    },
+    {
+      date: '2022-12-12',
+      name: 'wishzhang',
+      address: '广州'
+    },   {
+      date: '2022-12-12',
+      name: 'wishzhang',
+      address: '广州'
+    },    {
+      date: '2022-12-12',
+      name: 'wishzhang',
+      address: '广州'
+    },    {
+      date: '2022-12-12',
+      name: 'wishzhang',
+      address: '广州'
+    }, {
+      date: '2022-12-12',
+      name: 'wishzhang',
+      address: '广州'
+    },
   ])
 
   const onLoad = (val: Record<string, any>) => {
     console.log(val)
   }
 
+  const handleRowAdd = ()=>{
+    console.log('handleRowAdd')
+  }
+
   const search = reactive({
     columns: [
       {
-        label: 'label1',
+        label: '什么鬼的a',
         prop: 'prop1'
       },
       {
@@ -119,5 +150,8 @@
   * {
     margin: 0;
     padding: 0;
+  }
+  body{
+    background: #eee;
   }
 </style>

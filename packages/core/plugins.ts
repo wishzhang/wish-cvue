@@ -1,11 +1,12 @@
 import {Component} from 'vue'
 
-export function getOptionType(name: string = '', component: string) {
+export function getOptionType(name: string = 'input', component: string) {
   if (component) {
     return component
   }
+  name = name.toLowerCase().trim()
   // is not the cvue component that had been registered
-  if (!name.toLowerCase().startsWith('cvue-')) {
+  if (!name.startsWith('cvue-')) {
     name = 'el-' + name;
   }
   return name;

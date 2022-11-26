@@ -13,15 +13,17 @@
 
   type Columns = Array<Column>
 
-  interface TableProps {
+  export interface TableProps {
     pagination?: TableFooterProps
     columns: Array<ElTableColumnType>
   }
 
-  const {columns = [], pagination} = defineProps<TableProps>()
-  const emit = defineEmits<{
+  export interface TableEmits {
     (e: 'on-load', searchValue: any): Promise<any> | void
-  }>()
+  }
+
+  const {columns = [], pagination} = defineProps<TableProps>()
+  const emit = defineEmits<TableEmits>()
 
   const handleSizeChange = () => {
     emit('on-load', 'handleSizeChange')

@@ -1,13 +1,16 @@
 <template>
   <div>
     <!-- 单选按钮 -->
-        <cvue-radio v-model="radio" :dic-data="radioDicData" size="small"></cvue-radio>
+    <!--    <cvue-radio v-model="radio" :dic-data="radioDicData" size="small"></cvue-radio>-->
 
     <!-- 表单 -->
-    <cvue-form v-model="form" :columns="formColumns"></cvue-form>
+    <!--    <cvue-form v-model="form" :columns="formColumns"></cvue-form>-->
 
     <!--    表格-->
-            <cvue-table :columns="columns" :data="data" :pagination="{position: 'right'}" @on-load="onLoad"></cvue-table>
+    <!--    <cvue-table :columns="columns" :data="data" :pagination="{position: 'right'}" @on-load="onLoad"></cvue-table>-->
+
+    <!--    搜索-->
+    <cvue-query-filter :columns="queryColumns" @search="handleSearch"/>
   </div>
 </template>
 
@@ -77,7 +80,18 @@
   const onLoad = () => {
     console.log('onload')
   }
+
+  //---------------------------------------
+  const queryColumns = reactive(Array(6).fill(0).map((el, index) => ({label: 'label' + index, prop: 'prop' + index})))
+
+  const handleSearch = (val: any) => {
+    console.log(val)
+  }
 </script>
 
 <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
 </style>

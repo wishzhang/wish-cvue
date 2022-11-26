@@ -7,6 +7,7 @@ importers:
       '@cvue/components': workspace:*
       '@cvue/core': workspace:*
       '@cvue/theme-chalk': workspace:*
+      '@element-plus/icons-vue': ^2.0.10
       '@pnpm/find-workspace-packages': 3.1.38
       '@pnpm/logger': 4.0.0
       '@pnpm/types': 7.9.0
@@ -40,6 +41,7 @@ importers:
       '@cvue/components': link:packages/components
       '@cvue/core': link:packages/core
       '@cvue/theme-chalk': link:packages/theme-chalk
+      '@element-plus/icons-vue': registry.npmmirror.com/@element-plus/icons-vue/2.0.10_vue@3.2.29
       '@rollup/plugin-typescript': registry.npmmirror.com/@rollup/plugin-typescript/9.0.2_hk37zrfplekw34bpms6xfuirjy
       lodash-es: registry.npmmirror.com/lodash-es/4.17.21
     devDependencies:
@@ -5580,7 +5582,6 @@ packages:
       vue: ^3.2.0
     dependencies:
       vue: 3.2.29
-    dev: true
 
   registry.npmmirror.com/@esbuild/android-arm/0.15.15:
     resolution: {integrity: sha512-JJjZjJi2eBL01QJuWjfCdZxcIgot+VoK6Fq7eKF9w4YHm9hwl7nhBR1o2Wnt/WcANk5l9SkpvrldW1PLuXxcbw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@esbuild/android-arm/-/android-arm-0.15.15.tgz}

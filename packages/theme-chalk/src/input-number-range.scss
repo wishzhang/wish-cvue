@@ -1,0 +1,11 @@
+.avue-input-number-range-box{
+  .avue-input-number-range-split{
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    width: 8px;
+    height: 1px;
+    margin: 0 4px;
+    background: var(--el-text-color-regular);
+  }
+}

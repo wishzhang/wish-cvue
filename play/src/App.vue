@@ -17,6 +17,9 @@
     <cvue-checkbox v-model="checkboxValue"
                    :dic="[{label:'选项1', value: 1}, {label: '选项2', value: 2}]"></cvue-checkbox>
 
+
+    <cvue-input-number-range v-model="inputNumberRangeValue"></cvue-input-number-range>
+
     <!--    搜索-->
     <!--    <cvue-query-filter :columns="queryColumns" @search="handleSearch"/>-->
   </div>
@@ -151,6 +154,9 @@
 
   //----------------------------------------
   const checkboxValue = reactive([])
+
+  //----------------------------------------
+  const inputNumberRangeValue = reactive([1])
 </script>
 
 <style>

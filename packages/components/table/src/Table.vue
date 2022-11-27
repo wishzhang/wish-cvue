@@ -1,11 +1,11 @@
 <script lang="ts" setup>
   import TableFooter from '@cvue/components/table/src/TableFooter.vue'
-  import {ElTable, ElTableColumn} from 'element-plus'
-  import {TableFooterProps} from '@cvue/components/table/src/TableFooter.vue'
-  import TableSearch, {TableSearchProps} from './TableSearch.vue'
-  import {reactive} from 'vue'
-  import TableMenu, {TableMenuProps} from './TableMenu.vue'
-  import TableOperation, {TableOperationProps} from './TableOperation.vue'
+  import { ElTable, ElTableColumn } from 'element-plus'
+  import { TableFooterProps } from '@cvue/components/table/src/TableFooter.vue'
+  import TableSearch, { TableSearchProps } from './TableSearch.vue'
+  import { reactive } from 'vue'
+  import TableMenu, { TableMenuProps } from './TableMenu.vue'
+  import TableOperation, { TableOperationProps } from './TableOperation.vue'
 
   export type ElTableType = typeof ElTable
   export type ElTableColumnType = typeof ElTableColumn
@@ -33,21 +33,25 @@
     (e: 'row-delete'): void
   }
 
-  const {columns = [], pagination, search, menu, operation} = defineProps<TableProps>()
+  const {
+    columns = [],
+    pagination,
+    search,
+    menu,
+    operation,
+  } = defineProps<TableProps>()
   const emit = defineEmits<TableEmits>()
 
   let searchFormValue = reactive<Record<string, any>>({})
   let pageValue = reactive<Record<string, any>>({
     currentPage: 1,
-    pageSize: 20
+    pageSize: 20,
   })
   let params = reactive<object>({})
 
-  const handleSizeChange = () => {
-  }
+  const handleSizeChange = () => {}
 
-  const handleCurrentChange = () => {
-  }
+  const handleCurrentChange = () => {}
 
   const onLoad = () => {
     params = Object.assign(params, searchFormValue, pageValue)
@@ -62,7 +66,7 @@
   const handleFooterChange = (page) => {
     pageValue = Object.assign(pageValue, {
       currentPage: page.currentPage,
-      pageSize: page.pageSize
+      pageSize: page.pageSize,
     })
     onLoad()
   }
@@ -75,7 +79,7 @@
 <template>
   <div class="cvue-table">
     <div class="cvue-table-search-box">
-      <TableSearch v-bind="search" @search="handleSearchClick"/>
+      <TableSearch v-bind="search" @search="handleSearchClick" />
     </div>
 
     <div class="cvue-table-main-box">
@@ -93,12 +97,13 @@
             </template>
           </el-table-column>
         </template>
-        <TableOperation v-bind="operation"
-                        @row-view="$emit('row-view')"
-                        @row-add="$emit('row-add')"
-                        @row-edit="$emit('row-edit')"
-                        @row-delete="$emit('row-delete')"
-                        ></TableOperation>
+        <TableOperation
+          v-bind="operation"
+          @row-view="$emit('row-view')"
+          @row-add="$emit('row-add')"
+          @row-edit="$emit('row-edit')"
+          @row-delete="$emit('row-delete')"
+        ></TableOperation>
 
         <template #append="scope">
           <slot v-bind="scope" name="append"></slot>
@@ -111,12 +116,16 @@
 
       <!-- footer -->
       <div class="cvue-table-footer">
-        <TableFooter :total="100" @size-change="handleSizeChange" @current-change="handleCurrentChange"
-                     :current-page="pageValue.currentPage" :page-size="pageValue.pageSize"
-                     @change="handleFooterChange"
-                     v-bind="pagination"></TableFooter>
+        <TableFooter
+          :total="100"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="pageValue.currentPage"
+          :page-size="pageValue.pageSize"
+          @change="handleFooterChange"
+          v-bind="pagination"
+        ></TableFooter>
       </div>
     </div>
   </div>
-
 </template>

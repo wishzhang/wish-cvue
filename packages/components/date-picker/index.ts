@@ -1,11 +1,10 @@
-import DatePicker from './src/DatePicker.vue';
-import type {App} from 'vue'
+import DatePicker from './src/DatePicker.vue'
+import type { App } from 'vue'
 
-export * from './src/DatePicker.vue';
+export * from './src/DatePicker.vue'
 
 DatePicker['install'] = (app: App) => {
-  app.component('CvueDatePicker', DatePicker);
+  app.component('CvueDatePicker', DatePicker)
 }
 
 export default DatePicker
-

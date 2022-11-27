@@ -1,31 +1,29 @@
 <script setup lang="ts">
-  import {reactive, ref, watch, watchEffect} from "vue";
-  import {Delete, Download, Plus, ZoomIn} from '@element-plus/icons-vue'
+  import { reactive, ref, watch, watchEffect } from 'vue'
+  import { Delete, Download, Plus, ZoomIn } from '@element-plus/icons-vue'
 
-  export interface UploadProps {
-  }
+  export interface UploadProps {}
 
-  export interface UploadEmits {
-  }
+  export interface UploadEmits {}
 
-  const {} = defineProps<UploadProps>();
-  const emit = defineEmits<UploadEmits>();
+  const {} = defineProps<UploadProps>()
+  const emit = defineEmits<UploadEmits>()
 
   const input = ref()
   const abort = (file: any) => {
-    input?.value?.abort(file);
+    input?.value?.abort(file)
   }
   const submit = () => {
-    input?.value?.submit();
+    input?.value?.submit()
   }
   const clearFiles = (status?: any) => {
-    input?.value?.clearFiles(status);
+    input?.value?.clearFiles(status)
   }
   const handleStart = (rawFile: any) => {
-    input?.value?.handleStart(rawFile);
+    input?.value?.handleStart(rawFile)
   }
   const handleRemove = (file: any, rawFile: any) => {
-    input?.value?.handleRemove(file, rawFile);
+    input?.value?.handleRemove(file, rawFile)
   }
 
   defineExpose({
@@ -33,7 +31,7 @@
     submit: submit,
     clearFiles: clearFiles,
     handleStart: handleStart,
-    handleRemove: handleRemove
+    handleRemove: handleRemove,
   })
 </script>
 
@@ -54,4 +52,3 @@
     </template>
   </el-upload>
 </template>
-

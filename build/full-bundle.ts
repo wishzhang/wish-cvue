@@ -25,7 +25,7 @@ async function buildFullEntry(minify: boolean) {
     input: path.resolve(cvueRoot, 'index.ts'),
     plugins: [
       vue({
-        isProduction: true
+        isProduction: true,
       }),
       nodeResolve({
         extensions: ['.mjs', '.js', '.ts'],
@@ -46,7 +46,7 @@ async function buildFullEntry(minify: boolean) {
     ],
     external: await generateExternal({ full: true }),
   })
-  
+
   await writeBundles(bundle, [
     {
       format: 'umd',
@@ -76,8 +76,8 @@ async function buildFullEntry(minify: boolean) {
   ])
 }
 
-export const buildFull = (minify: boolean) => async () =>{
-    return Promise.all([buildFullEntry(minify)])
+export const buildFull = (minify: boolean) => async () => {
+  return Promise.all([buildFullEntry(minify)])
 }
 
 export const buildFullBundle = parallel(

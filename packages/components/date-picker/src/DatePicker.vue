@@ -1,15 +1,14 @@
 <script setup lang="ts">
-  import {ref} from 'vue'
+  import { ref } from 'vue'
 
   export interface DatePickerProps {
     placeholder?: string
   }
 
-  export interface DatePickerEmits {
-  }
+  export interface DatePickerEmits {}
 
-  const {placeholder = '请选择'} = defineProps<DatePickerProps>();
-  const emit = defineEmits<DatePickerEmits>();
+  const { placeholder = '请选择' } = defineProps<DatePickerProps>()
+  const emit = defineEmits<DatePickerEmits>()
 
   // expose
   const datePicker = ref()
@@ -29,7 +28,7 @@
   defineExpose({
     focus,
     handleOpen,
-    handleClose
+    handleClose,
   })
 </script>
 
@@ -41,4 +40,3 @@
     </template>
   </el-date-picker>
 </template>
-

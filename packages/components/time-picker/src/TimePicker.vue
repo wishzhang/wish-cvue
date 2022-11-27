@@ -1,15 +1,14 @@
 <script setup lang="ts">
-  import {ref} from 'vue'
+  import { ref } from 'vue'
 
   export interface TimePickerProps {
     placeholder?: string
   }
 
-  export interface TimePickerEmits {
-  }
+  export interface TimePickerEmits {}
 
-  const {placeholder = '请选择'} = defineProps<TimePickerProps>();
-  const emit = defineEmits<TimePickerEmits>();
+  const { placeholder = '请选择' } = defineProps<TimePickerProps>()
+  const emit = defineEmits<TimePickerEmits>()
 
   // expose
   const timePicker = ref()
@@ -34,11 +33,14 @@
     focus,
     blur,
     handleOpen,
-    handleClose
+    handleClose,
   })
 </script>
 
 <template>
-  <el-time-picker ref="timePicker" v-bind="$attrs" :placeholder="placeholder"></el-time-picker>
+  <el-time-picker
+    ref="timePicker"
+    v-bind="$attrs"
+    :placeholder="placeholder"
+  ></el-time-picker>
 </template>
-

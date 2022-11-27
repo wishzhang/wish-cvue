@@ -1,19 +1,14 @@
 import process from 'process'
 import path from 'path'
-import {mkdir, readFile, writeFile} from 'fs/promises'
+import { mkdir, readFile, writeFile } from 'fs/promises'
 import consola from 'consola'
 import * as vueCompiler from 'vue/compiler-sfc'
 import glob from 'fast-glob'
 import chalk from 'chalk'
-import {Project} from 'ts-morph'
-import {
-  buildOutput,
-  cvueRoot,
-  pkgRoot,
-  projRoot,
-} from './utils/paths'
-import {excludeFiles, pathRewriter} from './utils/pkg'
-import type {CompilerOptions, SourceFile} from 'ts-morph'
+import { Project } from 'ts-morph'
+import { buildOutput, cvueRoot, pkgRoot, projRoot } from './utils/paths'
+import { excludeFiles, pathRewriter } from './utils/pkg'
+import type { CompilerOptions, SourceFile } from 'ts-morph'
 
 const TSCONFIG_PATH = path.resolve(projRoot, 'tsconfig.web.json')
 const outDir = path.resolve(buildOutput, 'types')
@@ -111,7 +106,7 @@ async function addSourceFiles(project: Project) {
         const hasTsNoCheck = content.includes('@ts-nocheck')
 
         const sfc = vueCompiler.parse(content)
-        const {script, scriptSetup} = sfc.descriptor
+        const { script, scriptSetup } = sfc.descriptor
         if (script || scriptSetup) {
           let content =
             (hasTsNoCheck ? '// @ts-nocheck\n' : '') + (script?.content ?? '')

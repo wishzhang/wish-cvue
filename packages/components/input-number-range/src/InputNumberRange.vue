@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import {reactive, ref, watch, watchEffect} from "vue";
+  import { reactive, ref, watch, watchEffect } from 'vue'
 
   export interface InputNumberRangeProps {
     controls?: boolean
@@ -11,18 +11,19 @@
     (e: 'change', value: InputNumberRangeProps['modelValue']): void
   }
 
-  const {modelValue = [undefined, undefined], controls = false} = defineProps<InputNumberRangeProps>();
-  const emit = defineEmits<InputNumberRangeEmits>();
+  const { modelValue = [undefined, undefined], controls = false } =
+    defineProps<InputNumberRangeProps>()
+  const emit = defineEmits<InputNumberRangeEmits>()
 
-  const leftValue = ref(modelValue[0]);
-  const rightValue = ref(modelValue[1]);
+  const leftValue = ref(modelValue[0])
+  const rightValue = ref(modelValue[1])
 
   const getValue = () => {
     return [leftValue.value ?? undefined, rightValue.value ?? undefined]
   }
 
   watchEffect(() => {
-    emit("update:modelValue", getValue());
+    emit('update:modelValue', getValue())
   })
 
   const handleLeftChange = () => {
@@ -39,12 +40,22 @@
 
 <template>
   <div class="avue-input-number-range-box">
-    <el-input-number v-bind="$attrs" :style="{width: styleWidth}" :controls="controls"
-                     :controls-position="controlsPosition"
-                     v-model="leftValue" @change="handleLeftChange"/>
+    <el-input-number
+      v-bind="$attrs"
+      :style="{ width: styleWidth }"
+      :controls="controls"
+      :controls-position="controlsPosition"
+      v-model="leftValue"
+      @change="handleLeftChange"
+    />
     <span class="avue-input-number-range-split"></span>
-    <el-input-number v-bind="$attrs" :style="{width: styleWidth}" :controls="controls"
-                     :controls-position="controlsPosition" v-model="rightValue" @change="handleRightChange"/>
+    <el-input-number
+      v-bind="$attrs"
+      :style="{ width: styleWidth }"
+      :controls="controls"
+      :controls-position="controlsPosition"
+      v-model="rightValue"
+      @change="handleRightChange"
+    />
   </div>
 </template>
-

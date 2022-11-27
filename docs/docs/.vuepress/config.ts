@@ -15,7 +15,7 @@
 //   }
 // }
 
-import {defineUserConfig, defaultTheme} from 'vuepress'
+import { defineUserConfig, defaultTheme } from 'vuepress'
 
 export default defineUserConfig({
   lang: 'zh-CN',
@@ -34,7 +34,7 @@ export default defineUserConfig({
             text: 'Button 按钮',
             link: '/basic/button',
             children: [],
-          }
+          },
         ],
       },
     ],

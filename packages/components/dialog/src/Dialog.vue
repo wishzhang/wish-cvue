@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import {ref} from "vue";
+  import { ref } from 'vue'
 
   interface DialogConfirm {
     startLoading: () => void
@@ -19,23 +19,26 @@
     (e: 'close'): void
   }
 
-  const {modelValue = false, destroyOnClose = true} = defineProps<DialogProps>();
-  const emit = defineEmits<DialogEmits>();
+  let a = 'd'
+
+  const { modelValue = false, destroyOnClose = true } =
+    defineProps<DialogProps>()
+  const emit = defineEmits<DialogEmits>()
 
   const confirmLoading = ref(false)
 
   const handleConfirm = () => {
     emit('confirm', {
       startLoading: () => {
-        confirmLoading.value = true;
+        confirmLoading.value = true
       },
       stopLoading: () => {
-        confirmLoading.value = false;
+        confirmLoading.value = false
       },
       done: () => {
-        confirmLoading.value = false;
+        confirmLoading.value = false
         emit('update:modelValue', false)
-      }
+      },
     })
   }
 
@@ -44,25 +47,29 @@
   }
 
   const handleClose = () => {
-    emit('update:modelValue', false);
-    emit('close');
+    emit('update:modelValue', false)
+    emit('close')
   }
-
 </script>
 
 <template>
   <el-dialog
-      v-bind="$attrs"
-      v-model="modelValue"
-      class="avue-dialog-box"
-      :destroy-on-close="destroyOnClose"
-      @close="handleClose"
+    v-bind="$attrs"
+    v-model="modelValue"
+    class="avue-dialog-box"
+    :destroy-on-close="destroyOnClose"
+    @close="handleClose"
   >
     <slot></slot>
     <template #footer>
       <slot name="footer">
         <el-button @click="handleCancel">取消</el-button>
-        <el-button type="primary" :loading="confirmLoading" @click="handleConfirm">确定</el-button>
+        <el-button
+          type="primary"
+          :loading="confirmLoading"
+          @click="handleConfirm"
+          >确定
+        </el-button>
       </slot>
     </template>
     <template #header="scope">
@@ -70,4 +77,3 @@
     </template>
   </el-dialog>
 </template>
-

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-  import Form, {FormProps, formItemHide} from '@cvue/components/form'
-  import {reactive, ref, watchEffect, watch, computed} from 'vue'
-  import {ArrowDown} from '@element-plus/icons-vue'
-  import {cloneDeep} from 'lodash-es'
+  import Form, { FormProps, formItemHide } from '@cvue/components/form'
+  import { reactive, ref, watchEffect, watch, computed } from 'vue'
+  import { ArrowDown } from '@element-plus/icons-vue'
+  import { cloneDeep } from 'lodash-es'
 
   export interface QueryFilterProps {
     defaultColsNumber?: number
@@ -13,7 +13,8 @@
     (e: 'search', val: any): void
   }
 
-  const {columns = [], defaultColsNumber = 0} = defineProps<QueryFilterProps>()
+  const { columns = [], defaultColsNumber = 0 } =
+    defineProps<QueryFilterProps>()
   const emit = defineEmits<QueryFilterEmits>()
 
   let innerColumns = reactive(cloneDeep(columns))
@@ -26,7 +27,7 @@
     let num = 0
     for (let i = 0; i < innerColumns.length; i++) {
       if (spanSum >= 24 - appendSpan.value) {
-        break;
+        break
       }
       num++
       spanSum += innerColumns[i].span ?? 6
@@ -71,7 +72,6 @@
 
   init()
 
-
   // update the location of button in append slot
   const offsetSpan = ref(0)
   watchEffect(() => {
@@ -80,7 +80,7 @@
       el.span = el.span ?? 6
       return total + el.span
     }, 0)
-    let restSpan = 24 - spanSum % 24
+    let restSpan = 24 - (spanSum % 24)
     offsetSpan.value = restSpan - appendSpan.value
     if (offsetSpan.value < 0) {
       offsetSpan.value = 24 - appendSpan.value
@@ -93,7 +93,6 @@
   const handleSearch = () => {
     emit('search', form)
   }
-
 </script>
 
 <template>
@@ -104,13 +103,27 @@
           <div class="cvue-query-filter-append-box">
             <el-button type="primary" @click="handleSearch">查询</el-button>
             <span
-                v-if="showCollapseButton"
-                style="display: flex;justify-content: center;align-items: center; color: var(--el-color-primary); cursor: pointer;margin-left: 16px;"
-                @click="collapse = !collapse">
-              <span style="font-size: 15px">{{ collapse ? '展开' : '收起' }}</span>
-              <i :style="{transform: collapse? 'rotate(0)':'rotate(180deg)'}"
-                 class="iconfont icon-chevron-down"
-                 style="font-size: 20px;font-weight: 400;transition: all 200ms"/>
+              v-if="showCollapseButton"
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: var(--el-color-primary);
+                cursor: pointer;
+                margin-left: 16px;
+              "
+              @click="collapse = !collapse"
+            >
+              <span style="font-size: 15px">{{
+                collapse ? '展开' : '收起'
+              }}</span>
+              <i
+                :style="{
+                  transform: collapse ? 'rotate(0)' : 'rotate(180deg)',
+                }"
+                class="iconfont icon-chevron-down"
+                style="font-size: 20px; font-weight: 400; transition: all 200ms"
+              />
             </span>
           </div>
         </el-col>

@@ -1,11 +1,10 @@
-import Select from './src/Select.vue';
-import type {App} from 'vue'
+import Select from './src/Select.vue'
+import type { App } from 'vue'
 
-export * from './src/Select.vue';
+export * from './src/Select.vue'
 
 Select['install'] = (app: App) => {
-  app.component('CvueSelect', Select);
+  app.component('CvueSelect', Select)
 }
 
 export default Select
-

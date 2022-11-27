@@ -3,7 +3,7 @@
     shadow?: 'always' | 'hover' | 'never'
   }
 
-  const {shadow = 'never'} = defineProps<CardProps>()
+  const { shadow = 'never' } = defineProps<CardProps>()
 </script>
 
 <template>
@@ -21,4 +21,3 @@
     <slot></slot>
   </el-card>
 </template>
-

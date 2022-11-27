@@ -3,19 +3,19 @@
 </script>
 
 <script lang="ts" setup>
-  import {cloneDeep} from 'lodash-es'
-  import {reactive, ref, watch, watchEffect, computed} from "vue";
-  import type {FormInstance, FormRules} from 'element-plus'
-  import form from "../index";
+  import { cloneDeep } from 'lodash-es'
+  import { reactive, ref, watch, watchEffect, computed } from 'vue'
+  import type { FormInstance, FormRules } from 'element-plus'
+  import form from '../index'
 
   export type FormColumns = Array<{
-    prop: string,
-    label: string,
-    hide?: boolean,
+    prop: string
+    label: string
+    hide?: boolean
     component?: string
     span?: number
     rules?: FormRules
-  }>;
+  }>
 
   export interface FormFinishFC {
     (value: FormProps['model'], done: () => void): void
@@ -30,34 +30,49 @@
   }
 
   const {
-    columns = [], labelWidth = 90,
+    columns = [],
+    labelWidth = 90,
     showOperation = true,
     inline = false,
-    model = {}
-  } = defineProps<FormProps>();
+    model = {},
+  } = defineProps<FormProps>()
   const emit = defineEmits<{
     (e: 'finish', value: FormFinishFC): void
   }>()
 
-  const formRef = ref<FormInstance>();
+  const formRef = ref<FormInstance>()
 
-  let innerColumns = reactive(cloneDeep(columns));
+  let innerColumns = reactive(cloneDeep(columns))
   watchEffect(() => {
     innerColumns = Object.assign(innerColumns, cloneDeep(columns))
 
     // layout
     if (inline) {
-      innerColumns = Object.assign(innerColumns, innerColumns.map((el) => {
-        return Object.assign({}, {
-          span: 6
-        }, el);
-      }))
+      innerColumns = Object.assign(
+        innerColumns,
+        innerColumns.map((el) => {
+          return Object.assign(
+            {},
+            {
+              span: 6,
+            },
+            el
+          )
+        })
+      )
     } else {
-      innerColumns = Object.assign(innerColumns, innerColumns.map((el) => {
-        return Object.assign({}, {
-          span: 24
-        }, el);
-      }))
+      innerColumns = Object.assign(
+        innerColumns,
+        innerColumns.map((el) => {
+          return Object.assign(
+            {},
+            {
+              span: 24,
+            },
+            el
+          )
+        })
+      )
     }
   })
 
@@ -98,14 +113,28 @@
 
 <template>
   <div class="avue-form">
-    <el-form v-bind="$attrs" ref="formRef" :model="formValue" :label-width="labelWidth">
+    <el-form
+      v-bind="$attrs"
+      ref="formRef"
+      :model="formValue"
+      :label-width="labelWidth"
+    >
       <el-row>
         <template v-for="(item, index) in innerColumns">
-          <el-col :span="item.span" :class="{'avue-form-item-hide': item.hide}">
-            <el-form-item :label="item.label" :prop="item.prop" :rules="item.rules??[]">
-              <component v-model="formValue[item.prop]"
-                         v-bind="item"
-                         :is="$cvue._getComponentName(item?.component)"></component>
+          <el-col
+            :span="item.span"
+            :class="{ 'avue-form-item-hide': item.hide }"
+          >
+            <el-form-item
+              :label="item.label"
+              :prop="item.prop"
+              :rules="item.rules ?? []"
+            >
+              <component
+                v-model="formValue[item.prop]"
+                v-bind="item"
+                :is="$cvue._getComponentName(item?.component)"
+              ></component>
             </el-form-item>
           </el-col>
         </template>
@@ -114,7 +143,12 @@
         <!-- operation -->
         <el-col v-if="showOperation">
           <el-form-item>
-            <el-button type="primary" :loading="submitLoading" @click="handleSubmit(formRef)">提交</el-button>
+            <el-button
+              type="primary"
+              :loading="submitLoading"
+              @click="handleSubmit(formRef)"
+              >提交
+            </el-button>
             <el-button @click="handleReset(formRef)">重置</el-button>
           </el-form-item>
         </el-col>

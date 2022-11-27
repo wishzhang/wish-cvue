@@ -1,9 +1,16 @@
-import {Component} from 'vue'
+import { Component } from 'vue'
 
 export function getOptionType(component: string = 'input') {
   component = component.toLowerCase().trim()
 
-  const cvueMap = ['input', 'select', 'radio', 'checkbox', 'date-picker', 'time-picker']
+  const cvueMap = [
+    'input',
+    'select',
+    'radio',
+    'checkbox',
+    'date-picker',
+    'time-picker',
+  ]
   const elMap = ['switch']
   if (cvueMap.includes(component)) {
     return `cvue-${component}`
@@ -12,15 +19,15 @@ export function getOptionType(component: string = 'input') {
     return `el-${component}`
   }
 
-  return component;
+  return component
 }
 
 const cvue = {
   install(app) {
     app.config.globalProperties.$cvue = {
-      _getComponentName: getOptionType
+      _getComponentName: getOptionType,
     }
-  }
+  },
 }
 
-export default cvue;
+export default cvue

@@ -1,84 +1,89 @@
 <template>
   <div>
     <Learn></Learn>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-<!--    <cvue-radio v-model="radio" :dic-data="radioDicData" size="small"></cvue-radio>-->
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <!--    <cvue-radio v-model="radio" :dic-data="radioDicData" size="small"></cvue-radio>-->
 
     <AppForm></AppForm>
 
-    <div style="width: calc(100% - 200px);">
-      <cvue-table size="large" :operation="{width: 200}" :search="search" :columns="columns"
-                  :data="data"
-                  @row-add="handleRowAdd"
-                  @on-load="onLoad"></cvue-table>
+    <div style="width: calc(100% - 200px)">
+      <cvue-table
+        size="large"
+        :operation="{ width: 200 }"
+        :search="search"
+        :columns="columns"
+        :data="data"
+        @row-add="handleRowAdd"
+        @on-load="onLoad"
+      ></cvue-table>
     </div>
 
-<!--    <cvue-checkbox v-model="checkboxValue"-->
-<!--                   :dic="[{label:'选项1', value: 1}, {label: '选项2', value: 2}]"></cvue-checkbox>-->
+    <!--    <cvue-checkbox v-model="checkboxValue"-->
+    <!--                   :dic="[{label:'选项1', value: 1}, {label: '选项2', value: 2}]"></cvue-checkbox>-->
 
-<!--    <cvue-input-number-range v-model="inputNumberRangeValue"></cvue-input-number-range>-->
+    <!--    <cvue-input-number-range v-model="inputNumberRangeValue"></cvue-input-number-range>-->
 
-<!--    <cvue-select v-model="selectValue" :dic="selectDic"></cvue-select>-->
+    <!--    <cvue-select v-model="selectValue" :dic="selectDic"></cvue-select>-->
 
-<!--    <el-button text @click="uploadVisible = true">-->
-<!--      click to open the Dialog-->
-<!--    </el-button>-->
+    <!--    <el-button text @click="uploadVisible = true">-->
+    <!--      click to open the Dialog-->
+    <!--    </el-button>-->
 
-<!--    <cvue-dialog-->
-<!--        v-model="dialogVisible"-->
-<!--        title="Tips"-->
-<!--        @confirm="handleConfirm"-->
-<!--    >-->
-<!--      <template #header>dd</template>-->
-<!--    </cvue-dialog>-->
+    <!--    <cvue-dialog-->
+    <!--        v-model="dialogVisible"-->
+    <!--        title="Tips"-->
+    <!--        @confirm="handleConfirm"-->
+    <!--    >-->
+    <!--      <template #header>dd</template>-->
+    <!--    </cvue-dialog>-->
 
-<!--    <cvue-upload action="#" list-type="picture-card" :auto-upload="false">-->
-<!--      <el-icon>-->
-<!--        <Plus/>-->
-<!--      </el-icon>-->
-<!--      <template #file="{ file }">-->
-<!--        <div>-->
-<!--          <img class="el-upload-list__item-thumbnail" :src="file.url" alt=""/>-->
-<!--          <span class="el-upload-list__item-actions">-->
-<!--          <span-->
-<!--              class="el-upload-list__item-preview"-->
-<!--              @click="handlePictureCardPreview(file)"-->
-<!--          >-->
-<!--            <el-icon><zoom-in/></el-icon>-->
-<!--          </span>-->
-<!--          <span-->
-<!--              v-if="!disabled"-->
-<!--              class="el-upload-list__item-delete"-->
-<!--              @click="handleDownload(file)"-->
-<!--          >-->
-<!--            <el-icon><Download/></el-icon>-->
-<!--          </span>-->
-<!--          <span-->
-<!--              v-if="!disabled"-->
-<!--              class="el-upload-list__item-delete"-->
-<!--              @click="handleRemove(file)"-->
-<!--          >-->
-<!--            <el-icon><Delete/></el-icon>-->
-<!--          </span>-->
-<!--        </span>-->
-<!--        </div>-->
-<!--      </template>-->
-<!--    </cvue-upload>-->
+    <!--    <cvue-upload action="#" list-type="picture-card" :auto-upload="false">-->
+    <!--      <el-icon>-->
+    <!--        <Plus/>-->
+    <!--      </el-icon>-->
+    <!--      <template #file="{ file }">-->
+    <!--        <div>-->
+    <!--          <img class="el-upload-list__item-thumbnail" :src="file.url" alt=""/>-->
+    <!--          <span class="el-upload-list__item-actions">-->
+    <!--          <span-->
+    <!--              class="el-upload-list__item-preview"-->
+    <!--              @click="handlePictureCardPreview(file)"-->
+    <!--          >-->
+    <!--            <el-icon><zoom-in/></el-icon>-->
+    <!--          </span>-->
+    <!--          <span-->
+    <!--              v-if="!disabled"-->
+    <!--              class="el-upload-list__item-delete"-->
+    <!--              @click="handleDownload(file)"-->
+    <!--          >-->
+    <!--            <el-icon><Download/></el-icon>-->
+    <!--          </span>-->
+    <!--          <span-->
+    <!--              v-if="!disabled"-->
+    <!--              class="el-upload-list__item-delete"-->
+    <!--              @click="handleRemove(file)"-->
+    <!--          >-->
+    <!--            <el-icon><Delete/></el-icon>-->
+    <!--          </span>-->
+    <!--        </span>-->
+    <!--        </div>-->
+    <!--      </template>-->
+    <!--    </cvue-upload>-->
 
-<!--    <cvue-card>-->
-<!--      <template #headerLeft>标题</template>-->
-<!--      <template #headerRight>extra</template>-->
-<!--      <div>卡片内容</div>-->
-<!--    </cvue-card>-->
+    <!--    <cvue-card>-->
+    <!--      <template #headerLeft>标题</template>-->
+    <!--      <template #headerRight>extra</template>-->
+    <!--      <div>卡片内容</div>-->
+    <!--    </cvue-card>-->
     <!--    <el-dialog v-model="uploadVisible">-->
     <!--      <img w-full :src="dialogImageUrl" alt="Preview Image" />-->
     <!--    </el-dialog>-->
@@ -88,73 +93,80 @@
 </template>
 
 <script setup lang="ts">
-  import {reactive, ref, watch} from "vue";
-  import AppForm from "./components/AppForm.vue";
+  import { reactive, ref, watch } from 'vue'
+  import AppForm from './components/AppForm.vue'
   import Learn from './components/Learn.vue'
 
-  import {Delete, Download, Plus, ZoomIn} from '@element-plus/icons-vue'
-  import type {UploadFile} from 'element-plus'
+  import { Delete, Download, Plus, ZoomIn } from '@element-plus/icons-vue'
+  import type { UploadFile } from 'element-plus'
 
-  let radio = ref(null);
+  let radio = ref(null)
   let radioDicData = [
     {
-      label: "男",
+      label: '男',
       value: 1,
     },
     {
-      label: "女",
+      label: '女',
       value: 2,
     },
-  ];
+  ]
   //----------------------------------------
-
 
   watch(radio, (newVal) => {
     console.log(newVal)
   })
 
   //----------------------------------------
-  const columns = reactive([{
-    label: '标题1',
-    prop: 'date'
-  }, {
-    label: '标题2',
-    prop: 'name',
-  }, {
-    label: '标题3',
-    prop: 'address',
-  }])
+  const columns = reactive([
+    {
+      label: '标题1',
+      prop: 'date',
+    },
+    {
+      label: '标题2',
+      prop: 'name',
+    },
+    {
+      label: '标题3',
+      prop: 'address',
+    },
+  ])
   const data = reactive([
     {
       date: '2022-12-12',
       name: 'wishzhang',
-      address: '广州'
+      address: '广州',
     },
     {
       date: '2022-12-12',
       name: 'wishzhang',
-      address: '广州'
+      address: '广州',
     },
     {
       date: '2022-12-12',
       name: 'wishzhang',
-      address: '广州'
-    }, {
+      address: '广州',
+    },
+    {
       date: '2022-12-12',
       name: 'wishzhang',
-      address: '广州'
-    }, {
+      address: '广州',
+    },
+    {
       date: '2022-12-12',
       name: 'wishzhang',
-      address: '广州'
-    }, {
+      address: '广州',
+    },
+    {
       date: '2022-12-12',
       name: 'wishzhang',
-      address: '广州'
-    }, {
+      address: '广州',
+    },
+    {
       date: '2022-12-12',
       name: 'wishzhang',
-      address: '广州'
+      address: '广州',
     },
   ])
 
@@ -170,29 +182,33 @@
     columns: [
       {
         label: '什么鬼的a',
-        prop: 'prop1'
+        prop: 'prop1',
       },
       {
         label: 'label2',
-        prop: 'prop2'
+        prop: 'prop2',
       },
       {
         label: 'label3',
-        prop: 'prop3'
+        prop: 'prop3',
       },
       {
         label: 'label4',
-        prop: 'prop4'
+        prop: 'prop4',
       },
       {
         label: 'label5',
-        prop: 'prop5'
-      }
-    ]
+        prop: 'prop5',
+      },
+    ],
   })
 
   //---------------------------------------
-  const queryColumns = reactive(Array(6).fill(0).map((el, index) => ({label: 'label' + index, prop: 'prop' + index})))
+  const queryColumns = reactive(
+    Array(6)
+      .fill(0)
+      .map((el, index) => ({ label: 'label' + index, prop: 'prop' + index }))
+  )
 
   const handleSearch = (val: any) => {
     console.log(val)
@@ -206,17 +222,19 @@
 
   //----------------------------------------
   const selectValue = ref('')
-  const selectDic = ref([{
-    value: 'Option1',
-    label: 'Option1',
-  },
+  const selectDic = ref([
+    {
+      value: 'Option1',
+      label: 'Option1',
+    },
     {
       value: 'Option2',
       label: 'Option2',
-    }])
+    },
+  ])
   //-------------------------------------------
   let dialogVisible = ref(false)
-  const handleConfirm = ({startLoading, stopLoading, done}) => {
+  const handleConfirm = ({ startLoading, stopLoading, done }) => {
     startLoading()
     setTimeout(() => {
       stopLoading()

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import {reactive, useAttrs, ref} from 'vue'
+  import { reactive, useAttrs, ref } from 'vue'
 
   export interface TableFooterProps {
     position?: 'left' | 'right'
@@ -18,8 +18,13 @@
   }
 
   const {
-    position = 'right', currentPage = 1, pageSize = 20, total = 0,
-    background = true, hideOnSinglePage = false, layout = 'prev, pager, next'
+    position = 'right',
+    currentPage = 1,
+    pageSize = 20,
+    total = 0,
+    background = true,
+    hideOnSinglePage = false,
+    layout = 'prev, pager, next',
   } = defineProps<TableFooterProps>()
 
   const emit = defineEmits<TableFooterEmits>()
@@ -30,7 +35,7 @@
   const onChange = () => {
     emit('change', {
       currentPage: innerCurrentPage.value,
-      pageSize: innerPageSize.value
+      pageSize: innerPageSize.value,
     })
   }
 
@@ -41,19 +46,21 @@
   }
 
   const handleSizeChange = (size) => {
-    innerPageSize.value = size;
+    innerPageSize.value = size
     onChange()
     emit('size-change', size)
   }
-
 </script>
 
 <template>
-  <el-pagination v-bind="$attrs"
-                 background
-                 :current-page="currentPage"
-                 :hide-on-single-page="hideOnSinglePage"
-                 :page-size="pageSize"
-                 :total="total"
-                 @current-change="handleCurrentChange" @size-change="handleSizeChange"/>
+  <el-pagination
+    v-bind="$attrs"
+    background
+    :current-page="currentPage"
+    :hide-on-single-page="hideOnSinglePage"
+    :page-size="pageSize"
+    :total="total"
+    @current-change="handleCurrentChange"
+    @size-change="handleSizeChange"
+  />
 </template>

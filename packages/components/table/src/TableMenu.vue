@@ -7,7 +7,7 @@
     (e: 'add'): void
   }
 
-  const {showAdd = true} = defineProps<TableMenuProps>()
+  const { showAdd = true } = defineProps<TableMenuProps>()
   const emit = defineEmits<TableMenuEmits>()
 
   const handleAdd = () => {

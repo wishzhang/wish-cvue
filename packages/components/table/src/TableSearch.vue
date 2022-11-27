@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-  import QueryFilter from "@cvue/components/query-filter";
-  import {reactive} from 'vue'
+  import QueryFilter from '@cvue/components/query-filter'
+  import { reactive } from 'vue'
 
   export interface TableSearchProps {
     columns: Array<Record<string, any>>
@@ -10,7 +10,7 @@
     (e: 'search', val: Record<string, any>): void
   }
 
-  const {columns = []} = defineProps<TableSearchProps>()
+  const { columns = [] } = defineProps<TableSearchProps>()
   const emit = defineEmits<TableSearchEmits>()
   // const form = reactive({})
 
@@ -20,9 +20,7 @@
 </script>
 
 <template>
-  <QueryFilter :columns="columns" @search="handleSearch"/>
+  <QueryFilter :columns="columns" @search="handleSearch" />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

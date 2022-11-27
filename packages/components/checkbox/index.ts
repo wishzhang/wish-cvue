@@ -1,8 +1,9 @@
-import Checkbox from '@cvue/components/checkbox/src/Checkbox.vue';
+import Checkbox from './src/Checkbox.vue';
+import type {App} from 'vue'
 
-export * from '@cvue/components/checkbox/src/Checkbox.vue';
+export * from './src/Checkbox.vue';
 
-Checkbox['install'] = (app) => {
+Checkbox['install'] = (app: App) => {
   app.component('CvueCheckbox', Checkbox);
 }
 

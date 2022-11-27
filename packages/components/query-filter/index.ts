@@ -1,8 +1,9 @@
-import QueryFilter from '@cvue/components/query-filter/src/QueryFilter.vue';
+import QueryFilter from './src/QueryFilter.vue';
+import type {App} from 'vue'
 
-export * from '@cvue/components/query-filter/src/QueryFilter.vue';
+export * from './src/QueryFilter.vue';
 
-QueryFilter['install'] = (app) => {
+QueryFilter['install'] = (app: App) => {
   app.component('CvueQueryFilter', QueryFilter);
 }
 

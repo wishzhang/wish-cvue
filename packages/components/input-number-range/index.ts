@@ -1,8 +1,9 @@
-import InputNumberRange from '@cvue/components/input-number-range/src/InputNumberRange.vue';
+import InputNumberRange from './src/InputNumberRange.vue';
+import type {App} from 'vue'
 
-export * from '@cvue/components/input-number-range/src/InputNumberRange.vue';
+export * from './src/InputNumberRange.vue';
 
-InputNumberRange['install'] = (app) => {
+InputNumberRange['install'] = (app: App) => {
   app.component('CvueInputNumberRange', InputNumberRange);
 }
 

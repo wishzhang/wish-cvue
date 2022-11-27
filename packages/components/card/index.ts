@@ -1,8 +1,9 @@
-import Card from '@cvue/components/card/src/Card.vue';
+import Card from './src/Card.vue';
+import type {App} from 'vue'
 
-export * from '@cvue/components/card/src/Card.vue';
+export * from './src/Card.vue';
 
-Card['install'] = (app) => {
+Card['install'] = (app: App) => {
   app.component('CvueCard', Card);
 }
 

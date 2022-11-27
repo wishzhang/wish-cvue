@@ -1,8 +1,9 @@
-import Form from '@cvue/components/form/src/Form.vue';
+import Form from './src/Form.vue';
+import type {App} from 'vue'
 
-export * from '@cvue/components/form/src/Form.vue';
+export * from './src/Form.vue';
 
-Form['install'] = (app) => {
+Form['install'] = (app: App) => {
   app.component('CvueForm', Form);
 }
 

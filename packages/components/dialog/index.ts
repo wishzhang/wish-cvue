@@ -1,8 +1,9 @@
-import Dialog from '@cvue/components/dialog/src/Dialog.vue';
+import Dialog from './src/Dialog.vue';
+import type {App} from 'vue'
 
-export * from '@cvue/components/dialog/src/Dialog.vue';
+export * from './src/Dialog.vue';
 
-Dialog['install'] = (app) => {
+Dialog['install'] = (app: App) => {
   app.component('CvueDialog', Dialog);
 }
 

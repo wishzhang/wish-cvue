@@ -1,8 +1,9 @@
-import TimePicker from '@cvue/components/time-picker/src/TimePicker.vue';
+import TimePicker from './src/TimePicker.vue';
+import type {App} from 'vue'
 
-export * from '@cvue/components/time-picker/src/TimePicker.vue';
+export * from './src/TimePicker.vue';
 
-TimePicker['install'] = (app) => {
+TimePicker['install'] = (app: App) => {
   app.component('CvueTimePicker', TimePicker);
 }
 

@@ -1,8 +1,9 @@
-import Radio from '@cvue/components/radio/src/Radio.vue';
+import Radio from './src/Radio.vue';
+import type {App} from 'vue'
 
-export * from '@cvue/components/radio/src/Radio.vue';
+export * from './src/Radio.vue';
 
-Radio['install'] = (app) => {
+Radio['install'] = (app: App) => {
   app.component('CvueRadio', Radio);
 }
 

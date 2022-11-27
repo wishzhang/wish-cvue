@@ -1,8 +1,9 @@
-import Input from '@cvue/components/input/src/Input.vue';
+import Input from './src/Input.vue';
+import type {App} from 'vue'
 
-export * from '@cvue/components/input/src/Input.vue';
+export * from './src/Input.vue';
 
-Input['install'] = (app) => {
+Input['install'] = (app: App) => {
   app.component('CvueInput', Input);
 }
 

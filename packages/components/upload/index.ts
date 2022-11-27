@@ -1,8 +1,9 @@
-import Upload from '@cvue/components/upload/src/Upload.vue';
+import Upload from './src/Upload.vue';
+import type {App} from 'vue'
 
-export * from '@cvue/components/upload/src/Upload.vue';
+export * from './src/Upload.vue';
 
-Upload['install'] = (app) => {
+Upload['install'] = (app: App) => {
   app.component('CvueUpload', Upload);
 }
 

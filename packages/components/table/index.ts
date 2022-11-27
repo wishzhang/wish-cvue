@@ -1,11 +1,12 @@
-import Table from '@cvue/components/table/src/Table.vue'
+import Table from './src/Table.vue'
+import type {App} from 'vue'
 
-export * from '@cvue/components/table/src/TableFooter.vue'
-export * from '@cvue/components/table/src/TableMenu.vue'
-export * from '@cvue/components/table/src/TableOperation.vue'
-export * from '@cvue/components/table/src/TableSearch.vue'
+export * from './src/TableFooter.vue'
+export * from './src/TableMenu.vue'
+export * from './src/TableOperation.vue'
+export * from './src/TableSearch.vue'
 
-Table['install'] = (app) => {
+Table['install'] = (app: App) => {
   app.component('CvueTable', Table);
 }
 

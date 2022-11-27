@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
   import {cloneDeep} from 'lodash-es'
-  import {defineComponent, reactive, ref, watch, watchEffect, computed} from "vue";
+  import {reactive, ref, watch, watchEffect, computed} from "vue";
   import type {FormInstance, FormRules} from 'element-plus'
   import form from "../index";
 

@@ -2,14 +2,14 @@
   <div>
 <!--    <cvue-radio v-model="radio" :dic-data="radioDicData" size="small"></cvue-radio>-->
 
-    <Form></Form>
+    <AppForm></AppForm>
 
-<!--    <div style="width: calc(100% - 200px);">-->
-<!--      <cvue-table size="large" :operation="{width: 200}" :search="search" :columns="columns"-->
-<!--                  :data="data"-->
-<!--                  @row-add="handleRowAdd"-->
-<!--                  @on-load="onLoad"></cvue-table>-->
-<!--    </div>-->
+    <div style="width: calc(100% - 200px);">
+      <cvue-table size="large" :operation="{width: 200}" :search="search" :columns="columns"
+                  :data="data"
+                  @row-add="handleRowAdd"
+                  @on-load="onLoad"></cvue-table>
+    </div>
 
 <!--    <cvue-checkbox v-model="checkboxValue"-->
 <!--                   :dic="[{label:'选项1', value: 1}, {label: '选项2', value: 2}]"></cvue-checkbox>-->
@@ -78,7 +78,7 @@
 
 <script setup lang="ts">
   import {reactive, ref, watch} from "vue";
-  import Form from "./components/Form.vue";
+  import AppForm from "./components/AppForm.vue";
 
   import {Delete, Download, Plus, ZoomIn} from '@element-plus/icons-vue'
   import type {UploadFile} from 'element-plus'

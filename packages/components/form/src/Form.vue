@@ -4,7 +4,9 @@
 
 <script lang="ts" setup>
   import {cloneDeep} from 'lodash-es'
-  import {defineComponent, reactive, ref, watch, watchEffect} from "vue";
+  import {defineComponent, reactive, ref, watch, watchEffect, computed} from "vue";
+  import type {FormInstance, FormRules} from 'element-plus'
+  import form from "../index";
 
   export type FormColumns = Array<{
     prop: string,
@@ -12,59 +14,96 @@
     hide?: boolean,
     component?: string
     span?: number
+    rules?: FormRules
   }>;
+
+  export interface FormFinishFC {
+    (value: FormProps['model'], done: () => void): void
+  }
 
   export interface FormProps {
     labelWidth?: number
-    modelValue: any
     columns: FormColumns
+    inline?: boolean
+    showOperation?: boolean
+    model?: any
   }
 
-  const {modelValue, columns = [], labelWidth = 90} = defineProps<FormProps>();
+  const {
+    columns = [], labelWidth = 90,
+    showOperation = true,
+    inline = false,
+    model = {}
+  } = defineProps<FormProps>();
   const emit = defineEmits<{
-    (e: 'update:modelValue', value: FormProps['modelValue'])
+    (e: 'finish', value: FormFinishFC): void
   }>()
+
+  const formRef = ref<FormInstance>();
 
   let innerColumns = reactive(cloneDeep(columns));
   watchEffect(() => {
     innerColumns = Object.assign(innerColumns, cloneDeep(columns))
-    console.log(cloneDeep(innerColumns))
-    innerColumns = Object.assign(innerColumns, innerColumns.map((el) => {
-      return Object.assign({}, {
-        span: 6
-      }, el);
-    }))
+
+    // layout
+    if (inline) {
+      innerColumns = Object.assign(innerColumns, innerColumns.map((el) => {
+        return Object.assign({}, {
+          span: 6
+        }, el);
+      }))
+    } else {
+      innerColumns = Object.assign(innerColumns, innerColumns.map((el) => {
+        return Object.assign({}, {
+          span: 24
+        }, el);
+      }))
+    }
   })
 
+  const getInitFormValue = () => {
+    let obj = {} as any
+    for (let column of innerColumns) {
+      obj[column.prop] = undefined
+    }
+    obj = Object.assign({}, obj, model)
+    return obj
+  }
+  let formValue = reactive(getInitFormValue())
 
-  let formValue = reactive(modelValue)
-  watch(formValue, (val) => {
-    emit('update:modelValue', val)
-  })
+  const submitLoading = ref(false)
 
-  // initial
-  // const getDefaultFormValue = (columns) => {
-  //   let form = {}
-  //   columns.forEach((el) => {
-  //     if(el?.prop) {
-  //       form[el.prop] = undefined
-  //     }
-  //   })
-  //   return form
-  // }
-  // watchEffect(() => {
-  //   form = getDefaultFormValue(innerColumns)
-  // })
+  const handleSubmit = async (formEl: FormInstance | undefined) => {
+    if (!formEl) return
+    await formEl.validate((valid, fields) => {
+      if (valid) {
+        submitLoading.value = true
+        emit('finish', formValue, () => {
+          submitLoading.value = false
+        })
+      } else {
+        console.error('error submit!', fields)
+      }
+    })
+  }
+
+  const handleReset = async (formEl: FormInstance | undefined) => {
+    console.log(formEl)
+    if (!formEl) return
+
+    // formValue = Object.assign({})
+    await formEl.resetFields()
+  }
 </script>
 
 <template>
   <div class="avue-form">
-    <el-form v-bind="$attrs" v-model="formValue" :label-width="labelWidth">
+    <el-form v-bind="$attrs" ref="formRef" :model="formValue" :label-width="labelWidth">
       <el-row>
         <template v-for="(item, index) in innerColumns">
           <el-col :span="item.span" :class="{'avue-form-item-hide': item.hide}">
-            <el-form-item :label="item.label" :prop="item.prop">
-              <component v-model="formValue[item?.prop]"
+            <el-form-item :label="item.label" :prop="item.prop" :rules="item.rules??[]">
+              <component v-model="formValue[item.prop]"
                          v-bind="item"
                          :is="$cvue._getComponentName(item?.component)"></component>
             </el-form-item>
@@ -72,6 +111,13 @@
         </template>
         <!--slot-->
         <slot name="append"></slot>
+        <!-- operation -->
+        <el-col v-if="showOperation">
+          <el-form-item>
+            <el-button type="primary" :loading="submitLoading" @click="handleSubmit(formRef)">提交</el-button>
+            <el-button @click="handleReset(formRef)">重置</el-button>
+          </el-form-item>
+        </el-col>
       </el-row>
     </el-form>
   </div>

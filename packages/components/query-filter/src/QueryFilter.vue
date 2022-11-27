@@ -98,7 +98,7 @@
 
 <template>
   <div class="cvue-query-filter">
-    <Form v-model="form" :columns="innerColumns">
+    <Form v-model="form" :columns="innerColumns" :show-operation="false">
       <template #append>
         <el-col :offset="offsetSpan" :span="appendSpan">
           <div class="cvue-query-filter-append-box">

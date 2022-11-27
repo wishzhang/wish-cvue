@@ -1,0 +1,16 @@
+.avue-card-box {
+  .avue-card-header {
+    display: flex;
+    justify-content: space-between;
+
+    .avue-card-header-left {
+      font-weight: 500;
+      color: var(--el-title-color);
+      font-size: var(--el-font-size-large);
+    }
+
+    .avue-card-header-right {
+
+    }
+  }
+}

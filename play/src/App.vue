@@ -59,6 +59,12 @@
         </div>
       </template>
     </cvue-upload>
+
+    <cvue-card>
+      <template #headerLeft>标题</template>
+      <template #headerRight>extra</template>
+      <div>卡片内容</div>
+    </cvue-card>
 <!--    <el-dialog v-model="uploadVisible">-->
 <!--      <img w-full :src="dialogImageUrl" alt="Preview Image" />-->
 <!--    </el-dialog>-->

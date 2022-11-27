@@ -8,6 +8,7 @@ import InputNumberRange from '@cvue/components/input-number-range';
 import Select from '@cvue/components/select';
 import Dialog from '@cvue/components/dialog';
 import Upload from '@cvue/components/upload';
+import Card from '@cvue/components/card';
 
 export default [
   Form,
@@ -19,5 +20,6 @@ export default [
   InputNumberRange,
   Select,
   Dialog,
-  Upload
+  Upload,
+  Card
 ]

@@ -33,7 +33,7 @@
     {
       label: '时间',
       prop: 'prop4',
-      component: 'el-date-picker',
+      component: 'date-picker',
     }
   ]);
 </script>

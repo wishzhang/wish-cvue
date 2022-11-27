@@ -9,6 +9,7 @@ import Select from '@cvue/components/select';
 import Dialog from '@cvue/components/dialog';
 import Upload from '@cvue/components/upload';
 import Card from '@cvue/components/card';
+import DatePicker from '@cvue/components/date-picker';
 
 export default [
   Form,
@@ -21,5 +22,6 @@ export default [
   Select,
   Dialog,
   Upload,
-  Card
+  Card,
+  DatePicker
 ]

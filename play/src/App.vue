@@ -1,5 +1,16 @@
 <template>
   <div>
+    <Learn></Learn>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 <!--    <cvue-radio v-model="radio" :dic-data="radioDicData" size="small"></cvue-radio>-->
 
     <AppForm></AppForm>
@@ -79,6 +90,7 @@
 <script setup lang="ts">
   import {reactive, ref, watch} from "vue";
   import AppForm from "./components/AppForm.vue";
+  import Learn from './components/Learn.vue'
 
   import {Delete, Download, Plus, ZoomIn} from '@element-plus/icons-vue'
   import type {UploadFile} from 'element-plus'

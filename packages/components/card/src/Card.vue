@@ -7,13 +7,13 @@
 </script>
 
 <template>
-  <el-card class="avue-card-box" v-bind="$attrs" :shadow="shadow">
+  <el-card class="cvue-card-box" v-bind="$attrs" :shadow="shadow">
     <template #header>
-      <div class="avue-card-header">
-        <div class="avue-card-header-left">
+      <div class="cvue-card-header">
+        <div class="cvue-card-header-left">
           <slot name="headerLeft"></slot>
         </div>
-        <div class="avue-card-header-right">
+        <div class="cvue-card-header-right">
           <slot name="headerRight"></slot>
         </div>
       </div>

@@ -1,20 +1,14 @@
 import {Component} from 'vue'
 
-export function getOptionType(name: string = 'input', component: string) {
-  if (component) {
-    return component
+export function getOptionType(component: string = 'input') {
+  component = component.toLowerCase().trim()
+
+  const map = ['input', 'select', 'radio', 'checkbox']
+  if (map.includes(component)) {
+    return `cvue-${component}`
   }
-  name = name.toLowerCase().trim()
-  if (name.startsWith('cvue-')) {
-    return name
-  }
-  if (!name.startsWith('el-')) {
-    name = 'el-' + name
-  }
-  if (name === 'el-input') {
-    return 'cvue-input'
-  }
-  return name;
+
+  return component;
 }
 
 const cvue = {

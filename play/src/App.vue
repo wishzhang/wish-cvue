@@ -1,73 +1,76 @@
 <template>
   <div>
-    <cvue-radio v-model="radio" :dic-data="radioDicData" size="small"></cvue-radio>
+<!--    <cvue-radio v-model="radio" :dic-data="radioDicData" size="small"></cvue-radio>-->
 
-    <cvue-form v-model="form" :columns="formColumns"></cvue-form>
+    <Form></Form>
 
-    <div style="width: calc(100% - 200px);">
-      <cvue-table size="large" :operation="{width: 200}" :search="search" :columns="columns"
-                  :data="data"
-                  @row-add="handleRowAdd"
-                  @on-load="onLoad"></cvue-table>
-    </div>
+<!--    <div style="width: calc(100% - 200px);">-->
+<!--      <cvue-table size="large" :operation="{width: 200}" :search="search" :columns="columns"-->
+<!--                  :data="data"-->
+<!--                  @row-add="handleRowAdd"-->
+<!--                  @on-load="onLoad"></cvue-table>-->
+<!--    </div>-->
 
-    <cvue-checkbox v-model="checkboxValue" :dic="[{label:'选项1', value: 1}, {label: '选项2', value: 2}]"></cvue-checkbox>
+<!--    <cvue-checkbox v-model="checkboxValue"-->
+<!--                   :dic="[{label:'选项1', value: 1}, {label: '选项2', value: 2}]"></cvue-checkbox>-->
 
-    <cvue-input-number-range v-model="inputNumberRangeValue"></cvue-input-number-range>
+<!--    <cvue-input-number-range v-model="inputNumberRangeValue"></cvue-input-number-range>-->
 
-    <cvue-select v-model="selectValue" :dic="selectDic"></cvue-select>
+<!--    <cvue-select v-model="selectValue" :dic="selectDic"></cvue-select>-->
 
-    <el-button text @click="uploadVisible = true">
-      click to open the Dialog
-    </el-button>
+<!--    <el-button text @click="uploadVisible = true">-->
+<!--      click to open the Dialog-->
+<!--    </el-button>-->
 
-    <cvue-dialog
-        v-model="dialogVisible"
-        title="Tips"
-        @confirm="handleConfirm"
-    >
-      <template #header>dd</template>
-    </cvue-dialog>
+<!--    <cvue-dialog-->
+<!--        v-model="dialogVisible"-->
+<!--        title="Tips"-->
+<!--        @confirm="handleConfirm"-->
+<!--    >-->
+<!--      <template #header>dd</template>-->
+<!--    </cvue-dialog>-->
 
-    <cvue-upload action="#" list-type="picture-card" :auto-upload="false">
-      <el-icon><Plus /></el-icon>
-      <template #file="{ file }">
-        <div>
-          <img class="el-upload-list__item-thumbnail" :src="file.url" alt="" />
-          <span class="el-upload-list__item-actions">
-          <span
-              class="el-upload-list__item-preview"
-              @click="handlePictureCardPreview(file)"
-          >
-            <el-icon><zoom-in /></el-icon>
-          </span>
-          <span
-              v-if="!disabled"
-              class="el-upload-list__item-delete"
-              @click="handleDownload(file)"
-          >
-            <el-icon><Download /></el-icon>
-          </span>
-          <span
-              v-if="!disabled"
-              class="el-upload-list__item-delete"
-              @click="handleRemove(file)"
-          >
-            <el-icon><Delete /></el-icon>
-          </span>
-        </span>
-        </div>
-      </template>
-    </cvue-upload>
+<!--    <cvue-upload action="#" list-type="picture-card" :auto-upload="false">-->
+<!--      <el-icon>-->
+<!--        <Plus/>-->
+<!--      </el-icon>-->
+<!--      <template #file="{ file }">-->
+<!--        <div>-->
+<!--          <img class="el-upload-list__item-thumbnail" :src="file.url" alt=""/>-->
+<!--          <span class="el-upload-list__item-actions">-->
+<!--          <span-->
+<!--              class="el-upload-list__item-preview"-->
+<!--              @click="handlePictureCardPreview(file)"-->
+<!--          >-->
+<!--            <el-icon><zoom-in/></el-icon>-->
+<!--          </span>-->
+<!--          <span-->
+<!--              v-if="!disabled"-->
+<!--              class="el-upload-list__item-delete"-->
+<!--              @click="handleDownload(file)"-->
+<!--          >-->
+<!--            <el-icon><Download/></el-icon>-->
+<!--          </span>-->
+<!--          <span-->
+<!--              v-if="!disabled"-->
+<!--              class="el-upload-list__item-delete"-->
+<!--              @click="handleRemove(file)"-->
+<!--          >-->
+<!--            <el-icon><Delete/></el-icon>-->
+<!--          </span>-->
+<!--        </span>-->
+<!--        </div>-->
+<!--      </template>-->
+<!--    </cvue-upload>-->
 
-    <cvue-card>
-      <template #headerLeft>标题</template>
-      <template #headerRight>extra</template>
-      <div>卡片内容</div>
-    </cvue-card>
-<!--    <el-dialog v-model="uploadVisible">-->
-<!--      <img w-full :src="dialogImageUrl" alt="Preview Image" />-->
-<!--    </el-dialog>-->
+<!--    <cvue-card>-->
+<!--      <template #headerLeft>标题</template>-->
+<!--      <template #headerRight>extra</template>-->
+<!--      <div>卡片内容</div>-->
+<!--    </cvue-card>-->
+    <!--    <el-dialog v-model="uploadVisible">-->
+    <!--      <img w-full :src="dialogImageUrl" alt="Preview Image" />-->
+    <!--    </el-dialog>-->
     <!--    搜索-->
     <!--    <cvue-query-filter :columns="queryColumns" @search="handleSearch"/>-->
   </div>
@@ -75,9 +78,10 @@
 
 <script setup lang="ts">
   import {reactive, ref, watch} from "vue";
+  import Form from "./components/Form.vue";
 
-  import { Delete, Download, Plus, ZoomIn } from '@element-plus/icons-vue'
-  import type { UploadFile } from 'element-plus'
+  import {Delete, Download, Plus, ZoomIn} from '@element-plus/icons-vue'
+  import type {UploadFile} from 'element-plus'
 
   let radio = ref(null);
   let radioDicData = [
@@ -91,28 +95,7 @@
     },
   ];
   //----------------------------------------
-  let form = reactive({
-    prop1: "",
-    prop2: 1
-  });
-  let formColumns = reactive([
-    {
-      type: "input",
-      prop: "prop1",
-      label: "姓名",
-      span: 12,
-    },
-    {
-      type: 'cvue-radio',
-      prop: 'prop2',
-      label: '性别',
-      dicData: [
-        {label: 'yes', value: 1},
-        {label: 'no', value: 2},
-      ],
-      hide: true
-    }
-  ]);
+
 
   watch(radio, (newVal) => {
     console.log(newVal)

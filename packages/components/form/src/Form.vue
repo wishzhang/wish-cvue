@@ -9,7 +9,6 @@
   export type FormColumns = Array<{
     prop: string,
     label: string,
-    type: string,
     hide?: boolean,
     component?: string
     span?: number
@@ -65,9 +64,9 @@
         <template v-for="(item, index) in innerColumns">
           <el-col :span="item.span" :class="{'avue-form-item-hide': item.hide}">
             <el-form-item :label="item.label" :prop="item.prop">
-              <component v-model="formValue[item.prop]"
+              <component v-model="formValue[item?.prop]"
                          v-bind="item"
-                         :is="$cvue._getComponentName(item.type, item.component)"></component>
+                         :is="$cvue._getComponentName(item?.component)"></component>
             </el-form-item>
           </el-col>
         </template>

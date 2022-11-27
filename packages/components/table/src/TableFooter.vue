@@ -2,7 +2,7 @@
   import {reactive, useAttrs, ref} from 'vue'
 
   export interface TableFooterProps {
-    position: 'left' | 'right'
+    position?: 'left' | 'right'
     currentPage?: number
     pageSize?: number
     background?: boolean

@@ -5,7 +5,7 @@
   import {cloneDeep} from 'lodash-es'
 
   export interface QueryFilterProps {
-    defaultColsNumber: number
+    defaultColsNumber?: number
     columns: FormProps['columns']
   }
 

@@ -7,6 +7,7 @@ import Checkbox from '@cvue/components/checkbox';
 import InputNumberRange from '@cvue/components/input-number-range';
 import Select from '@cvue/components/select';
 import Dialog from '@cvue/components/dialog';
+import Upload from '@cvue/components/upload';
 
 export default [
   Form,
@@ -17,5 +18,6 @@ export default [
   Checkbox,
   InputNumberRange,
   Select,
-  Dialog
+  Dialog,
+  Upload
 ]

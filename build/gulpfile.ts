@@ -3,7 +3,7 @@ import { mkdir, copyFile } from 'fs/promises'
 import { series, parallel } from 'gulp'
 import { run } from './utils/process'
 import { runTask, withTaskName } from './utils/gulp'
-import { cvueOutput } from './utils/paths'
+import { cvueOutput, projRoot, cvuePackage } from './utils/paths'
 
 export const copyFullStyle = async () => {
   await mkdir(path.resolve(cvueOutput, 'dist'), { recursive: true })
@@ -12,6 +12,15 @@ export const copyFullStyle = async () => {
     path.resolve(cvueOutput, 'dist/index.css')
   )
 }
+
+export const copyFiles = () =>
+  Promise.all([
+    copyFile(cvuePackage, path.join(cvueOutput, 'package.json')),
+    copyFile(
+      path.resolve(projRoot, 'README.md'),
+      path.resolve(cvueOutput, 'README.md')
+    ),
+  ])
 
 // export const copyTypesDefinitions: TaskFunction = (done) => {
 //   const src = path.resolve(buildOutput, 'types', 'packages')
@@ -36,8 +45,8 @@ export default series(
       ),
       copyFullStyle
     )
-  )
-
+  ),
+  parallel(copyFiles)
   // parallel(copyTypesDefinitions)
 )
 

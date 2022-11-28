@@ -1,6 +1,6 @@
-import { Component } from 'vue'
+import type { App } from 'vue'
 
-export function getOptionType(component: string = 'input') {
+export function getOptionType(component = 'input') {
   component = component.toLowerCase().trim()
 
   const cvueMap = [
@@ -23,7 +23,7 @@ export function getOptionType(component: string = 'input') {
 }
 
 const cvue = {
-  install(app) {
+  install(app: App) {
     app.config.globalProperties.$cvue = {
       _getComponentName: getOptionType,
     }

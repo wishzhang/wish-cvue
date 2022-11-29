@@ -1,0 +1,1 @@
+import{_ as t,o as a,c as s,a as e,b as c}from"./app.44ad368b.js";const o={},r=e("h2",{id:"安装",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#安装","aria-hidden":"true"},"#"),c(" 安装")],-1),n=[r];function _(d,i){return a(),s("div",null,n)}const l=t(o,[["render",_],["__file","setup.html.vue"]]);export{l as default};

@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-7e473aaf","path":"/comp/checkbox.html","title":"","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[],"git":{"updatedTime":1669727908000,"contributors":[{"name":"wishzhang","email":"wishzhang.io@qq.com","commits":1}]},"filePathRelative":"comp/checkbox.md"}');export{e as data};

@@ -1,0 +1,1 @@
+import{_ as t,o,c as a,a as e,b as c}from"./app.44ad368b.js";const r={},s=e("h2",{id:"快速启动",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#快速启动","aria-hidden":"true"},"#"),c(" 快速启动")],-1),n=[s];function _(d,i){return o(),a("div",null,n)}const l=t(r,[["render",_],["__file","boot.html.vue"]]);export{l as default};

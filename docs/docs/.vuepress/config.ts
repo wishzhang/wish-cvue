@@ -6,6 +6,7 @@ export default defineUserConfig({
   title: 'CVue',
   description: '这是我的第一个 VuePress 站点',
   plugins: [docsearchPlugin({} as any)],
+  base: '/wish-cvue/',
   theme: defaultTheme({
     // 侧边栏数组
     // 所有页面会使用相同的侧边栏

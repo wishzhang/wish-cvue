@@ -8,6 +8,9 @@ export default defineUserConfig({
   plugins: [docsearchPlugin({} as any)],
   base: '/wish-cvue/',
   theme: defaultTheme({
+    editLink: false,
+    contributorsText: '贡献者',
+    lastUpdatedText: '上次更新',
     // 侧边栏数组
     // 所有页面会使用相同的侧边栏
     sidebar: [

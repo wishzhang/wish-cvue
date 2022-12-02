@@ -8,6 +8,7 @@ export default defineUserConfig({
   plugins: [docsearchPlugin({} as any)],
   base: '/wish-cvue/',
   theme: defaultTheme({
+    tip: '提示',
     editLink: false,
     contributorsText: '贡献者',
     lastUpdatedText: '上次更新',
@@ -22,19 +23,18 @@ export default defineUserConfig({
             link: '/guide/setup',
           },
           {
-            text: '快速启动',
+            text: '快速开始',
             link: '/guide/boot',
           },
         ],
       },
       {
-        text: '组件',
+        text: '基础组件',
         children: [
           { text: 'Card 卡片', link: '/comp/card' },
           { text: 'Checkbox 多选框', link: '/comp/checkbox' },
           { text: 'Date Picker 日期选择器', link: '/comp/date-picker' },
           { text: 'Dialog 对话框', link: '/comp/dialog' },
-          { text: 'Form 表单', link: '/comp/form' },
           { text: 'Input 输入框', link: '/comp/input' },
           {
             text: 'Input Number Range 数字范围',
@@ -42,9 +42,15 @@ export default defineUserConfig({
           },
           { text: 'Radio 单选框', link: '/comp/radio' },
           { text: 'Select 选择器', link: '/comp/select' },
-          { text: 'Table 表格', link: '/comp/table' },
           { text: 'Time Picker', link: '/comp/time-picker' },
           { text: 'Upload', link: '/comp/upload' },
+        ],
+      },
+      {
+        text: '高级组件',
+        children: [
+          { text: 'Form 表单', link: '/comp/form' },
+          { text: 'Table 表格', link: '/comp/table' },
         ],
       },
     ],

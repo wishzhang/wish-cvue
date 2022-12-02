@@ -5,6 +5,6 @@ heroText: CVue
 tagline:
 actions:
   - text: 快速上手
-    link: /basic/button
+    link: /guide/setup
     type: primary
 ---

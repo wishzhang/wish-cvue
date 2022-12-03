@@ -38,6 +38,10 @@ table td:nth-child(1) {
   white-space: nowrap;
 }
 
+table td:nth-child(2) {
+  min-width: 200px !important;
+}
+
 table td {
   padding: 8px 12px; /*内边距*/
 }
@@ -112,7 +116,7 @@ table td {
   --navbar-padding-h: 1.5rem;
   --sidebar-width: 20rem;
   --sidebar-width-mobile: calc(var(--sidebar-width) * 0.82);
-  --content-width: 740px;
+  --content-width: 860px;
   --homepage-width: 960px;
 }
 

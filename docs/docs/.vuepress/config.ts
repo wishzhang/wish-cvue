@@ -36,10 +36,10 @@ export default defineUserConfig({
           { text: 'Date Picker 日期选择器', link: '/comp/date-picker' },
           { text: 'Dialog 对话框', link: '/comp/dialog' },
           { text: 'Input 输入框', link: '/comp/input' },
-          {
-            text: 'Input Number Range 数字范围',
-            link: '/comp/input-number-range',
-          },
+          // {
+          //   text: 'Input Number Range 数字范围',
+          //   link: '/comp/input-number-range',
+          // },
           { text: 'Radio 单选框', link: '/comp/radio' },
           { text: 'Select 选择器', link: '/comp/select' },
           { text: 'Time Picker', link: '/comp/time-picker' },

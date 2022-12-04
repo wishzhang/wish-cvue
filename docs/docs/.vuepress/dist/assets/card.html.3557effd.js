@@ -1,1 +1,0 @@
-import{_ as e,o as c,c as t,a as o}from"./app.44ad368b.js";const _={},s=o("p",null,"卡片",-1),a=[s];function n(r,l){return c(),t("div",null,a)}const f=e(_,[["render",n],["__file","card.html.vue"]]);export{f as default};

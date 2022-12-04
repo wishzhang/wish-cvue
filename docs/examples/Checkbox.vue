@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { reactive, ref } from 'vue'
+  import ContainerDemo from "./ContainerDemo.vue";
 
   const value = ref([])
   const dic = reactive([
@@ -10,5 +11,7 @@
 </script>
 
 <template>
-  <cvue-checkbox v-model="value" :dic="dic"></cvue-checkbox>
+  <ContainerDemo>
+    <cvue-checkbox v-model="value" :dic="dic"></cvue-checkbox>
+  </ContainerDemo>
 </template>

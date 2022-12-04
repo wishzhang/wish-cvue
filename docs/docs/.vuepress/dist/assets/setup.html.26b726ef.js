@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-6c880e68","path":"/guide/setup.html","title":"","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[{"level":2,"title":"安装","slug":"安装","link":"#安装","children":[]}],"git":{"updatedTime":1669727908000,"contributors":[{"name":"wishzhang","email":"wishzhang.io@qq.com","commits":1}]},"filePathRelative":"guide/setup.md"}');export{e as data};

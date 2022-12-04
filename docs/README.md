@@ -1,5 +1,5 @@
 ---
-home: true
+home: false
 heroImage: https://vuejs.org/images/logo.png
 heroText: CVue
 tagline:

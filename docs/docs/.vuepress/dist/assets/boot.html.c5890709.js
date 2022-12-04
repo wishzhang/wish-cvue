@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-2c051dbb","path":"/guide/boot.html","title":"","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[{"level":2,"title":"快速启动","slug":"快速启动","link":"#快速启动","children":[]}],"git":{"updatedTime":1669727908000,"contributors":[{"name":"wishzhang","email":"wishzhang.io@qq.com","commits":1}]},"filePathRelative":"guide/boot.md"}');export{e as data};

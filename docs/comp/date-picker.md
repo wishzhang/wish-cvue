@@ -8,8 +8,9 @@
 :::
 
 ## 示例
-
+<ContainerDemo>
 <date-picker/>
+</ContainerDemo>
 
 ```vue
 <script lang="ts" setup>

@@ -8,10 +8,11 @@
 :::
 
 ## 示例
-
+<ContainerDemo>
 <FormDemo/>
+</ContainerDemo>
 
-@[code](../examples/Checkbox.vue)
+@[code](@examples/FormDemo.vue)
 
 ## 属性
 

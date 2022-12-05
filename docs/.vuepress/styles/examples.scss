@@ -1,0 +1,128 @@
+.container-demo {
+  a {
+    font-weight: initial;
+    color: initial;
+    text-decoration: initial;
+    overflow-wrap: initial;
+  }
+  blockquote {
+    font-size: initial;
+    color: initial;
+    border-left: initial;
+    margin: initial;
+    padding: initial;
+
+    & > p {
+      margin: initial;
+    }
+  }
+
+  ul,
+  ol {
+    padding-left: initial;
+  }
+
+  strong {
+    font-weight: initial;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: initial;
+    line-height: initial;
+
+    &:focus-visible {
+      outline: initial;
+    }
+
+    &:hover .header-anchor {
+      opacity: initial;
+    }
+  }
+
+  h1 {
+    font-size: initial;
+  }
+
+  h2 {
+    font-size: initial;
+    padding-bottom: initial;
+    border-bottom: initial;
+    transition: initial;
+  }
+
+  h3 {
+    font-size: initial;
+  }
+
+  h4 {
+    font-size: initial;
+  }
+
+  h5 {
+    font-size: initial;
+  }
+
+  h6 {
+    font-size: initial;
+  }
+
+  a.header-anchor {
+    font-size: initial;
+    float: initial;
+    margin-left: initial;
+    padding-right: initial;
+    margin-top: initial;
+    opacity: initial;
+    user-select: initial;
+
+    &:hover {
+      text-decoration: initial;
+    }
+
+    &:focus-visible {
+      opacity: initial;
+    }
+  }
+
+
+  hr {
+    border: initial;
+    border-top: initial;
+  }
+
+  p,
+  ul,
+  ol {
+    line-height: initial;
+  }
+
+  table {
+    border-collapse: initial;
+    margin: initial;
+    display: initial;
+    overflow-x: initial;
+    transition: initial;
+  }
+
+  tr {
+    border-top: initial;
+    transition: initial;
+
+    &:nth-child(2n) {
+      background-color: initial;
+      transition: initial;
+    }
+  }
+
+  th,
+  td {
+    padding: initial;
+    border: initial;
+    transition: initial;
+  }
+}

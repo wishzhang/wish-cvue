@@ -8,10 +8,11 @@
 :::
 
 ## 示例
+<ContainerDemo>
+<InputDemo/>
+</ContainerDemo>
 
-
-
-
+@[code](@examples/InputDemo.vue)
 
 ## 属性
 

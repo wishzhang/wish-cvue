@@ -8,6 +8,11 @@
 :::
 
 ## 示例
+<ContainerDemo>
+<RadioDemo/>
+</ContainerDemo>
+
+@[code](@examples/RadioDemo.vue)
 
 ## CVueRadio 属性
 

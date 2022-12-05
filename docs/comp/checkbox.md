@@ -8,8 +8,9 @@
 :::
 
 ## 示例
-
+<ContainerDemo>
 <checkbox/>
+</ContainerDemo>
 
 ```vue
 <script lang="ts" setup>

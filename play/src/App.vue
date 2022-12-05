@@ -38,13 +38,13 @@
     <!--      click to open the Dialog-->
     <!--    </el-button>-->
 
-    <!--    <cvue-dialog-->
-    <!--        v-model="dialogVisible"-->
-    <!--        title="Tips"-->
-    <!--        @confirm="handleConfirm"-->
-    <!--    >-->
-    <!--      <template #header>dd</template>-->
-    <!--    </cvue-dialog>-->
+    <!--        <cvue-dialog-->
+    <!--            v-model="dialogVisible"-->
+    <!--            title="Tips"-->
+    <!--            @confirm="handleConfirm"-->
+    <!--        >-->
+    <!--          <template #header>dd</template>-->
+    <!--        </cvue-dialog>-->
 
     <!--    <cvue-upload action="#" list-type="picture-card" :auto-upload="false">-->
     <!--      <el-icon>-->

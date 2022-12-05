@@ -1,5 +1,8 @@
 import { defineUserConfig, defaultTheme } from 'vuepress'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
+import { getDirname, path } from '@vuepress/utils'
+
+const __dirname = getDirname(import.meta.url)
 
 export default defineUserConfig({
   lang: 'zh-CN',
@@ -7,6 +10,16 @@ export default defineUserConfig({
   description: '这是我的第一个 VuePress 站点',
   plugins: [docsearchPlugin({} as any)],
   base: '/wish-cvue/',
+  markdown: {
+    importCode: {
+      handleImportPath: (str) => {
+        str = str.replace(/^@examples/, path.resolve(__dirname, '../examples'))
+        console.log('\n-----------');
+        console.log(str);
+        return str
+      },
+    },
+  },
   theme: defaultTheme({
     tip: '提示',
     editLink: false,

@@ -8,6 +8,11 @@
 :::
 
 ## 示例
+<ContainerDemo>
+<SelectDemo/>
+</ContainerDemo>
+
+@[code](@examples/SelectDemo.vue)
 
 ## 属性
 
@@ -20,24 +25,24 @@
 | size                          | 输入框尺寸                                                   | string                                     | default          | large/default/small                                          |
 | clearable                     | 是否可以清空选项                                             | boolean                                    | false            | true / false                                                 |
 | collapse-tags                 | 多选时是否将选中值按文字的形式展示                           | boolean                                    | false            | true/false                                                   |
-| collapse-tags-tooltip         | 当鼠标悬停于折叠标签的文本时，是否显示所有选中的标签。 要使用此属性，`collapse-tags`属性必须设定为 true | boolean                                    | false            | true / false                                                 |
-| multiple-limit                | `multiple` 属性设置为 `true` 时，代表多选场景下用户最多可以选择的项目数， 为 0 则不限制 | number                                     | 0                | -                                                            |
+| collapse-tags-tooltip         | 当鼠标悬停于折叠标签的文本时，是否显示所有选中的标签。 要使用此属性，collapse-tags 属性必须设定为 true | boolean                                    | false            | true / false                                                 |
+| multiple-limit                | multiple 属性设置为 true 时，代表多选场景下用户最多可以选择的项目数， 为 0 则不限制 | number                                     | 0                | -                                                            |
 | name                          | Select 输入框的原生 name 属性                                | string                                     | -                | -                                                            |
-| effect                        | Tooltip 主题，内置了 `dark` / `light` 两种                   | string                                     | light            | string                                                       |
+| effect                        | Tooltip 主题，内置了 dark / light 两种                       | string                                     | light            | string                                                       |
 | autocomplete                  | Select 输入框的原生 autocomplete 属性                        | string                                     | off              | -                                                            |
 | placeholder                   | 占位文字                                                     | string                                     | Select           | -                                                            |
 | filterable                    | Select 组件是否可筛选                                        | boolean                                    | false            | true / false                                                 |
-| allow-create                  | 是否允许用户创建新条目， 只有当 `filterable` 设置为 true 时才会生效。 | boolean                                    | false            | true/false                                                   |
+| allow-create                  | 是否允许用户创建新条目， 只有当 filterable 设置为 true 时才会生效。 | boolean                                    | false            | true/false                                                   |
 | filter-method                 | 自定义筛选方法                                               | function                                   | -                | -                                                            |
 | remote                        | 其中的选项是否从服务器远程加载                               | boolean                                    | false            | true / false                                                 |
 | remote-method                 | 自定义远程搜索方法                                           | function                                   | -                | -                                                            |
 | remote-show-suffix            | 远程搜索方法显示后缀图标                                     | boolean                                    | false            | true / false                                                 |
 | loading                       | 是否正在从远程获取数据                                       | boolean                                    | false            | true / false                                                 |
 | loading-text                  | 从服务器加载内容时显示的文本                                 | string                                     | Loading          | -                                                            |
-| no-match-text                 | 搜索条件无匹配时显示的文字，也可以使用 `empty` 插槽设置      | string                                     | No matching data | -                                                            |
-| no-data-text                  | 无选项时显示的文字，也可以使用 `empty` 插槽设置自定义内容    | string                                     | No data          | -                                                            |
+| no-match-text                 | 搜索条件无匹配时显示的文字，也可以使用 empty 插槽设置        | string                                     | No matching data | -                                                            |
+| no-data-text                  | 无选项时显示的文字，也可以使用 empty 插槽设置自定义内容      | string                                     | No data          | -                                                            |
 | popper-class                  | 选择器下拉菜单的自定义类名                                   | string                                     | -                | -                                                            |
-| reserve-keyword               | 当 `multiple` 和 `filter`被设置为 true 时，是否在选中一个选项后保留当前的搜索关键词 | boolean                                    | true             | true / false                                                 |
+| reserve-keyword               | 当 multiple 和 filter 被设置为 true 时，是否在选中一个选项后保留当前的搜索关键词 | boolean                                    | true             | true / false                                                 |
 | default-first-option          | 是否在输入框按下回车时，选择第一个匹配项。 需配合 `filterable` 或 `remote` 使用 | boolean                                    | false            | true / false                                                 |
 | popper-append-to-body(已废弃) | 是否将弹出框插入至 body 元素 当弹出框的位置出现问题时，你可以尝试将该属性设置为false。 | boolean                                    | true             | true / false                                                 |
 | teleported                    | 该下拉菜单是否使用teleport插入body元素                       | boolean                                    | true             | true / false                                                 |

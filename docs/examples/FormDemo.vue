@@ -1,6 +1,5 @@
 <script lang="ts" setup>
   import { reactive } from 'vue'
-  import ContainerDemo from './ContainerDemo.vue'
 
   let form = reactive()
 
@@ -72,12 +71,10 @@
 </script>
 
 <template>
-  <ContainerDemo>
-    <CvueForm
-      :model="form"
-      :columns="formColumns"
-      :inline="false"
-      @finish="handleFinish"
-    ></CvueForm>
-  </ContainerDemo>
+  <CvueForm
+    :model="form"
+    :columns="formColumns"
+    :inline="false"
+    @finish="handleFinish"
+  ></CvueForm>
 </template>

@@ -8,11 +8,11 @@ export default defineConfig({
     extensions: ['.ts', 'tsx'],
     alias: [
       {
-        find: /^cvue$/,
+        find: /^@wele\/cvue$/,
         replacement: resolve(cvueRoot, 'index.ts'),
       },
       {
-        find: /^cvue\/(.*)$/,
+        find: /^@wele\/cvue\/(.*)$/,
         replacement: `${pkgRoot}/$2`,
       },
     ],

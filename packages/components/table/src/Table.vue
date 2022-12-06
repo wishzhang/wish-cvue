@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-  import TableFooter from '@cvue/components/table/src/TableFooter.vue'
+  import TableFooter from '@wele/components/table/src/TableFooter.vue'
   import { ElTable, ElTableColumn } from 'element-plus'
-  import { TableFooterProps } from '@cvue/components/table/src/TableFooter.vue'
+  import { TableFooterProps } from '@wele/components/table/src/TableFooter.vue'
   import TableSearch, { TableSearchProps } from './TableSearch.vue'
   import { reactive } from 'vue'
   import TableMenu, { TableMenuProps } from './TableMenu.vue'

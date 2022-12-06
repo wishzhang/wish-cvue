@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import QueryFilter from '@cvue/components/query-filter'
+  import QueryFilter from '@wele/components/query-filter'
   import { reactive } from 'vue'
 
   export interface TableSearchProps {

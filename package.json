@@ -14,9 +14,10 @@
   },
   "type": "module",
   "dependencies": {
-    "@cvue/components": "workspace:*",
-    "@cvue/core": "workspace:*",
-    "@cvue/theme-chalk": "workspace:*",
+    "@wele/components": "workspace:*",
+    "@wele/core": "workspace:*",
+    "@wele/theme-chalk": "workspace:*",
+    "@wele/cvue": "workspace:*",
     "@element-plus/icons-vue": "^2.0.10",
     "lodash-es": "^4.17.21"
   },

@@ -1,2 +1,2 @@
-import CorePlugins from '@cvue/core/plugins'
+import CorePlugins from '@wele/core/plugins'
 export default [CorePlugins]

@@ -1,26 +1,33 @@
 <script setup lang="ts">
   import { reactive, ref, watch, watchEffect } from 'vue'
-  import { InputInstance } from 'element-plus'
+  import type { InputProps } from 'element-plus'
 
-  export interface InputProps {
+  export interface CVueInputProps extends InputProps {
     placeholder?: string
     clearable?: boolean
     rows?: number
   }
 
-  export interface InputEmits {}
+  export interface CVueInputEmits {}
 
   const {
     placeholder = '请输入',
     clearable = true,
     rows = 4,
-  } = defineProps<InputProps>()
-  const emit = defineEmits<InputEmits>()
+  } = defineProps<CVueInputProps>()
+  const emit = defineEmits<CVueInputEmits>()
+
+  const innerRef = ref<any>(null)
+
+  // const clear: InputInstance['clear'] = () => {}
+
+  defineExpose({})
 </script>
 
 <template>
   <el-input
     v-bind="$attrs"
+    ref="innerRef"
     :placeholder="placeholder"
     :rows="rows"
     :clearable="clearable"

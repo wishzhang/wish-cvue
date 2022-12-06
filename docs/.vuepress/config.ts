@@ -14,8 +14,6 @@ export default defineUserConfig({
     importCode: {
       handleImportPath: (str) => {
         str = str.replace(/^@examples/, path.resolve(__dirname, '../examples'))
-        console.log('\n-----------');
-        console.log(str);
         return str
       },
     },

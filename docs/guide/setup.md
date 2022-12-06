@@ -12,7 +12,7 @@ CVue 可以在支持 [ES2018](https://caniuse.com/?feats=mdn-javascript_builtins
 
 ### 版本
 
-[![CVue version badge](https://img.shields.io/npm/v/@wishzhang/cvue.svg?style=flat-square)](https://www.npmjs.org/package/@wishzhang/cvue) 
+[![CVue version badge](https://img.shields.io/npm/v/@wele/cvue.svg?style=flat-square)](https://www.npmjs.org/package/@wele/cvue) 
 
 CVue 目前还处于快速开发迭代中。
 
@@ -22,13 +22,13 @@ CVue 目前还处于快速开发迭代中。
 
 ```shell
 # NPM
-$ npm install @wishzhang/cvue --save
+$ npm install @wele/cvue --save
 
 # Yarn
-$ yarn add @wishzhang/cvue
+$ yarn add @wele/cvue
 
 # pnpm
-$ pnpm install @wishzhang/cvue
+$ pnpm install @wele/cvue
 ```
 
 ## 浏览器直接引入
@@ -42,10 +42,10 @@ $ pnpm install @wishzhang/cvue
 ```html
 <head>
   <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
-  <link rel="stylesheet" href="//unpkg.com/@wishzhang/cvue/dist/index.css" />
+  <link rel="stylesheet" href="//unpkg.com/@wele/cvue/dist/index.css" />
   <script src="//unpkg.com/vue@3"></script>
   <script src="//unpkg.com/element-plus"></script>
-  <script src="//unpkg.com/@wishzhang/cvue"></script>
+  <script src="//unpkg.com/@wele/cvue"></script>
 </head>
 ```
 
@@ -54,9 +54,9 @@ $ pnpm install @wishzhang/cvue
 ```html
 <head>
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/element-plus/dist/index.css"/>
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@wishzhang/cvue/dist/index.css" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@wele/cvue/dist/index.css" />
   <script src="//cdn.jsdelivr.net/npm/vue@3"></script>
   <script src="//cdn.jsdelivr.net/npm/element-plus"></script>
-  <script src="//cdn.jsdelivr.net/npm/@wishzhang/cvue"></script>
+  <script src="//cdn.jsdelivr.net/npm/@wele/cvue"></script>
 </head>
 ```

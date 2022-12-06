@@ -1,6 +1,6 @@
 {
-  "name": "@wishzhang/cvue",
-  "version": "1.0.3",
+  "name": "@wele/cvue",
+  "version": "0.1.0",
   "author": "wishzhang",
   "description": "A Vue.js 3 UI library base on Element Plus",
   "keywords": [

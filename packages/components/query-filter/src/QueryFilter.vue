@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import Form, { FormProps, formItemHide } from '@cvue/components/form'
+  import Form, { FormProps, formItemHide } from '@wele/components/form'
   import { reactive, ref, watchEffect, watch, computed } from 'vue'
   import { ArrowDown } from '@element-plus/icons-vue'
   import { cloneDeep } from 'lodash-es'

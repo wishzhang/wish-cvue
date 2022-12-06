@@ -1,6 +1,6 @@
 {
-  "name": "@cvue/components",
-  "version": "1.0.0",
+  "name": "@wele/components",
+  "version": "0.1.0",
   "description": "",
   "main": "index.ts",
   "module": "index.ts",

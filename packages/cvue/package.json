@@ -1,7 +1,7 @@
 {
   "name": "@wele/cvue",
   "version": "0.1.0",
-  "author": "wishzhang",
+  "author": "wishzhang<wishzhang.io@qq.com>",
   "description": "A Vue.js 3 UI library base on Element Plus",
   "keywords": [
     "@wish",
@@ -13,6 +13,7 @@
     "ui",
     "vue"
   ],
+  "homepage": "https://wishzhang.github.io/wish-cvue",
   "license": "MIT",
   "main": "dist/index.full.js",
   "module": "dist/index.full.mjs",
@@ -21,6 +22,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wishzhang/wish-cvue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wishzhang/wish-cvue/issues"
   },
   "publishConfig": {
     "access": "public"

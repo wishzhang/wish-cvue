@@ -1,25 +1,32 @@
 {
+  "root": true,
   "env": {
     "browser": true,
     "es2021": true
   },
   "extends": [
     "eslint:recommended",
-    "plugin:vue/vue3-recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier"
+    "plugin:vue/vue3-essential",
+    "plugin:prettier/recommended"
   ],
   "overrides": [],
-  "parser": "@typescript-eslint/parser",
+  "parser": "vue-eslint-parser",
   "parserOptions": {
+    "parser": "@typescript-eslint/parser",
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["vue", "@typescript-eslint", "unused-imports"],
+  "plugins": ["@typescript-eslint", "unused-imports", "vue", "prettier"],
   "rules": {
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "off",
     "unused-imports/no-unused-imports": "error",
-    "vue/no-unused-vars": "error"
+    "vue/no-unused-vars": "error",
+    "vue/multi-word-component-names": "off",
+    "vue/no-setup-props-destructure": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-empty-interface": "off"
   }
 }

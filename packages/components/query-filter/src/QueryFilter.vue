@@ -1,7 +1,6 @@
 <script lang="ts" setup>
-  import Form, { FormProps, formItemHide } from '@wele/components/form'
-  import { reactive, ref, watchEffect, watch, computed } from 'vue'
-  import { ArrowDown } from '@element-plus/icons-vue'
+  import Form, { FormProps } from '@wele/components/form'
+  import { reactive, ref, watchEffect, computed } from 'vue'
   import { cloneDeep } from 'lodash-es'
 
   export interface QueryFilterProps {
@@ -13,8 +12,7 @@
     (e: 'search', val: any): void
   }
 
-  const { columns = [], defaultColsNumber = 0 } =
-    defineProps<QueryFilterProps>()
+  const { columns = [], defaultColsNumber = 0 } = defineProps<QueryFilterProps>()
   const emit = defineEmits<QueryFilterEmits>()
 
   let innerColumns = reactive(cloneDeep(columns))
@@ -114,9 +112,7 @@
               "
               @click="collapse = !collapse"
             >
-              <span style="font-size: 15px">{{
-                collapse ? '展开' : '收起'
-              }}</span>
+              <span style="font-size: 15px">{{ collapse ? '展开' : '收起' }}</span>
               <i
                 :style="{
                   transform: collapse ? 'rotate(0)' : 'rotate(180deg)',

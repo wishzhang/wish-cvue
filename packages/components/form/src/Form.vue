@@ -4,9 +4,8 @@
 
 <script lang="ts" setup>
   import { cloneDeep } from 'lodash-es'
-  import { reactive, ref, watch, watchEffect, computed } from 'vue'
+  import { reactive, ref, watchEffect } from 'vue'
   import type { FormInstance, FormRules } from 'element-plus'
-  import form from '../index'
 
   export type FormColumns = Array<{
     prop: string
@@ -29,13 +28,7 @@
     model?: any
   }
 
-  const {
-    columns = [],
-    labelWidth = 90,
-    showOperation = true,
-    inline = false,
-    model = {},
-  } = defineProps<FormProps>()
+  const { columns = [], labelWidth = 90, showOperation = true, inline = false, model = {} } = defineProps<FormProps>()
   const emit = defineEmits<{
     (e: 'finish', value: FormFinishFC): void
   }>()
@@ -113,28 +106,12 @@
 
 <template>
   <div class="avue-form">
-    <el-form
-      v-bind="$attrs"
-      ref="formRef"
-      :model="formValue"
-      :label-width="labelWidth"
-    >
+    <el-form v-bind="$attrs" ref="formRef" :model="formValue" :label-width="labelWidth">
       <el-row>
-        <template v-for="(item, index) in innerColumns">
-          <el-col
-            :span="item.span"
-            :class="{ 'avue-form-item-hide': item.hide }"
-          >
-            <el-form-item
-              :label="item.label"
-              :prop="item.prop"
-              :rules="item.rules ?? []"
-            >
-              <component
-                v-model="formValue[item.prop]"
-                v-bind="item"
-                :is="$cvue._getComponentName(item?.component)"
-              ></component>
+        <template v-for="item in innerColumns" :key="item.prop">
+          <el-col :span="item.span" :class="{ 'avue-form-item-hide': item.hide }">
+            <el-form-item :label="item.label" :prop="item.prop" :rules="item.rules ?? []">
+              <component v-bind="item" :is="$cvue._getComponentName(item?.component)" v-model="formValue[item.prop]"></component>
             </el-form-item>
           </el-col>
         </template>
@@ -143,12 +120,7 @@
         <!-- operation -->
         <el-col v-if="showOperation">
           <el-form-item>
-            <el-button
-              type="primary"
-              :loading="submitLoading"
-              @click="handleSubmit(formRef)"
-              >提交
-            </el-button>
+            <el-button type="primary" :loading="submitLoading" @click="handleSubmit(formRef)">提交 </el-button>
             <el-button @click="handleReset(formRef)">重置</el-button>
           </el-form-item>
         </el-col>

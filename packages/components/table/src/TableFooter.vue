@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { reactive, useAttrs, ref } from 'vue'
+  import { ref } from 'vue'
 
   export interface TableFooterProps {
     position?: 'left' | 'right'
@@ -18,13 +18,11 @@
   }
 
   const {
-    position = 'right',
     currentPage = 1,
     pageSize = 20,
     total = 0,
     background = true,
     hideOnSinglePage = false,
-    layout = 'prev, pager, next',
   } = defineProps<TableFooterProps>()
 
   const emit = defineEmits<TableFooterEmits>()
@@ -55,7 +53,7 @@
 <template>
   <el-pagination
     v-bind="$attrs"
-    background
+    :background="background"
     :current-page="currentPage"
     :hide-on-single-page="hideOnSinglePage"
     :page-size="pageSize"

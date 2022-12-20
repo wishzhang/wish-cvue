@@ -19,11 +19,10 @@
     (e: 'close'): void
   }
 
-  let a = 'd'
-
-  const { modelValue = false, destroyOnClose = true } =
-    defineProps<DialogProps>()
+  const { modelValue, destroyOnClose = true } = defineProps<DialogProps>()
   const emit = defineEmits<DialogEmits>()
+
+  let innerModelValue = ref(modelValue)
 
   const confirmLoading = ref(false)
 
@@ -37,25 +36,30 @@
       },
       done: () => {
         confirmLoading.value = false
-        emit('update:modelValue', false)
+        closeDialog()
       },
     })
   }
 
   const handleCancel = () => {
-    emit('update:modelValue', false)
+    closeDialog()
   }
 
   const handleClose = () => {
-    emit('update:modelValue', false)
+    closeDialog()
     emit('close')
+  }
+
+  function closeDialog() {
+    innerModelValue.value = false
+    emit('update:modelValue', false)
   }
 </script>
 
 <template>
   <el-dialog
     v-bind="$attrs"
-    v-model="modelValue"
+    v-model="innerModelValue"
     class="avue-dialog-box"
     :destroy-on-close="destroyOnClose"
     @close="handleClose"
@@ -64,12 +68,7 @@
     <template #footer>
       <slot name="footer">
         <el-button @click="handleCancel">取消</el-button>
-        <el-button
-          type="primary"
-          :loading="confirmLoading"
-          @click="handleConfirm"
-          >确定
-        </el-button>
+        <el-button type="primary" :loading="confirmLoading" @click="handleConfirm">确定 </el-button>
       </slot>
     </template>
     <template #header="scope">

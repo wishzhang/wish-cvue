@@ -5,10 +5,7 @@
     placeholder?: string
   }
 
-  export interface TimePickerEmits {}
-
   const { placeholder = '请选择' } = defineProps<TimePickerProps>()
-  const emit = defineEmits<TimePickerEmits>()
 
   // expose
   const timePicker = ref()
@@ -38,9 +35,5 @@
 </script>
 
 <template>
-  <el-time-picker
-    ref="timePicker"
-    v-bind="$attrs"
-    :placeholder="placeholder"
-  ></el-time-picker>
+  <el-time-picker ref="timePicker" v-bind="$attrs" :placeholder="placeholder"></el-time-picker>
 </template>

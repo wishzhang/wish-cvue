@@ -11,8 +11,8 @@
   export type ElTableColumnType = typeof ElTableColumn
 
   export interface Column {
-    prop: String
-    label: String
+    prop: string
+    label: string
   }
 
   export type Columns = Array<Column>
@@ -33,13 +33,7 @@
     (e: 'row-delete'): void
   }
 
-  const {
-    columns = [],
-    pagination,
-    search,
-    menu,
-    operation,
-  } = defineProps<TableProps>()
+  const { columns = [], pagination, search, menu, operation } = defineProps<TableProps>()
   const emit = defineEmits<TableEmits>()
 
   let searchFormValue = reactive<Record<string, any>>({})
@@ -87,7 +81,7 @@
         <TableMenu v-bind="menu" @add="handleMenuAdd"></TableMenu>
       </div>
       <el-table v-bind="$attrs">
-        <template v-for="(column, index) in columns">
+        <template v-for="column in columns" :key="column.prop">
           <el-table-column v-bind="column">
             <template v-if="$slots[column.prop]" #default="scope">
               <slot v-bind="scope" :name="$slots[column.prop]"></slot>
@@ -118,12 +112,12 @@
       <div class="cvue-table-footer">
         <TableFooter
           :total="100"
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
           :current-page="pageValue.currentPage"
           :page-size="pageValue.pageSize"
-          @change="handleFooterChange"
           v-bind="pagination"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          @change="handleFooterChange"
         ></TableFooter>
       </div>
     </div>

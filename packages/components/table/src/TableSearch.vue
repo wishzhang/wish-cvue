@@ -1,6 +1,5 @@
 <script lang="ts" setup>
   import QueryFilter from '@wele/components/query-filter'
-  import { reactive } from 'vue'
 
   export interface TableSearchProps {
     columns: Array<Record<string, any>>

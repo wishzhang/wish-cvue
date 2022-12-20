@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { reactive, ref } from 'vue'
+  import { ref } from 'vue'
 
   const state = {
     count: ref(0),
@@ -13,7 +13,7 @@
 </script>
 
 <template>
-  <button @click="increase" style="width: 200px">
+  <button style="width: 200px" @click="increase">
     {{ state.count }}
   </button>
 </template>

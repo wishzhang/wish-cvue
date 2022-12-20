@@ -5,10 +5,7 @@
     placeholder?: string
   }
 
-  export interface DatePickerEmits {}
-
   const { placeholder = '请选择' } = defineProps<DatePickerProps>()
-  const emit = defineEmits<DatePickerEmits>()
 
   // expose
   const datePicker = ref()

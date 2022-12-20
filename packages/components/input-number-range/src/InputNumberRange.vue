@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { reactive, ref, watch, watchEffect } from 'vue'
+  import { ref, watchEffect } from 'vue'
 
   export interface InputNumberRangeProps {
     controls?: boolean
@@ -11,8 +11,7 @@
     (e: 'change', value: InputNumberRangeProps['modelValue']): void
   }
 
-  const { modelValue = [undefined, undefined], controls = false } =
-    defineProps<InputNumberRangeProps>()
+  const { modelValue = [undefined, undefined], controls = false } = defineProps<InputNumberRangeProps>()
   const emit = defineEmits<InputNumberRangeEmits>()
 
   const leftValue = ref(modelValue[0])
@@ -42,19 +41,19 @@
   <div class="avue-input-number-range-box">
     <el-input-number
       v-bind="$attrs"
+      v-model="leftValue"
       :style="{ width: styleWidth }"
       :controls="controls"
       :controls-position="controlsPosition"
-      v-model="leftValue"
       @change="handleLeftChange"
     />
     <span class="avue-input-number-range-split"></span>
     <el-input-number
       v-bind="$attrs"
+      v-model="rightValue"
       :style="{ width: styleWidth }"
       :controls="controls"
       :controls-position="controlsPosition"
-      v-model="rightValue"
       @change="handleRightChange"
     />
   </div>

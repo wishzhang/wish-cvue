@@ -7,16 +7,18 @@
     "clean:dist": "rimraf dist",
     "format": "prettier --write .",
     "preinstall": "npx only-allow pnpm",
-    "eslint": "eslint --fix --ext .js,.ts,.tsx",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.json",
+    "lint:fix": "pnpm run lint --fix",
     "docs:dev": "pnpm -C docs dev"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.0.10",
     "@wele/components": "workspace:*",
     "@wele/core": "workspace:*",
-    "@wele/theme-chalk": "workspace:*",
     "@wele/cvue": "workspace:*",
-    "@element-plus/icons-vue": "^2.0.10",
-    "lodash-es": "^4.17.21"
+    "@wele/theme-chalk": "workspace:*",
+    "lodash-es": "^4.17.21",
+    "vue-eslint-parser": "^9.1.0"
   },
   "devDependencies": {
     "@pnpm/find-workspace-packages": "3.1.38",
@@ -56,14 +58,5 @@
     "typescript": "^4.5.5",
     "vite": "^3.0.0",
     "vue": "^3.2.29"
-  },
-  "eslintConfig": {
-    "extends": "vue-app",
-    "plugins": [
-      "prettier"
-    ],
-    "rules": {
-      "prettier/prettier": "error"
-    }
   }
 }

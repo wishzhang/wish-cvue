@@ -1,9 +1,6 @@
-dist
+.github
+build
 node_modules
-coverage
-CHANGELOG.en-US.md
+dist
 pnpm-lock.yaml
-docs/components.d.ts
-.cache
-.temp
-**/*.md
+docs

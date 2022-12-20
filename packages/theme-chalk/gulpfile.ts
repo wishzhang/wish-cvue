@@ -25,9 +25,9 @@ function buildThemeChalk() {
     .pipe(
       cleanCSS({}, (details) => {
         console.log(
-          `${chalk.cyan(details.name)}: ${chalk.yellow(
-            details.stats.originalSize / 1000
-          )} KB -> ${chalk.green(details.stats.minifiedSize / 1000)} KB`
+          `${chalk.cyan(details.name)}: ${chalk.yellow(details.stats.originalSize / 1000)} KB -> ${chalk.green(
+            details.stats.minifiedSize / 1000
+          )} KB`
         )
       })
     )
@@ -53,14 +53,9 @@ export function copyThemeChalkBundle() {
  */
 
 export function copyThemeChalkSource() {
-  return src(path.resolve(__dirname, 'src/**')).pipe(
-    dest(path.resolve(distBundle, 'src'))
-  )
+  return src(path.resolve(__dirname, 'src/**')).pipe(dest(path.resolve(distBundle, 'src')))
 }
 
-export const build = parallel(
-  copyThemeChalkSource,
-  series(buildThemeChalk, copyThemeChalkBundle)
-)
+export const build = parallel(copyThemeChalkSource, series(buildThemeChalk, copyThemeChalkBundle))
 
 export default build

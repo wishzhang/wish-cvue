@@ -1,13 +1,5 @@
 <script setup lang="ts">
-  import { reactive, ref, watch, watchEffect } from 'vue'
-  import { Delete, Download, Plus, ZoomIn } from '@element-plus/icons-vue'
-
-  export interface UploadProps {}
-
-  export interface UploadEmits {}
-
-  const {} = defineProps<UploadProps>()
-  const emit = defineEmits<UploadEmits>()
+  import { ref } from 'vue'
 
   const input = ref()
   const abort = (file: any) => {

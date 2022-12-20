@@ -74,10 +74,5 @@
 </script>
 
 <template>
-  <CvueForm
-    :model="form"
-    :columns="formColumns"
-    :inline="false"
-    @finish="handleFinish"
-  ></CvueForm>
+  <CvueForm :model="form" :columns="formColumns" :inline="false" @finish="handleFinish"></CvueForm>
 </template>

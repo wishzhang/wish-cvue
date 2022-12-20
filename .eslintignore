@@ -1,8 +1,6 @@
+.github
+build
 node_modules
 dist
 pnpm-lock.yaml
-CHANGELOG.en-US.md
-!.*
-docs/components.d.ts
-coverage
-ssr-testing/cases/*
+docs

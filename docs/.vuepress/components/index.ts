@@ -1,7 +1,7 @@
-import ContainerDemo from "./ContainerDemo.vue";
+import ContainerDemo from './ContainerDemo.vue'
 
 export default {
-  install(app: any){
+  install(app: any) {
     app.component('ContainerDemo', ContainerDemo)
-  }
+  },
 }

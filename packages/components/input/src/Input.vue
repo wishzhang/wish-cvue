@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { reactive, ref, watch, watchEffect } from 'vue'
+  import { ref } from 'vue'
   import type { InputProps } from 'element-plus'
 
   export interface CVueInputProps extends InputProps {
@@ -8,14 +8,7 @@
     rows?: number
   }
 
-  export interface CVueInputEmits {}
-
-  const {
-    placeholder = '请输入',
-    clearable = true,
-    rows = 4,
-  } = defineProps<CVueInputProps>()
-  const emit = defineEmits<CVueInputEmits>()
+  const { placeholder = '请输入', clearable = true, rows = 4 } = defineProps<CVueInputProps>()
 
   const innerRef = ref<any>(null)
 
@@ -25,14 +18,8 @@
 </script>
 
 <template>
-  <el-input
-    v-bind="$attrs"
-    ref="innerRef"
-    :placeholder="placeholder"
-    :rows="rows"
-    :clearable="clearable"
-  >
-    <template v-for="(item, key) in $slots" :key="key" v-slot:[key]="scope">
+  <el-input v-bind="$attrs" ref="innerRef" :placeholder="placeholder" :rows="rows" :clearable="clearable">
+    <template v-for="(item, key) in $slots" :key="key" #[key]="scope">
       <slot :name="key" v-bind="scope"></slot>
     </template>
   </el-input>

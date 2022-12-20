@@ -1,14 +1,12 @@
 <template>
   <div>
     <el-button @click="handleClick">click</el-button>
-    <cvue-input v-model="value" ref="inputRef" />
+    <cvue-input ref="inputRef" v-model="value" />
   </div>
 </template>
 
 <script setup lang="ts">
-  import { reactive, ref, watch } from 'vue'
-  import AppForm from './components/AppForm.vue'
-  import Learn from './components/Learn.vue'
+  import { ref } from 'vue'
 
   const value = ref('d')
   const inputRef = ref<any>(null)

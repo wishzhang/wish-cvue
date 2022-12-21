@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "dev": "pnpm -C play dev",
     "build": "gulp --require sucrase/register/ts -f build/gulpfile.ts",
     "clean": "pnpm run clean:dist",
@@ -45,6 +46,7 @@
     "eslint-plugin-vue": "^9.8.0",
     "fast-glob": "^3.2.11",
     "gulp": "^4.0.2",
+    "husky": "^8.0.2",
     "only-allow": "^1.1.0",
     "prettier": "2.8.0",
     "rimraf": "3.0.2",

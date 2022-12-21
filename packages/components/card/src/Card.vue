@@ -3,6 +3,7 @@
     shadow?: 'always' | 'hover' | 'never'
   }
 
+  console.log('aa');
   const { shadow = 'never' } = defineProps<CardProps>()
 </script>
 

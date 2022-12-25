@@ -1,10 +1,10 @@
-# Bundle
+
 dist
-# Package Manager
+
 node_modules
 .pnpm-debug.log*
+coverage
 
-# Editor directories and files
 .idea
 .vscode
 .history

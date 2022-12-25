@@ -4,6 +4,9 @@
     "browser": true,
     "es2021": true
   },
+  "globals": {
+    "module": true
+  },
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",

@@ -1,13 +1,40 @@
 import { defineUserConfig, defaultTheme } from 'vuepress'
 import { getDirname, path } from '@vuepress/utils'
+import { containerPlugin } from '@vuepress/plugin-container'
 
 const __dirname = getDirname(import.meta.url)
+
+function parseDom(arg) {
+  var objE = document.createElement('div')
+  objE.innerHTML = arg
+  return objE
+}
 
 export default defineUserConfig({
   lang: 'zh-CN',
   title: 'CVue',
   description: '这是我的第一个 VuePress 站点',
   base: '/wish-cvue/',
+  plugins: [
+    containerPlugin({
+      // 配置项
+      type: 'details',
+      locales: {
+        '/': {
+          defaultInfo: 'DETAILS',
+        },
+        '/zh/': {
+          defaultInfo: '详情',
+        },
+      },
+      before: (info: string) => {
+        return `<ContainerDetails>`
+      },
+      after: (info: string) => {
+        return `</ContainerDetails>`
+      },
+    }),
+  ],
   markdown: {
     importCode: {
       handleImportPath: (str) => {

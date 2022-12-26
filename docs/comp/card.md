@@ -15,7 +15,9 @@ Card 组件由 header 和 body 组成。 header 是可选的，其内容取决�
 <CardDemo/>
 </ContainerDemo>
 
+:::details
 @[code](@examples/CardDemo.vue)
+:::
 
 ## 属性
 

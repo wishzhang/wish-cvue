@@ -17,13 +17,13 @@
   "dependencies": {
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
-    "@element-plus/icons-vue": "^2.0.10",
     "@wele/components": "workspace:*",
     "@wele/core": "workspace:*",
     "@wele/theme-chalk": "workspace:*",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
+    "@element-plus/icons-vue": "^2.0.10",
     "@pnpm/find-workspace-packages": "3.1.38",
     "@pnpm/logger": "4.0.0",
     "@pnpm/types": "7.9.0",

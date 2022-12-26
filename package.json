@@ -11,6 +11,7 @@
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.json",
     "lint:fix": "pnpm run lint --fix",
     "docs:dev": "pnpm -C docs dev",
+    "docs:build": "pnpm -C docs build",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },

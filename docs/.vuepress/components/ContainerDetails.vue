@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { ref ,useSlots} from 'vue'
-  import useClipboard from "vue-clipboard3";
-  import * as $ from 'jquery'
+  import useClipboard from "vue-clipboard3/dist/esm/index.js";
+  import $ from 'jquery/dist/jquery.js'
   import { ElMessage } from 'element-plus'
 
   const { toClipboard } = useClipboard();
@@ -22,10 +22,12 @@
 
   function handleCopy(e) {
     const target = e.target;
-    const context = target.parentNode.parentNode.parentNode
-    const codeEl = context.querySelector('code')
-    const codeHtml = $(codeEl).text()
-    copy(codeHtml)
+    if(target) {
+      const context = target.parentNode.parentNode.parentNode
+      const codeEl = context.querySelector('code')
+      const codeHtml = $(codeEl).text()
+      copy(codeHtml)
+    }
   }
 </script>
 

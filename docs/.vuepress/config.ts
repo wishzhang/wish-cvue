@@ -1,5 +1,4 @@
 import { defineUserConfig, defaultTheme } from 'vuepress'
-import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 import { getDirname, path } from '@vuepress/utils'
 
 const __dirname = getDirname(import.meta.url)
@@ -8,7 +7,6 @@ export default defineUserConfig({
   lang: 'zh-CN',
   title: 'CVue',
   description: '这是我的第一个 VuePress 站点',
-  plugins: [docsearchPlugin({} as any)],
   base: '/wish-cvue/',
   markdown: {
     importCode: {

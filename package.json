@@ -20,7 +20,6 @@
     "@element-plus/icons-vue": "^2.0.10",
     "@wele/components": "workspace:*",
     "@wele/core": "workspace:*",
-    "@wele/cvue": "workspace:*",
     "@wele/theme-chalk": "workspace:*",
     "lodash-es": "^4.17.21"
   },

@@ -21,5 +21,4 @@ export default defineClientConfig({
     app.use(Examples)
   },
   setup() {},
-  rootComponents: [],
 })

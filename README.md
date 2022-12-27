@@ -1,4 +1,4 @@
-## CVue
+## Cvue
 
 A Vue.js 3 UI library base on Element Plus.
 
@@ -7,4 +7,4 @@ A Vue.js 3 UI library base on Element Plus.
 
 ## License
 
-CVue is open source software licensed as MIT.
+Cvue is open source software licensed as MIT.

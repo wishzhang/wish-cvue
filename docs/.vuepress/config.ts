@@ -12,7 +12,7 @@ function parseDom(arg) {
 
 export default defineUserConfig({
   lang: 'zh-CN',
-  title: 'CVue',
+  title: 'Cvue',
   description: '这是我的第一个 VuePress 站点',
   base: '/wish-cvue/',
   plugins: [
@@ -54,10 +54,6 @@ export default defineUserConfig({
       {
         text: '指南',
         children: [
-          {
-            text: '介绍',
-            link: '/guide/profile',
-          },
           {
             text: '安装',
             link: '/guide/setup',

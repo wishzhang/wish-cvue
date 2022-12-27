@@ -56,7 +56,7 @@ async function buildFullEntry(minify: boolean) {
         formatBundleFilename('index.full', minify, 'js')
       ),
       exports: 'named',
-      name: 'CVue',
+      name: 'Cvue',
       globals: {
         vue: 'Vue',
       },

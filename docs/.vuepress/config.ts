@@ -55,6 +55,10 @@ export default defineUserConfig({
         text: '指南',
         children: [
           {
+            text: '介绍',
+            link: '/guide/profile',
+          },
+          {
             text: '安装',
             link: '/guide/setup',
           },
@@ -62,6 +66,13 @@ export default defineUserConfig({
             text: '快速开始',
             link: '/guide/boot',
           },
+        ],
+      },
+      {
+        text: '高级组件',
+        children: [
+          { text: 'Form 表单', link: '/comp/form' },
+          { text: 'Table 表格', link: '/comp/table' },
         ],
       },
       {
@@ -80,13 +91,6 @@ export default defineUserConfig({
           { text: 'Select 选择器', link: '/comp/select' },
           { text: 'Time Picker', link: '/comp/time-picker' },
           { text: 'Upload', link: '/comp/upload' },
-        ],
-      },
-      {
-        text: '高级组件',
-        children: [
-          { text: 'Form 表单', link: '/comp/form' },
-          { text: 'Table 表格', link: '/comp/table' },
         ],
       },
     ],

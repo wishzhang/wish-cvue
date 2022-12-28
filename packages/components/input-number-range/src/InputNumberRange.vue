@@ -11,7 +11,8 @@
     (e: 'change', value: InputNumberRangeProps['modelValue']): void
   }
 
-  const { modelValue = [undefined, undefined], controls = false } = defineProps<InputNumberRangeProps>()
+  const { modelValue = [undefined, undefined], controls = false } =
+    defineProps<InputNumberRangeProps>()
   const emit = defineEmits<InputNumberRangeEmits>()
 
   const leftValue = ref(modelValue[0])

@@ -26,6 +26,7 @@ async function buildFullEntry(minify: boolean) {
     plugins: [
       vue({
         isProduction: true,
+        reactivityTransform: true
       }),
       nodeResolve({
         extensions: ['.mjs', '.js', '.ts'],

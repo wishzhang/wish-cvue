@@ -2,6 +2,7 @@ import { defineUserConfig, defaultTheme } from 'vuepress'
 import { getDirname, path } from '@vuepress/utils'
 import { containerPlugin } from '@vuepress/plugin-container'
 
+// @ts-ignore
 const __dirname = getDirname(import.meta.url)
 
 function parseDom(arg) {

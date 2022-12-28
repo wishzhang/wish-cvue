@@ -1,30 +1,82 @@
-<template>
-  <div>
-    <el-button @click="handleClick">click</el-button>
-    <cvue-input ref="inputRef" v-model="value" />
-  </div>
-</template>
+<!--<script lang="ts" setup>-->
+<!--  import { reactive } from 'vue'-->
 
-<script setup lang="ts">
-  import { ref } from 'vue'
+<!--  let form = reactive(null)-->
 
-  const value = ref('d')
-  const inputRef = ref<any>(null)
+<!--  let formColumns = reactive([-->
+<!--    {-->
+<!--      label: '姓名',-->
+<!--      prop: 'prop1',-->
+<!--      component: 'input',-->
+<!--      rules: [{ required: true, message: '请输入姓名', trigger: 'blur' }],-->
+<!--    },-->
+<!--    {-->
+<!--      label: '性别',-->
+<!--      prop: 'prop2',-->
+<!--      component: 'radio',-->
+<!--      dic: [-->
+<!--        { label: '男', value: 1 },-->
+<!--        { label: '女', value: 2 },-->
+<!--      ],-->
+<!--    },-->
+<!--    {-->
+<!--      label: '水果',-->
+<!--      component: 'select',-->
+<!--      prop: 'prop3',-->
+<!--      dic: [-->
+<!--        { label: '苹果', value: 1 },-->
+<!--        { label: '香蕉', value: 2 },-->
+<!--        { label: '荔枝', value: 3 },-->
+<!--      ],-->
+<!--    },-->
+<!--    {-->
+<!--      label: '日期',-->
+<!--      prop: 'prop4',-->
+<!--      component: 'date-picker',-->
+<!--    },-->
+<!--    {-->
+<!--      label: '时间',-->
+<!--      prop: 'prop5',-->
+<!--      component: 'time-picker',-->
+<!--    },-->
+<!--    {-->
+<!--      label: '开关',-->
+<!--      prop: 'prop6',-->
+<!--      component: 'switch',-->
+<!--    },-->
+<!--    {-->
+<!--      label: '蔬菜',-->
+<!--      component: 'checkbox',-->
+<!--      prop: 'prop7',-->
+<!--      dic: [-->
+<!--        { label: '白菜', value: 1 },-->
+<!--        { label: '西红柿', value: 2 },-->
+<!--        { label: '葱花', value: 3 },-->
+<!--      ],-->
+<!--    },-->
+<!--    {-->
+<!--      label: '文本框',-->
+<!--      prop: 'prop8',-->
+<!--      component: 'input',-->
+<!--      type: 'textarea',-->
+<!--    },-->
+<!--  ])-->
 
-  function handleClick() {
-    inputRef.value.clear()
-  }
+<!--  const handleFinish = (value: any, done: any) => {-->
+<!--    setTimeout(() => {-->
+<!--      console.log(value)-->
+<!--      done()-->
+<!--    }, 2000)-->
+<!--  }-->
+<!--</script>-->
 
-  defineExpose()
+<!--<template>-->
+<!--  <CvueForm :model="form" :columns="formColumns" :inline="false" @finish="handleFinish"></CvueForm>-->
+<!--</template>-->
+<script lang="ts" setup>
+  import Demo from '@wele/docs/examples/form/basic.vue'
 </script>
 
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    background: #eee;
-  }
-</style>
+<template>
+  <Demo></Demo>
+</template>

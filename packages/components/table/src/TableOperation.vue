@@ -13,7 +13,12 @@
     (e: 'row-delete'): void
   }
 
-  const { show = true, width = 180, fixed = 'right', label = '操作' } = defineProps<TableOperationProps>()
+  const {
+    show = true,
+    width = 180,
+    fixed = 'right',
+    label = '操作',
+  } = defineProps<TableOperationProps>()
   const emit = defineEmits<TableOperationEmits>()
 
   const handleRowView = () => {

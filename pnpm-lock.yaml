@@ -27,6 +27,7 @@ importers:
       '@vue/test-utils': ^2.2.6
       '@wele/components': workspace:*
       '@wele/core': workspace:*
+      '@wele/docs': workspace:*
       '@wele/theme-chalk': workspace:*
       chalk: 4.1.2
       consola: ^2.15.3
@@ -62,6 +63,7 @@ importers:
       '@commitlint/config-conventional': 17.3.0
       '@wele/components': link:packages/components
       '@wele/core': link:packages/core
+      '@wele/docs': link:docs
       '@wele/theme-chalk': link:packages/theme-chalk
       lodash-es: 4.17.21
     devDependencies:

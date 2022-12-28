@@ -2,17 +2,14 @@
 
 表单包含 `输入框`, `单选框`, `下拉选择`, `多选框` 等用户输入的组件。 使用表单，您可以收集、验证和提交数据。
 
-:::tip
-该组件除了本文档的示例外，其它的 props 和 emits 的 API 及用法和
-[Element Plus 的 Form 组件](https://element-plus.org/zh-CN/component/form.html) 保持一致。
-:::
-
-## 示例
+## 基础用法
 <ContainerDemo>
-<FormDemo/>
+<form-basic/>
 </ContainerDemo>
 
-@[code](@examples/FormDemo.vue)
+:::details
+@[code](@examples/form/basic.vue)
+:::
 
 ## 属性
 

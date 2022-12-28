@@ -104,30 +104,30 @@
   ol {
     line-height: initial;
   }
+}
 
-  table {
-    border-collapse: initial;
-    margin: initial;
-    display: initial;
-    overflow-x: initial;
+table {
+  border-collapse: initial;
+  margin: initial;
+  display: initial;
+  overflow-x: initial;
+  transition: initial;
+}
+
+tr {
+  border-top: initial;
+  transition: initial;
+
+  &:nth-child(2n) {
+    background-color: initial;
     transition: initial;
   }
+}
 
-  tr {
-    border-top: initial;
-    transition: initial;
-
-    &:nth-child(2n) {
-      background-color: initial;
-      transition: initial;
-    }
-  }
-
-  th,
-  td {
-    padding: initial;
-    border: initial;
-    transition: initial;
-  }
+th,
+td {
+  padding: initial;
+  border: initial;
+  transition: initial;
 }
 

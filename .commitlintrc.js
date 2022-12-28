@@ -13,7 +13,21 @@ module.exports = {
     'type-enum': [
       2,
       'always',
-      ['wip', 'build', 'chore', 'ci', 'docs', 'feat', 'fix', 'improvement', 'perf', 'refactor', 'revert', 'style', 'test'],
+      [
+        'wip',
+        'build',
+        'chore',
+        'ci',
+        'docs',
+        'feat',
+        'fix',
+        'improvement',
+        'perf',
+        'refactor',
+        'revert',
+        'style',
+        'test',
+      ],
     ],
   },
 }

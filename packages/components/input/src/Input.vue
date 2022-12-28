@@ -18,7 +18,13 @@
 </script>
 
 <template>
-  <el-input v-bind="$attrs" ref="innerRef" :placeholder="placeholder" :rows="rows" :clearable="clearable">
+  <el-input
+    v-bind="$attrs"
+    ref="innerRef"
+    :placeholder="placeholder"
+    :rows="rows"
+    :clearable="clearable"
+  >
     <template v-for="(item, key) in $slots" :key="key" #[key]="scope">
       <slot :name="key" v-bind="scope"></slot>
     </template>

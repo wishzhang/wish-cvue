@@ -21,6 +21,7 @@
     "@wele/components": "workspace:*",
     "@wele/core": "workspace:*",
     "@wele/theme-chalk": "workspace:*",
+    "@wele/docs": "workspace:*",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {

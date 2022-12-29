@@ -48,11 +48,12 @@ Form 组件允许你验证用户的输入是否符合规范，来帮助你找到
 
 | 属性名                    | 说明                                                         | 类型                            | 默认值  |
 | ------------------------- | :----------------------------------------------------------- | ------------------------------- | ------- |
-| model                     | 表单数据对象                                                 | Record<string, any&gt;          | -       |
+| ~~model~~                 | ~~表单数据对象~~                                             | ~~Record<string, any&gt;~~      | -       |
+| v-model                   | 表单数据对象                                                 | Record<string, any>             | -       |
 | rules                     | 表单验证规则                                                 | FormRules                       | -       |
 | inline                    | 行内表单模式                                                 | boolean                         | false   |
 | label-position            | 表单域标签的位置， 当设置为 left 或 right 时，则也需要设置 label-width 属性 | 'left' \| 'right' \| 'top'      | 'right' |
-| label-width               | 标签的长度，例如 '50px'。 作为 Form 直接子元素的 form-item 会继承该值。 可以使用 auto。 | string \| number                | -       |
+| label-width               | 标签的长度，例如 '50px'。 作为 Form 直接子元素的 form-item 会继承该值。 可以使用 auto。 | string \| number                | 84      |
 | label-suffix              | 表单域标签的后缀                                             | string                          | -       |
 | hide-required-asterisk    | 是否隐藏必填字段标签旁边的红色星号。                         | boolean                         | false   |
 | require-asterisk-position | 星号的位置。                                                 | 'left' \| 'right'               | 'left'  |
@@ -70,3 +71,14 @@ Form 组件允许你验证用户的输入是否符合规范，来帮助你找到
 | -------- | ---------------------- | ------------------------------------------------------------ |
 | validate | 任一表单项被校验后触发 | (prop: FormItemProp, isValid: boolean, message: string) => void |
 
+
+
+## 方法
+
+| 方法名          | 说明                                                         | 类型                                                         |
+| :-------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| `validate`      | 对整个表单的内容进行验证。 接收一个回调函数，或返回 `Promise`。 | `(callback?: (isValid: boolean, invalidFields?: ValidateFieldsError) => void) => Promise<void>` |
+| `validateField` | 验证具体的某个字段。                                         | `(props?: Arrayable<FormItemProp>, callback?: (isValid: boolean, invalidFields?: ValidateFieldsError) => void) => Promise<void>` |
+| `resetFields`   | 重置该表单项，将其值重置为初始值，并移除校验结果             | `(props?: Arrayable<FormItemProp>) => void`                  |
+| `scrollToField` | 滚动到指定的字段                                             | `(prop: FormItemProp) => void`                               |
+| `clearValidate` | 清理某个字段的表单验证信息。                                 | `(props?: Arrayable<FormItemProp>) => void`                  |

@@ -32,7 +32,7 @@
 
   const {
     columns = [],
-    labelWidth = 90,
+    labelWidth = 84,
     showOperation = true,
     inline = false,
     modelValue = {},

@@ -72,7 +72,7 @@
 
 <template>
   <div class="cvue-table">
-    <div class="cvue-table-search-box">
+    <div v-if="search" class="cvue-table-search-box">
       <TableSearch v-bind="search" @search="handleSearchClick" />
     </div>
 

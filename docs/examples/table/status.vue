@@ -1,5 +1,25 @@
+<template>
+  <cvue-table
+    :operation="{ width: 200 }"
+    :columns="columns"
+    :data="data"
+    :row-class-name="tableRowClassName"
+    @row-add="handleRowAdd"
+    @on-load="onLoad"
+  ></cvue-table>
+</template>
+
 <script lang="ts" setup>
   import { reactive } from 'vue'
+
+  const tableRowClassName = ({ row, rowIndex }: { row: any; rowIndex: number }) => {
+    if (rowIndex === 1) {
+      return 'warning-row'
+    } else if (rowIndex === 3) {
+      return 'success-row'
+    }
+    return ''
+  }
 
   const columns = reactive([
     {
@@ -60,41 +80,14 @@
   const handleRowAdd = () => {
     console.log('handleRowAdd')
   }
-
-  const search = reactive({
-    columns: [
-      {
-        label: '什么鬼的a',
-        prop: 'prop1',
-      },
-      {
-        label: 'label2',
-        prop: 'prop2',
-      },
-      {
-        label: 'label3',
-        prop: 'prop3',
-      },
-      {
-        label: 'label4',
-        prop: 'prop4',
-      },
-      {
-        label: 'label5',
-        prop: 'prop5',
-      },
-    ],
-  })
 </script>
 
-<template>
-  <cvue-table
-    size="large"
-    :operation="{ width: 200 }"
-    :search="search"
-    :columns="columns"
-    :data="data"
-    @row-add="handleRowAdd"
-    @on-load="onLoad"
-  ></cvue-table>
-</template>
+<style>
+  .el-table .warning-row {
+    --el-table-tr-bg-color: var(--el-color-warning-light-9);
+  }
+
+  .el-table .success-row {
+    --el-table-tr-bg-color: var(--el-color-success-light-9);
+  }
+</style>

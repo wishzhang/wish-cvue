@@ -2,17 +2,22 @@
 
 用于展示多条结构类似的数据， 可对数据进行排序、筛选、对比或其他自定义操作。
 
-:::tip
-该组件除了本文档的示例外，其它的 props 和 emits 的 API 及用法和
-[Element Plus 的 Table 组件](https://element-plus.org/zh-CN/component/table.html) 保持一致。
-:::
-
-## 示例
+## 基础用法
 <ContainerDemo>
-<TableDemo/>
+<table-basic/>
 </ContainerDemo>
 
-@[code](@examples/TableDemo.vue)
+:::details
+@[code](@examples/table/basic.vue)
+:::
+
+## 带斑马纹表格
+
+使用带斑马纹的表格，可以更容易区分出不同行的数据。
+
+`stripe` 可以创建带斑马纹的表格。 如果 `true`, 表格将会带有斑马纹。
+
+
 
 
 ## 属性

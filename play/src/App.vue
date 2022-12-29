@@ -74,7 +74,7 @@
 <!--  <CvueForm :model="form" :columns="formColumns" :inline="false" @finish="handleFinish"></CvueForm>-->
 <!--</template>-->
 <script lang="ts" setup>
-  import Demo from '@wele/docs/examples/form/basic.vue'
+  import Demo from '@wele/docs/examples/form/validator.vue'
 </script>
 
 <template>

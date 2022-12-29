@@ -45,6 +45,8 @@ export default defineUserConfig({
     },
   },
   theme: defaultTheme({
+    colorMode: 'light',
+    colorModeSwitch: false,
     tip: '提示',
     editLink: false,
     contributorsText: '贡献者',

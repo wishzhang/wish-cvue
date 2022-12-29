@@ -5,7 +5,8 @@
     "es2021": true
   },
   "globals": {
-    "module": true
+    "module": true,
+    "arguments": true
   },
   "extends": [
     "eslint:recommended",

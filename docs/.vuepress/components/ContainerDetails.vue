@@ -35,7 +35,7 @@
   <div class="my-code-container">
     <div class="my-code-container-operation" :class="{invisible: !visible}" @click="handleVisible">
       <el-icon @click.stop="handleCopy">
-        <CopyDocument />
+        <DocumentCopy />
       </el-icon>
       <el-icon>
         <View />
@@ -50,7 +50,7 @@
 <style lang="scss">
   .my-code-container {
     position: relative;
-    z-index: 999999;
+    z-index: 1000;
     .language-vue {
       margin-top: 0 !important;
       border-top-left-radius: 0 !important;
@@ -66,11 +66,12 @@
       border-bottom: 1px solid var(--el-border-color);
 
       height: 40px;
-      padding: 0 12px;
+      padding: 0 20px;
 
       .el-icon {
         cursor: pointer;
         margin-left: 16px;
+        color: var(--el-text-color-regular);
 
         &:hover {
           color: #1c1d1f;

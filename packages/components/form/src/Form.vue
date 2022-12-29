@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts" setup>
-  import { cloneDeep } from 'lodash-es'
+  import { cloneDeep, isEqual } from 'lodash-es'
   import { reactive, ref, watchEffect } from 'vue'
   import type { FormInstance, FormRules } from 'element-plus'
 
@@ -25,6 +25,8 @@
     columns: FormColumns
     inline?: boolean
     showOperation?: boolean
+    modelValue?: any
+    // 除开
     model?: any
   }
 
@@ -33,10 +35,11 @@
     labelWidth = 90,
     showOperation = true,
     inline = false,
-    model = {},
+    modelValue = {},
   } = defineProps<FormProps>()
   const emit = defineEmits<{
     (e: 'finish', value: FormFinishFC): void
+    (e: 'update:modelValue', value: any): void
   }>()
 
   const formRef = ref<FormInstance>()
@@ -80,7 +83,7 @@
     for (let column of innerColumns) {
       obj[column.prop] = undefined
     }
-    obj = Object.assign({}, obj, model)
+    obj = Object.assign({}, obj, modelValue)
     return obj
   }
   let formValue = reactive(getInitFormValue())
@@ -89,6 +92,7 @@
 
   const handleSubmit = async (formEl: FormInstance | undefined) => {
     if (!formEl) return
+
     await formEl.validate((valid, fields) => {
       if (valid) {
         submitLoading.value = true
@@ -96,7 +100,8 @@
           submitLoading.value = false
         })
       } else {
-        console.error('error submit!', fields)
+        console.log('error submit!', fields)
+        return false
       }
     })
   }
@@ -105,9 +110,22 @@
     console.log(formEl)
     if (!formEl) return
 
-    // formValue = Object.assign({})
     await formEl.resetFields()
   }
+
+  defineExpose({
+    validate: (...args) => formRef.value.validate(...args),
+    validateField: (...args) => formRef.value.validateField(...args),
+    resetFields: (...args) => formRef.value.resetFields(...args),
+    scrollToField: (...args) => formRef.value.scrollToField(...args),
+    clearValidate: (...args) => formRef.value.clearValidate(...args),
+  })
+
+  watchEffect(() => {
+    if (!isEqual(modelValue, formValue)) {
+      emit('update:modelValue', formValue)
+    }
+  })
 </script>
 
 <template>

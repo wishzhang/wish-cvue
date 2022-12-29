@@ -3,6 +3,10 @@
 表单包含 `输入框`, `单选框`, `下拉选择`, `多选框` 等用户输入的组件。 使用表单，您可以收集、验证和提交数据。
 
 ## 基础用法
+Form 组件允许你验证用户的输入是否符合规范，来帮助你找到和纠正错误。
+
+`Form` 组件提供了表单验证的功能，只需为表单或表单的 columns 配置 `rules` 属性传入约定的验证规则。 更多高级用法可参考 [async-validator](https://github.com/yiminghe/async-validator)。
+
 <ContainerDemo>
 <form-basic/>
 </ContainerDemo>
@@ -10,6 +14,35 @@
 :::details
 @[code](@examples/form/basic.vue)
 :::
+
+## 行内表单
+
+当垂直方向空间受限且表单较简单时，可以在一行内放置表单。通过设置 `inline` 属性为 `true` 可以让表单域变为行内的表单域。
+
+<ContainerDemo>
+<form-inline/>
+</ContainerDemo>
+
+:::details
+@[code](@examples/form/inline.vue)
+:::
+
+
+
+## 对齐方式
+
+根据你们的设计情况，来选择最佳的标签对齐方式。
+
+通过设置 `label-position` 属性可以改变表单域标签的位置，可选值为 `top`、`left`， 当设为 `top` 时标签会置于表单域的顶部
+
+<ContainerDemo>
+<form-label-position/>
+</ContainerDemo>
+
+:::details
+@[code](@examples/form/label-position.vue)
+:::
+
 
 ## 属性
 

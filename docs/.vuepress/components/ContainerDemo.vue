@@ -10,6 +10,7 @@
 
 <style scoped>
   .container-demo {
+    z-index: 10000;
     margin: 24px 0;
     padding: 24px 20px;
     border: 1px solid var(--el-border-color);

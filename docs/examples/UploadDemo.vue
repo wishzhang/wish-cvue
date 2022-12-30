@@ -1,25 +1,3 @@
-<script lang="ts" setup>
-  import type { UploadFile } from 'element-plus'
-  import { ref } from 'vue'
-
-  const dialogImageUrl = ref('')
-  const uploadVisible = ref(false)
-  const disabled = ref(false)
-
-  const handleRemove = (file: UploadFile) => {
-    console.log(file)
-  }
-
-  const handlePictureCardPreview = (file: UploadFile) => {
-    dialogImageUrl.value = file.url!
-    uploadVisible.value = true
-  }
-
-  const handleDownload = (file: UploadFile) => {
-    console.log(file)
-  }
-</script>
-
 <template>
   <cvue-upload action="#" list-type="picture-card" :auto-upload="false">
     <el-icon>
@@ -54,3 +32,25 @@
     </template>
   </cvue-upload>
 </template>
+
+<script lang="ts" setup>
+  import type { UploadFile } from 'element-plus'
+  import { ref } from 'vue'
+
+  const dialogImageUrl = ref('')
+  const uploadVisible = ref(false)
+  const disabled = ref(false)
+
+  const handleRemove = (file: UploadFile) => {
+    console.log(file)
+  }
+
+  const handlePictureCardPreview = (file: UploadFile) => {
+    dialogImageUrl.value = file.url!
+    uploadVisible.value = true
+  }
+
+  const handleDownload = (file: UploadFile) => {
+    console.log(file)
+  }
+</script>

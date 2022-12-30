@@ -1,3 +1,7 @@
+<template>
+  <cvue-radio v-model="radio" :dic="radioDic" size="small"></cvue-radio>
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -13,7 +17,3 @@
     },
   ]
 </script>
-
-<template>
-  <cvue-radio v-model="radio" :dic="radioDic" size="small"></cvue-radio>
-</template>

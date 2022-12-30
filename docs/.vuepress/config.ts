@@ -89,7 +89,7 @@ export default defineUserConfig({
           { text: 'Radio 单选框', link: '/comp/radio' },
           { text: 'Select 选择器', link: '/comp/select' },
           { text: 'Time Picker', link: '/comp/time-picker' },
-          { text: 'Upload', link: '/comp/upload' },
+          // { text: 'Upload', link: '/comp/upload' },
         ],
       },
     ],

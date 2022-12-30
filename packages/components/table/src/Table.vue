@@ -1,9 +1,9 @@
 <script lang="ts" setup>
   import TableFooter from '@wele/components/table/src/TableFooter.vue'
-  import { ElTable, ElTableColumn } from 'element-plus'
+  import { ElTable, ElTableColumn, TableInstance } from 'element-plus'
   import { TableFooterProps } from '@wele/components/table/src/TableFooter.vue'
   import TableSearch, { TableSearchProps } from './TableSearch.vue'
-  import { reactive } from 'vue'
+  import { reactive, ref } from 'vue'
   import TableMenu, { TableMenuProps } from './TableMenu.vue'
   import TableOperation, { TableOperationProps } from './TableOperation.vue'
 
@@ -35,6 +35,7 @@
 
   const { columns = [], pagination, search, menu, operation } = defineProps<TableProps>()
   const emit = defineEmits<TableEmits>()
+  const innerRef = ref<TableInstance>()
 
   let searchFormValue = reactive<Record<string, any>>({})
   let pageValue = reactive<Record<string, any>>({
@@ -68,6 +69,22 @@
   const handleMenuAdd = () => {
     emit('menu-add')
   }
+
+  defineExpose({
+    clearSelection: (...args) => innerRef.value.clearSelection(...args),
+    getSelectionRows: (...args) => innerRef.value.getSelectionRows(...args),
+    toggleRowSelection: (...args) => innerRef.value.toggleRowSelection(...args),
+    toggleAllSelection: (...args) => innerRef.value.toggleAllSelection(...args),
+    toggleRowExpansion: (...args) => innerRef.value.toggleRowExpansion(...args),
+    setCurrentRow: (...args) => innerRef.value.setCurrentRow(...args),
+    clearSort: (...args) => innerRef.value.clearSort(...args),
+    clearFilter: (...args) => innerRef.value.clearFilter(...args),
+    doLayout: (...args) => innerRef.value.doLayout(...args),
+    sort: (...args) => innerRef.value.sort(...args),
+    scrollTo: (...args) => innerRef.value.scrollTo(...args),
+    setScrollTop: (...args) => innerRef.value.setScrollTop(...args),
+    setScrollLeft: (...args) => innerRef.value.setScrollLeft(...args),
+  })
 </script>
 
 <template>
@@ -80,7 +97,7 @@
       <div class="cvue-table-menu-box">
         <TableMenu v-bind="menu" @add="handleMenuAdd"></TableMenu>
       </div>
-      <el-table v-bind="$attrs">
+      <el-table ref="innerRef" v-bind="$attrs">
         <template v-for="column in columns" :key="column.prop">
           <el-table-column v-bind="column">
             <template v-if="$slots[column.prop]" #default="scope">

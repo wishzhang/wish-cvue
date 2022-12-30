@@ -1,3 +1,7 @@
+<template>
+  <cvue-select v-model="selectValue" :dic="selectDic"></cvue-select>
+</template>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
 
@@ -17,7 +21,3 @@
     },
   ])
 </script>
-
-<template>
-  <cvue-select v-model="selectValue" :dic="selectDic"></cvue-select>
-</template>

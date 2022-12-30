@@ -1,3 +1,7 @@
+<template>
+  <cvue-checkbox v-model="value" :dic="dic"></cvue-checkbox>
+</template>
+
 <script lang="ts" setup>
   import { reactive, ref } from 'vue'
 
@@ -8,7 +12,3 @@
     { label: '选项3', value: 3 }
   ])
 </script>
-
-<template>
-  <cvue-checkbox v-model="value" :dic="dic"></cvue-checkbox>
-</template>

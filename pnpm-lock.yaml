@@ -125,9 +125,8 @@ importers:
       jquery: ^3.6.3
       vue-clipboard3: ^2.0.0
       vuepress: 2.0.0-beta.59
-      vuepress-plugin-right-anchor: 2.1.0-rc.2
     dependencies:
-      '@wele/cvue': 0.1.0
+      '@wele/cvue': 0.1.1
       jquery: 3.6.3
       vue-clipboard3: 2.0.0
     devDependencies:
@@ -136,7 +135,6 @@ importers:
       '@vuepress/plugin-docsearch': 2.0.0-beta.59
       '@vuepress/utils': 2.0.0-beta.59
       vuepress: 2.0.0-beta.59_ma4yakrobmjrwhoqqdvlr7rprm
-      vuepress-plugin-right-anchor: 2.1.0-rc.2
 
   packages/components:
     specifiers: {}
@@ -2641,8 +2639,8 @@ packages:
       - vue
     dev: true
 
-  /@wele/cvue/0.1.0:
-    resolution: {integrity: sha512-+n5l3SD/zi8rONyJRStfvVKjmo0HCBPyMYLe+TDsLK6e/0PZnGvcGM8mFiLWzKTtqGGwWvEetPJVrjDhwKW6WA==}
+  /@wele/cvue/0.1.1:
+    resolution: {integrity: sha512-XoEF1qHzzgGklSASctaqiWdCDFxQWbQ5ZexgtvbtxUCAqa/Sq4A8sI0aczgKOE8e/JYETOKjI5US993+z38rVA==}
     peerDependencies:
       vue: ^3.2.29
     dependencies:
@@ -10064,10 +10062,6 @@ packages:
       '@vue/runtime-dom': 3.2.45
       '@vue/server-renderer': 3.2.45_vue@3.2.45
       '@vue/shared': 3.2.45
-
-  /vuepress-plugin-right-anchor/2.1.0-rc.2:
-    resolution: {integrity: sha512-gQig9lm+/i0S/k3XyS/S/18huO9MDosrNeEQyZ5CJXPQ7DbbNKba6mADd2OOW1WLIDNmd0lzIiye0sPx2Hu+LQ==}
-    dev: true
 
   /vuepress-vite/2.0.0-beta.59_ma4yakrobmjrwhoqqdvlr7rprm:
     resolution: {integrity: sha512-DyUsTkixrvUQjfxUdRv/uNotrQeOxVQisk6Szo0ukvZQGpet9/aMqAmYFwJy8Xd1od30f+h4M9KNhBM8N9sm1g==}

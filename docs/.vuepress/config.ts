@@ -5,12 +5,6 @@ import { containerPlugin } from '@vuepress/plugin-container'
 // @ts-ignore
 const __dirname = getDirname(import.meta.url)
 
-function parseDom(arg) {
-  var objE = document.createElement('div')
-  objE.innerHTML = arg
-  return objE
-}
-
 export default defineUserConfig({
   lang: 'zh-CN',
   title: 'Cvue',

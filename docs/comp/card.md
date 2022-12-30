@@ -2,11 +2,6 @@
 
 将信息聚合在卡片容器中展示。
 
-:::tip
-该组件除了本文档的示例外，其它的 props 和 emits 的 API 及用法和
-[Element Plus 的 Card 组件](https://element-plus.org/zh-CN/component/card.html) 保持一致。
-:::
-
 ## 示例
 
 卡片包含标题，内容以及操作区域。

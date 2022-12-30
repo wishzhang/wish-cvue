@@ -17,7 +17,83 @@
 
 `stripe` 可以创建带斑马纹的表格。 如果 `true`, 表格将会带有斑马纹。
 
+<ContainerDemo>
+<table-stripe/>
+</ContainerDemo>
 
+:::details
+@[code](@examples/table/stripe.vue)
+:::
+
+## 带边框表格
+
+默认情况下，Table 组件是不具有竖直方向的边框的， 如果需要，可以使用 `border` 属性，把该属性设置为 `true` 即可启用。
+
+<ContainerDemo>
+<table-border/>
+</ContainerDemo>
+
+:::details
+@[code](@examples/table/border.vue)
+:::
+
+
+
+## 带状态表格
+
+可将表格内容 highlight 显示，方便区分「成功、信息、警告、危险」等内容。
+
+可以通过指定 Table 组件的 `row-class-name` 属性来为 Table 中的某一行添加 class， 这样就可以自定义每一行的样式了。
+
+<ContainerDemo>
+<table-status/>
+</ContainerDemo>
+
+:::details
+@[code](@examples/table/status.vue)
+:::
+
+## 固定表头
+
+纵向内容过多时，可选择固定表头。
+
+只要在 `el-table` 元素中定义了 `height` 属性，即可实现固定表头的表格，而不需要额外的代码。
+
+<ContainerDemo>
+<table-height/>
+</ContainerDemo>
+
+:::details
+@[code](@examples/table/height.vue)
+:::
+
+## 固定列
+
+横向内容过多时，可选择固定列。
+
+固定列需要使用 `fixed` 属性，它接受 `Boolean` 值。 如果为 `true`, 列将被左侧固定. 它还接受传入字符串，left 或 right，表示左边固定还是右边固定。
+
+<ContainerDemo>
+<table-fixed/>
+</ContainerDemo>
+
+:::details
+@[code](@examples/table/fixed.vue)
+:::
+
+## 排序
+
+对表格进行排序，可快速查找或对比数据。
+
+在列中设置 `sortable` 属性即可实现以该列为基准的排序， 接受一个 `Boolean`，默认为 `false`。 可以通过 Table 的 `default-sort` 属性设置默认的排序列和排序顺序。 可以使用 `sort-method` 或者 `sort-by` 使用自定义的排序规则。 如果需要后端排序，需将 `sortable` 设置为 `custom`，同时在 Table 上监听 `sort-change` 事件， 在事件回调中可以获取当前排序的字段名和排序顺序，从而向接口请求排序后的表格数据。 在本例中，我们还使用了 `formatter` 属性，它用于格式化指定列的值， 接受一个 `Function`，会传入两个参数：`row` 和 `column`， 可以根据自己的需求进行处理。
+
+<ContainerDemo>
+<table-order/>
+</ContainerDemo>
+
+:::details
+@[code](@examples/table/order.vue)
+:::
 
 
 ## 属性
@@ -85,3 +161,21 @@
 | current-change     | 当表格的当前行发生变化的时候会触发该事件，如果要高亮当前行，请打开表格的 highlight-current-row 属性 | currentRow, oldCurrentRow         |
 | header-dragend     | 当拖动表头改变了列的宽度的时候会触发该事件                   | newWidth, oldWidth, column, event |
 | expand-change      | 当用户对某一行展开或者关闭的时候会触发该事件（展开行时，回调的第二个参数为 expandedRows；树形表格时第二参数为 expanded） | row, (expandedRows \| expanded    |
+
+## 方法
+
+| 方法名             | 说明                                                         | 参数                                                  |
+| :----------------- | :----------------------------------------------------------- | :---------------------------------------------------- |
+| clearSelection     | 用于多选表格，清空用户的选择                                 | —                                                     |
+| getSelectionRows   | 返回当前选中的行                                             |                                                       |
+| toggleRowSelection | 用于多选表格，切换某一行的选中状态， 如果使用了第二个参数，则可直接设置这一行选中与否 | row, selected                                         |
+| toggleAllSelection | 用于多选表格，切换全选和全不选                               | —                                                     |
+| toggleRowExpansion | 用于可扩展的表格或树表格，如果某行被扩展，则切换。 使用第二个参数，您可以直接设置该行应该被扩展或折叠。 | row, expanded                                         |
+| setCurrentRow      | 用于单选表格，设定某一行为选中行， 如果调用时不加参数，则会取消目前高亮行的选中状态。 | row                                                   |
+| clearSort          | 用于清空排序条件，数据会恢复成未排序的状态                   | —                                                     |
+| clearFilter        | 传入由`columnKey` 组成的数组以清除指定列的过滤条件。 如果没有参数，清除所有过滤器 | columnKeys                                            |
+| doLayout           | 对 Table 进行重新布局。 当表格可见性变化时，您可能需要调用此方法以获得正确的布局 | —                                                     |
+| sort               | 手动排序表格。 参数 `prop` 属性指定排序列，`order` 指定排序顺序。 | prop: string, order: string                           |
+| scrollTo           | 滚动到一组特定坐标                                           | (options: ScrollToOptions \| number, yCoord?: number) |
+| setScrollTop       | 设置垂直滚动位置                                             | top                                                   |
+| setScrollLeft      | 设置水平滚动位置                                             | left                                                  |

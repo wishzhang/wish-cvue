@@ -2,11 +2,6 @@
 
 用于选择或输入日期。
 
-:::tip
-该组件除了本文档的示例外，其它的 props 和 emits 的 API 及用法和
-[Element Plus 的 TimePicker 组件](https://element-plus.org/zh-CN/component/time-picker.html) 保持一致。
-:::
-
 ## 示例
 <ContainerDemo>
 <TimePickerDemo/>

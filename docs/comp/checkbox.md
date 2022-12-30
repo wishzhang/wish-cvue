@@ -2,11 +2,6 @@
 
 在一组备选项中进行多选。
 
-:::tip
-该组件除了本文档的示例外，其它的 props 和 emits 的 API 及用法和
-[Element Plus 的 Checkbox 组件](https://element-plus.org/zh-CN/component/checkbox.html) 保持一致。
-:::
-
 ## 示例
 <ContainerDemo>
 <checkbox/>

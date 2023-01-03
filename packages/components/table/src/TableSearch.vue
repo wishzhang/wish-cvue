@@ -11,7 +11,6 @@
 
   const { columns = [] } = defineProps<TableSearchProps>()
   const emit = defineEmits<TableSearchEmits>()
-  // const form = reactive({})
 
   const handleSearch = (val) => {
     emit('search', val)

@@ -3,11 +3,23 @@
     "strict": true,
     "allowJs": true,
     "module": "ESNext",
-    "lib": ["ESNext", "DOM"],
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
     "resolveJsonModule": true,
     "moduleResolution": "Node",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "types": [
+      "vue/ref-macros"
+    ]
   },
-  "include": ["**/*"],
-  "references": [{ "path": "../tsconfig.json" }]
+  "include": [
+    "**/*"
+  ],
+  "references": [
+    {
+      "path": "../tsconfig.json"
+    }
+  ]
 }

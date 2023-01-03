@@ -14,29 +14,19 @@
 
   const columns = reactive([
     {
-      label: '标题1',
+      label: '姓名',
       prop: 'date',
     },
     {
-      label: '标题2',
+      label: '性别',
       prop: 'name',
     },
     {
-      label: '标题3',
-      prop: 'address',
+      label: '年龄',
+      prop: 'age',
     },
   ])
   const data = reactive([
-    {
-      date: '2022-12-12',
-      name: 'wishzhang',
-      address: '广州',
-    },
-    {
-      date: '2022-12-12',
-      name: 'wishzhang',
-      address: '广州',
-    },
     {
       date: '2022-12-12',
       name: 'wishzhang',
@@ -85,14 +75,6 @@
       {
         label: 'label3',
         prop: 'prop3',
-      },
-      {
-        label: 'label4',
-        prop: 'prop4',
-      },
-      {
-        label: 'label5',
-        prop: 'prop5',
       },
     ],
   })

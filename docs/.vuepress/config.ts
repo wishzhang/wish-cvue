@@ -1,6 +1,8 @@
 import { defineUserConfig, defaultTheme } from 'vuepress'
 import { getDirname, path } from '@vuepress/utils'
 import { containerPlugin } from '@vuepress/plugin-container'
+import {pageOutlinePlugin} from "./plugins/PageOutlinePlugin";
+import { activeHeaderLinksPlugin } from '@vuepress/plugin-active-header-links'
 
 // @ts-ignore
 const __dirname = getDirname(import.meta.url)
@@ -11,6 +13,13 @@ export default defineUserConfig({
   description: '这是我的第一个 VuePress 站点',
   base: '/wish-cvue/',
   plugins: [
+    activeHeaderLinksPlugin({
+      // 配置项
+      headerLinkSelector: '.header-anchor',
+      delay: 0,
+      offset: 0
+    }),
+    pageOutlinePlugin(),
     containerPlugin({
       // 配置项
       type: 'details',
@@ -37,6 +46,9 @@ export default defineUserConfig({
         return str
       },
     },
+  },
+  alias: {
+    '@theme/Page.vue': path.resolve(__dirname, './plugins/MyPage.vue'),
   },
   theme: defaultTheme({
     colorMode: 'light',

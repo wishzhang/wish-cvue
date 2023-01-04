@@ -8,9 +8,12 @@
   const page = usePageData()
 
   let activeHash = ref('')
-  onBeforeRouteUpdate((to) => {
-    activeHash.value = to.hash
-  })
+  if(!__VUEPRESS_SSR__) {
+    onBeforeRouteUpdate((to) => {
+      activeHash.value = to.hash
+    })
+  }
+
   function getActiveClass(hash) {
     return activeHash.value === hash ? 'active' : ''
   }

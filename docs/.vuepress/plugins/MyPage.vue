@@ -8,11 +8,18 @@
   const page = usePageData()
 
   let activeHash = ref('')
-  if(!__VUEPRESS_SSR__) {
-    onBeforeRouteUpdate((to) => {
-      activeHash.value = to.hash
-    })
-  }
+  // if(!__VUEPRESS_SSR__) {
+  //   onBeforeRouteUpdate((to) => {
+  //     activeHash.value = to.hash
+  //   })
+  // }
+
+  onMounted(()=>{
+    window.onscroll = (event) => {
+      activeHash.value = decodeURIComponent(location.hash)
+    }
+  })
+
 
   function getActiveClass(hash) {
     return activeHash.value === hash ? 'active' : ''

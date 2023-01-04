@@ -1,7 +1,6 @@
 import { defineUserConfig, defaultTheme } from 'vuepress'
 import { getDirname, path } from '@vuepress/utils'
 import { containerPlugin } from '@vuepress/plugin-container'
-import {pageOutlinePlugin} from "./plugins/PageOutlinePlugin";
 import { activeHeaderLinksPlugin } from '@vuepress/plugin-active-header-links'
 
 // @ts-ignore
@@ -19,7 +18,6 @@ export default defineUserConfig({
       delay: 0,
       offset: 0
     }),
-    pageOutlinePlugin(),
     containerPlugin({
       // 配置项
       type: 'details',
@@ -48,7 +46,7 @@ export default defineUserConfig({
     },
   },
   alias: {
-    '@theme/Page.vue': path.resolve(__dirname, './plugins/MyPage.vue'),
+    '@theme/Page.vue': path.resolve(__dirname, './plugins/MyPage.vue')
   },
   theme: defaultTheme({
     colorMode: 'light',

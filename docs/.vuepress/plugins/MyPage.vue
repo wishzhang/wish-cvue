@@ -2,16 +2,17 @@
   import PageMeta from '@theme/PageMeta.vue'
   import PageNav from '@theme/PageNav.vue'
   import { usePageData } from '@vuepress/client'
-  import { computed, ref } from 'vue'
+  import { computed, ref, onMounted, watch } from 'vue'
+  import { useRoute, onBeforeRouteUpdate } from 'vue-router'
 
   const page = usePageData()
 
-  const isHash = (hash) => {
-    return decodeURIComponent(location.hash) === hash
-  }
-
+  let activeHash = ref('')
+  onBeforeRouteUpdate((to) => {
+    activeHash.value = to.hash
+  })
   function getActiveClass(hash) {
-    return isHash(hash) ? 'active' : ''
+    return activeHash.value === hash ? 'active' : ''
   }
 </script>
 
@@ -26,7 +27,9 @@
         <Content />
         <div class="my-outline">
           <div v-for="(item, index) in page.headers" :key="index">
-            <a :class="getActiveClass(item.link)" :href="item.link">{{ item.title }}</a>
+            <a :class="getActiveClass(item.link)" :href="item.link">{{
+                item.title
+            }}</a>
           </div>
         </div>
       </div>
@@ -42,7 +45,8 @@
 </template>
 
 <style lang="scss">
-  .page .theme-default-content, .page-meta {
+  .page .theme-default-content,
+  .page-meta {
     max-width: calc(100% - 200px) !important;
     margin: 0 !important;
     box-sizing: border-box;
@@ -67,7 +71,10 @@
         text-decoration: none !important;
 
         &.active {
-          color: var(--c-brand);
+          color: var(--c-brand) !important;
+          font-weight: bold;
+          text-decoration: none !important;
+          outline: 0;
         }
       }
     }

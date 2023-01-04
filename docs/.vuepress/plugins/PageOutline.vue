@@ -1,11 +1,7 @@
 <template>
-<div>dd</div>
+  <MyPage></MyPage>
 </template>
 
 <script lang="ts" setup>
-
+  import MyPage from './MyPage.vue'
 </script>
-
-<style scoped>
-
-</style>

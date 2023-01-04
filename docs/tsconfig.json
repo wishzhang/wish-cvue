@@ -10,9 +10,18 @@
     "strict": true,
     "noImplicitAny": false,
     "skipLibCheck": true,
-    "lib": ["WebWorker"],
+    "lib": [
+      "es2018",
+      "WebWorker",
+      "dom"
+    ],
     "jsx": "preserve"
   },
-  "include": ["**/*", ".vuepress/**/*"],
-  "exclude": ["node_modules"]
+  "include": [
+    "**/*",
+    ".vuepress/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -2,6 +2,7 @@ import { defineUserConfig, defaultTheme } from 'vuepress'
 import { getDirname, path } from '@vuepress/utils'
 import { containerPlugin } from '@vuepress/plugin-container'
 import { activeHeaderLinksPlugin } from '@vuepress/plugin-active-header-links'
+import { searchPlugin } from '@vuepress/plugin-search'
 
 // @ts-ignore
 const __dirname = getDirname(import.meta.url)
@@ -12,11 +13,13 @@ export default defineUserConfig({
   description: '这是我的第一个 VuePress 站点',
   base: '/wish-cvue/',
   plugins: [
+    searchPlugin({
+    }),
     activeHeaderLinksPlugin({
       // 配置项
       headerLinkSelector: '.header-anchor',
       delay: 0,
-      offset: 0
+      offset: 0,
     }),
     containerPlugin({
       // 配置项
@@ -46,7 +49,7 @@ export default defineUserConfig({
     },
   },
   alias: {
-    '@theme/Page.vue': path.resolve(__dirname, './plugins/MyPage.vue')
+    '@theme/Page.vue': path.resolve(__dirname, './plugins/MyPage.vue'),
   },
   theme: defaultTheme({
     colorMode: 'light',

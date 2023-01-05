@@ -50,7 +50,7 @@
 <style lang="scss">
   .my-code-container {
     position: relative;
-    z-index: 1000;
+    z-index: 1;
     .language-vue {
       margin-top: 0 !important;
       border-top-left-radius: 0 !important;

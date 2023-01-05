@@ -71,7 +71,7 @@
       right: 0;
       width: 200px;
       top: 80px;
-      z-index: 1000;
+      z-index: 1;
 
       a {
         display: inline-block;

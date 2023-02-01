@@ -9,11 +9,7 @@ import filesize from 'rollup-plugin-filesize'
 import { parallel } from 'gulp'
 import { version } from '../packages/cvue/version'
 import { cvueRoot, cvueOutput } from './utils/paths'
-import {
-  formatBundleFilename,
-  generateExternal,
-  writeBundles,
-} from './utils/rollup'
+import { formatBundleFilename, generateExternal, writeBundles } from './utils/rollup'
 import { withTaskName } from './utils/gulp'
 import { EP_BRAND_NAME } from './utils/constants'
 import { target } from './build-info'
@@ -26,7 +22,7 @@ async function buildFullEntry(minify: boolean) {
     plugins: [
       vue({
         isProduction: true,
-        reactivityTransform: true
+        reactivityTransform: true,
       }),
       nodeResolve({
         extensions: ['.mjs', '.js', '.ts'],
@@ -51,11 +47,7 @@ async function buildFullEntry(minify: boolean) {
   await writeBundles(bundle, [
     {
       format: 'umd',
-      file: path.resolve(
-        cvueOutput,
-        'dist',
-        formatBundleFilename('index.full', minify, 'js')
-      ),
+      file: path.resolve(cvueOutput, 'dist', formatBundleFilename('index.full', minify, 'js')),
       exports: 'named',
       name: 'Cvue',
       globals: {
@@ -66,11 +58,7 @@ async function buildFullEntry(minify: boolean) {
     },
     {
       format: 'esm',
-      file: path.resolve(
-        cvueOutput,
-        'dist',
-        formatBundleFilename('index.full', minify, 'mjs')
-      ),
+      file: path.resolve(cvueOutput, 'dist', formatBundleFilename('index.full', minify, 'mjs')),
       sourcemap: minify,
       banner,
     },

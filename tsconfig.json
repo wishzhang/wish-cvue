@@ -1,4 +1,29 @@
 {
-  "files": [],
-  "references": [{ "path": "./tsconfig.web.json" }]
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "es2018",
+    "module": "esnext",
+    "baseUrl": ".",
+    "sourceMap": false,
+    "moduleResolution": "node",
+    "allowJs": false,
+    "resolveJsonModule": true,
+    "removeComments": false,
+    "rootDir": ".",
+    "paths": {
+      "@element-plus/*": ["packages/*"]
+    },
+    "noImplicitAny": false,
+    "composite": true,
+    "jsx": "preserve",
+    "lib": ["ES2018", "DOM", "DOM.Iterable"],
+    "types": ["unplugin-vue-macros/macros-global", "vitest/globals", "vue/ref-macros"],
+    "skipLibCheck": true,
+    "strict": false,
+    "noUnusedLocals": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["packages", "typings/components.d.ts", "typings/env.d.ts", "build"],
+  "exclude": ["node_modules", "**/dist", "**/__tests__/**/*", "packages/test-utils", "**/*.md"]
 }

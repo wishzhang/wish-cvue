@@ -35,10 +35,8 @@
     "theme-chalk/**/*.css",
     "theme-chalk/src/**/*.scss"
   ],
-  "peerDependencies": {
-    "vue": "^3.2.29"
-  },
   "dependencies": {
+    "vue": "^3.2.45",
     "@types/lodash-es": "^4.17.6",
     "lodash-es": "^4.17.21"
   },

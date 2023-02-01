@@ -1,7 +1,3 @@
-<script lang="ts">
-  export const formItemHide = 'avue-form-item-hide'
-</script>
-
 <script lang="ts" setup>
   import { cloneDeep, isEqual } from 'lodash-es'
   import { reactive, ref, watchEffect } from 'vue'

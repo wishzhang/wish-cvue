@@ -19,6 +19,20 @@
   "module": "dist/index.full.mjs",
   "unpkg": "dist/index.full.js",
   "jsdelivr": "dist/index.full.js",
+  "exports": {
+    ".": {
+      "types": "./es/packages/cvue/index.d.ts",
+      "import": "./es/packages/cvue/index.mjs",
+      "require": "./lib/packages/cvue/index.js"
+    },
+    "./es": "./es/packages/cvue/index.mjs",
+    "./lib": "./lib/packages/cvue/index.js",
+    "./es/*.mjs": "./es/packages/cvue/*.mjs",
+    "./es/*": "./es/packages/cvue/*.mjs",
+    "./lib/*.js": "./lib/packages/cvue/*.js",
+    "./lib/*": "./lib/packages/cvue/*.js",
+    "./*": "./*"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wishzhang/wish-cvue.git"

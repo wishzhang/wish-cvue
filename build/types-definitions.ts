@@ -43,6 +43,7 @@ import glob from 'fast-glob'
 import { buildOutput, pkgRoot, projRoot } from './utils/paths'
 import * as vueCompiler from '@vue/compiler-sfc'
 import { excludeFiles } from './utils/pkg'
+import { typesPostProcess } from './types-post-process'
 
 export const generateTypesDefinitions = async () => {
   const project = new Project({
@@ -66,6 +67,8 @@ export const generateTypesDefinitions = async () => {
   project.emitToMemory()
 
   await saveFiles(sourceFiles)
+
+  await typesPostProcess()
 }
 
 async function saveFiles(sourceFiles: SourceFile[]) {

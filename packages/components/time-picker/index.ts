@@ -1,10 +1,8 @@
 import TimePicker from './src/TimePicker.vue'
-import type { App } from 'vue'
+import { withInstall } from '@wele/utils'
 
 export * from './src/TimePicker.vue'
 
-TimePicker['install'] = (app: App) => {
-  app.component('CvueTimePicker', TimePicker)
-}
+export const CvueTimePicker = withInstall(TimePicker)
 
-export default TimePicker
+export default CvueTimePicker

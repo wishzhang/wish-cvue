@@ -11,6 +11,10 @@
     (e: 'change', value: InputNumberRangeProps['modelValue']): void
   }
 
+  defineOptions({
+    name: 'CvueInputNumberRange',
+  })
+
   const { modelValue = [undefined, undefined], controls = false } =
     defineProps<InputNumberRangeProps>()
   const emit = defineEmits<InputNumberRangeEmits>()

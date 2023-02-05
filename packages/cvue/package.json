@@ -17,6 +17,7 @@
   "license": "MIT",
   "main": "dist/index.full.js",
   "module": "dist/index.full.mjs",
+  "types": "es/packages/cvue/index.d.ts",
   "unpkg": "dist/index.full.js",
   "jsdelivr": "dist/index.full.js",
   "exports": {
@@ -50,9 +51,11 @@
     "theme-chalk/src/**/*.scss"
   ],
   "dependencies": {
-    "vue": "^3.2.45",
     "@types/lodash-es": "^4.17.6",
     "lodash-es": "^4.17.21"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.45"
   },
   "browserslist": [
     "> 1%",

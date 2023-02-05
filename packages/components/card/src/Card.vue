@@ -3,6 +3,10 @@
     shadow?: 'always' | 'hover' | 'never'
   }
 
+  defineOptions({
+    name: 'CvueCard',
+  })
+
   const { shadow = 'never' } = defineProps<CardProps>()
 </script>
 

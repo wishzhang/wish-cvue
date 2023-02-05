@@ -7,7 +7,6 @@ import Checkbox from '@wele/components/checkbox'
 import InputNumberRange from '@wele/components/input-number-range'
 import Select from '@wele/components/select'
 import Dialog from '@wele/components/dialog'
-import Upload from '@wele/components/upload'
 import Card from '@wele/components/card'
 import DatePicker from '@wele/components/date-picker'
 import TimePicker from '@wele/components/time-picker'
@@ -22,7 +21,6 @@ export default [
   InputNumberRange,
   Select,
   Dialog,
-  Upload,
   Card,
   DatePicker,
   TimePicker,

@@ -4,6 +4,10 @@
     dic?: Array<Record<string, any>>
   }
 
+  defineOptions({
+    name: 'CvueRadio',
+  })
+
   const { dic = [] } = defineProps<RadioProps>()
 </script>
 

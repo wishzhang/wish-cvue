@@ -17,7 +17,12 @@
     "composite": true,
     "jsx": "preserve",
     "lib": ["ES2018", "DOM", "DOM.Iterable"],
-    "types": ["unplugin-vue-macros/macros-global", "vitest/globals", "vue/ref-macros"],
+    "types": [
+      "unplugin-vue-macros/macros-global",
+      "vitest/globals",
+      "vue/ref-macros",
+      "unplugin-vue-define-options/macros-global"
+    ],
     "skipLibCheck": true,
     "strict": false,
     "noUnusedLocals": false,

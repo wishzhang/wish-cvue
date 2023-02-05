@@ -9,6 +9,10 @@
     dic?: Array<CheckboxItem>
   }
 
+  defineOptions({
+    name: 'CvueCheckbox',
+  })
+
   const { dic = [] } = defineProps<CheckboxProps>()
 </script>
 

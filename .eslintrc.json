@@ -11,7 +11,8 @@
     "$computed": "readonly",
     "$shallowRef": "readonly",
     "$customRef": "readonly",
-    "$toRef": "readonly"
+    "$toRef": "readonly",
+    "defineOptions": true
   },
   "extends": [
     "eslint:recommended",
@@ -37,6 +38,7 @@
     "vue/multi-word-component-names": "off",
     "vue/no-setup-props-destructure": "off",
     "@typescript-eslint/no-empty-function": "off",
-    "@typescript-eslint/no-empty-interface": "off"
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 }

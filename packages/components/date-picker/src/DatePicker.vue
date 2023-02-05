@@ -5,6 +5,10 @@
     placeholder?: string
   }
 
+  defineOptions({
+    name: 'CvueDatePicker',
+  })
+
   const { placeholder = '请选择' } = defineProps<DatePickerProps>()
 
   // expose

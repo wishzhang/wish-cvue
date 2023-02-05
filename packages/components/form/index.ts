@@ -1,11 +1,9 @@
 import Form from './src/Form.vue'
-import type { App } from 'vue'
+import { withInstall } from '@wele/utils'
 
 export * from './src/Form'
 export * from './src/Form.vue'
 
-Form['install'] = (app: App) => {
-  app.component('CvueForm', Form)
-}
+export const CvueForm = withInstall(Form)
 
-export default Form
+export default CvueForm

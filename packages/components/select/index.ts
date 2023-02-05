@@ -1,10 +1,8 @@
 import Select from './src/Select.vue'
-import type { App } from 'vue'
+import { withInstall } from '@wele/utils'
 
 export * from './src/Select.vue'
 
-Select['install'] = (app: App) => {
-  app.component('CvueSelect', Select)
-}
+export const CvueSelect = withInstall(Select)
 
-export default Select
+export default CvueSelect

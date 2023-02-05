@@ -1,10 +1,8 @@
 import QueryFilter from './src/QueryFilter.vue'
-import type { App } from 'vue'
+import { withInstall } from '@wele/utils'
 
 export * from './src/QueryFilter.vue'
 
-QueryFilter['install'] = (app: App) => {
-  app.component('CvueQueryFilter', QueryFilter)
-}
+export const CvueQueryFilter = withInstall(QueryFilter)
 
-export default QueryFilter
+export default CvueQueryFilter

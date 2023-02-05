@@ -1,10 +1,8 @@
+import { withInstall } from '@wele/utils'
 import Checkbox from './src/Checkbox.vue'
-import type { App } from 'vue'
 
 export * from './src/Checkbox.vue'
 
-Checkbox['install'] = (app: App) => {
-  app.component('CvueCheckbox', Checkbox)
-}
+export const CvueCheckbox = withInstall(Checkbox)
 
-export default Checkbox
+export default CvueCheckbox

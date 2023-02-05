@@ -1,13 +1,11 @@
 import Table from './src/Table.vue'
-import type { App } from 'vue'
+import { withInstall } from '@wele/utils'
 
 export * from './src/TableFooter.vue'
 export * from './src/TableMenu.vue'
 export * from './src/TableOperation.vue'
 export * from './src/TableSearch.vue'
 
-Table['install'] = (app: App) => {
-  app.component('CvueTable', Table)
-}
+export const CvueTable = withInstall(Table)
 
-export default Table
+export default CvueTable

@@ -1,10 +1,8 @@
 import Dialog from './src/Dialog.vue'
-import type { App } from 'vue'
+import { withInstall } from '@wele/utils'
 
 export * from './src/Dialog.vue'
 
-Dialog['install'] = (app: App) => {
-  app.component('CvueDialog', Dialog)
-}
+export const CvueDialog = withInstall(Dialog)
 
-export default Dialog
+export default CvueDialog

@@ -19,6 +19,10 @@
     (e: 'close'): void
   }
 
+  defineOptions({
+    name: 'CvueDialog',
+  })
+
   const { modelValue, destroyOnClose = true } = defineProps<DialogProps>()
   const emit = defineEmits<DialogEmits>()
 

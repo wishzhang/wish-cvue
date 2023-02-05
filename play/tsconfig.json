@@ -7,7 +7,7 @@
     "resolveJsonModule": true,
     "moduleResolution": "Node",
     "baseUrl": ".",
-    "types": ["vue/ref-macros"]
+    "types": ["vue/ref-macros", "unplugin-vue-define-options/macros-global"]
   },
   "include": ["**/*"],
   "references": [

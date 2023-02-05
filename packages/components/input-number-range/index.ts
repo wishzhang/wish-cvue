@@ -1,10 +1,8 @@
 import InputNumberRange from './src/InputNumberRange.vue'
-import type { App } from 'vue'
+import { withInstall } from '@wele/utils'
 
 export * from './src/InputNumberRange.vue'
 
-InputNumberRange['install'] = (app: App) => {
-  app.component('CvueInputNumberRange', InputNumberRange)
-}
+export const CvueInputNumberRange = withInstall(InputNumberRange)
 
-export default InputNumberRange
+export default CvueInputNumberRange

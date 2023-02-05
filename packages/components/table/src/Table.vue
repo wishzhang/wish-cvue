@@ -35,6 +35,10 @@
     (e: 'row-delete'): void
   }
 
+  defineOptions({
+    name: 'CvueTable',
+  })
+
   const {
     columns = [],
     pagination,

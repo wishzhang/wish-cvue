@@ -26,6 +26,10 @@
     model?: any
   }
 
+  defineOptions({
+    name: 'CvueForm',
+  })
+
   const {
     columns = [],
     labelWidth = 84,

@@ -12,6 +12,10 @@
     (e: 'search', val: any): void
   }
 
+  defineOptions({
+    name: 'CvueQueryFilter',
+  })
+
   const { columns = [], defaultColsNumber = 0 } = defineProps<QueryFilterProps>()
   const emit = defineEmits<QueryFilterEmits>()
 

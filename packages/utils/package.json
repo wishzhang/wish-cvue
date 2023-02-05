@@ -1,0 +1,9 @@
+{
+  "name": "@wele/utils",
+  "version": "0.0.1",
+  "keywords": [],
+  "author": "wishzhang",
+  "license": "MIT",
+  "main": "index.ts",
+  "module": "index.ts"
+}

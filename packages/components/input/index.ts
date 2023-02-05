@@ -1,10 +1,8 @@
 import Input from './src/Input.vue'
-import type { App } from 'vue'
+import { withInstall } from '@wele/utils'
 
 export * from './src/Input.vue'
 
-Input['install'] = (app: App) => {
-  app.component('CvueInput', Input)
-}
+export const CvueInput = withInstall(Input)
 
-export default Input
+export default CvueInput

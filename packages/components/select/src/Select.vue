@@ -7,6 +7,10 @@
 
   export interface SelectEmits {}
 
+  defineOptions({
+    name: 'CvueSelect',
+  })
+
   const { placeholder = '请选择', clearable = true, dic = [] } = defineProps<SelectProps>()
 </script>
 

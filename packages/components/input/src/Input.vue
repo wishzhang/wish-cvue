@@ -1,12 +1,16 @@
 <script setup lang="ts">
   import { ref } from 'vue'
-  import type { InputProps } from 'element-plus'
 
-  export interface CVueInputProps extends InputProps {
+  export interface CVueInputProps {
     placeholder?: string
     clearable?: boolean
     rows?: number
   }
+
+  defineOptions({
+    name: 'CvueInput',
+    inheritAttrs: false,
+  })
 
   const { placeholder = '请输入', clearable = true, rows = 4 } = defineProps<CVueInputProps>()
 

@@ -1,10 +1,8 @@
 import DatePicker from './src/DatePicker.vue'
-import type { App } from 'vue'
+import { withInstall } from '@wele/utils'
 
 export * from './src/DatePicker.vue'
 
-DatePicker['install'] = (app: App) => {
-  app.component('CvueDatePicker', DatePicker)
-}
+export const CvueDatePicker = withInstall(DatePicker)
 
-export default DatePicker
+export default CvueDatePicker

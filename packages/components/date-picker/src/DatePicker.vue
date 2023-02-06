@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { ref } from 'vue'
 
-  export interface DatePickerProps {
+  interface CvueDatePickerProps {
     placeholder?: string
   }
 
@@ -9,7 +9,7 @@
     name: 'CvueDatePicker',
   })
 
-  const { placeholder = '请选择' } = defineProps<DatePickerProps>()
+  const { placeholder = '请选择' } = defineProps<CvueDatePickerProps>()
 
   // expose
   const datePicker = ref()

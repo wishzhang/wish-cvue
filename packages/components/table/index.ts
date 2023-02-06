@@ -1,11 +1,8 @@
 import Table from './src/Table.vue'
 import { withInstall } from '@wele/utils'
+import type {} from 'vue'
+import type {} from 'vue/macros'
 
-export * from './src/TableFooter.vue'
-export * from './src/TableMenu.vue'
-export * from './src/TableOperation.vue'
-export * from './src/TableSearch.vue'
-
-export const CvueTable = withInstall(Table)
+export const CvueTable = withInstall(Table, 'CvueTable')
 
 export default CvueTable

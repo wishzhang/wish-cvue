@@ -48,14 +48,13 @@ import { typesPostProcess } from './types-post-process'
 export const generateTypesDefinitions = async () => {
   const project = new Project({
     compilerOptions: {
-      allowJs: true,
       declaration: true,
       emitDeclarationOnly: true,
       noEmitOnError: false,
       skipLibCheck: true,
       baseUrl: projRoot,
       // 为true,生成的类型不完整，目前不知为何
-      preserveSymlinks: false,
+      preserveSymlinks: true,
       outDir: path.resolve(buildOutput, 'types'),
     },
     tsConfigFilePath: path.resolve(projRoot, 'tsconfig.json'),
@@ -63,6 +62,8 @@ export const generateTypesDefinitions = async () => {
   })
 
   const sourceFiles: SourceFile[] = await addSourceFiles(project)
+
+  typeCheck(project)
 
   project.emitToMemory()
 
@@ -94,11 +95,6 @@ async function addSourceFiles(project: Project) {
       onlyFiles: true,
     })
   )
-
-  // const files2 = excludeFiles(await glob("**/*.{js?(x),ts,vue}", {
-  //   cwd: cvueRoot,
-  //   onlyFiles: true
-  // }));
 
   const sourceFiles: SourceFile[] = []
 
@@ -139,15 +135,17 @@ async function addSourceFiles(project: Project) {
         sourceFiles.push(sourceFile)
       }
     }),
-    // ...files2.map(async (file) => {
-    //   const content = await fs.promises.readFile(path.resolve(cvueRoot, file), "utf-8");
-    //   sourceFiles.push(
-    //     project.createSourceFile(path.resolve(pkgRoot, file), content)
-    //   );
-    // })
   ])
 
   return sourceFiles
 }
 
-// todo: type check
+function typeCheck(project: Project) {
+  const diagnostics = project.getPreEmitDiagnostics()
+  if (diagnostics.length > 0) {
+    console.error(project.formatDiagnosticsWithColorAndContext(diagnostics))
+    const err = new Error('Failed to generate dts.')
+    console.error(err)
+    // throw err
+  }
+}

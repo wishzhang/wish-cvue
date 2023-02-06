@@ -10,6 +10,7 @@ import Dialog from '@wele/components/dialog'
 import Card from '@wele/components/card'
 import DatePicker from '@wele/components/date-picker'
 import TimePicker from '@wele/components/time-picker'
+import type { Plugin } from 'vue'
 
 export default [
   Form,
@@ -24,4 +25,4 @@ export default [
   Card,
   DatePicker,
   TimePicker,
-]
+] as Plugin[]

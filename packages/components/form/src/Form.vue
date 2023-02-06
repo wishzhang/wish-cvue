@@ -3,7 +3,7 @@
   import { reactive, ref, watchEffect } from 'vue'
   import type { FormInstance, FormRules } from 'element-plus'
 
-  export type FormColumns = Array<{
+  export type CvueFormColumns = Array<{
     prop: string
     label: string
     hide?: boolean
@@ -12,13 +12,9 @@
     rules?: FormRules
   }>
 
-  export interface FormFinishFC {
-    (value: FormProps['model'], done: () => void): void
-  }
-
   export interface FormProps {
     labelWidth?: number
-    columns: FormColumns
+    columns: CvueFormColumns
     inline?: boolean
     showOperation?: boolean
     modelValue?: any
@@ -38,7 +34,7 @@
     modelValue = {},
   } = defineProps<FormProps>()
   const emit = defineEmits<{
-    (e: 'finish', value: FormFinishFC): void
+    (e: 'finish', value: FormProps['model'], done: () => void): void
     (e: 'update:modelValue', value: any): void
   }>()
 
@@ -114,11 +110,11 @@
   }
 
   defineExpose({
-    validate: (...args) => formRef.value.validate(...args),
-    validateField: (...args) => formRef.value.validateField(...args),
-    resetFields: (...args) => formRef.value.resetFields(...args),
-    scrollToField: (...args) => formRef.value.scrollToField(...args),
-    clearValidate: (...args) => formRef.value.clearValidate(...args),
+    validate: (...args: any[]) => formRef.value.validate(...args),
+    validateField: (...args: any[]) => formRef.value.validateField(...args),
+    resetFields: (...args: any[]) => formRef.value.resetFields(...args),
+    // scrollToField: (...args: any) => formRef.value.scrollToField(...args),
+    clearValidate: (...args: any[]) => formRef.value.clearValidate(...args),
   })
 
   watchEffect(() => {

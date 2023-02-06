@@ -1,33 +1,25 @@
 <script lang="ts" setup>
-  import TableFooter from '@wele/components/table/src/TableFooter.vue'
+  import TableFooter from './TableFooter.vue'
   import { ElTable, ElTableColumn, TableInstance, TableProps } from 'element-plus'
-  import { TableFooterProps } from '@wele/components/table/src/TableFooter.vue'
-  import TableSearch, { TableSearchProps } from './TableSearch.vue'
+  import TableSearch from './TableSearch.vue'
   import { onMounted, reactive, watchEffect } from 'vue'
-  import TableMenu, { TableMenuProps } from './TableMenu.vue'
-  import TableOperation, { TableOperationProps } from './TableOperation.vue'
+  import TableMenu from './TableMenu.vue'
+  import TableOperation from './TableOperation.vue'
   import { merge } from 'lodash-es'
+  import type {} from 'vue/macros'
 
-  export type ElTableType = typeof ElTable
-  export type ElTableColumnType = typeof ElTableColumn
+  type ElTableColumnType = typeof ElTableColumn
 
-  export interface Column {
-    prop: string
-    label: string
-  }
-
-  export type Columns = Array<Column>
-
-  export interface CvueTableProps<T = any> extends TableProps<T> {
-    operation?: TableOperationProps
-    menu?: TableMenuProps
-    search?: TableSearchProps
-    pagination?: TableFooterProps
+  interface CvueTableProps<T = any> extends TableProps<T> {
+    operation?: any
+    menu?: any
+    search?: any
+    pagination?: any
     columns: Array<ElTableColumnType>
     onLoad?: (params: Record<string, any>) => Promise<void>
   }
 
-  export interface TableEmits {
+  interface TableEmits {
     (e: 'on-load', searchValue: Record<string, any>): Promise<any> | void
     (e: 'menu-add'): void
     (e: 'row-add'): void
@@ -51,7 +43,7 @@
 
   let innerRef = $ref<TableInstance>()
   let tableLoading = $ref(false)
-  let innerPagination = $ref({})
+  let innerPagination: any = $ref({})
 
   watchEffect(() => {
     innerPagination = merge(
@@ -100,20 +92,21 @@
     innerOnLoad()
   })
 
+  // ts-ignore
   defineExpose({
-    clearSelection: (...args) => innerRef.clearSelection(...args),
-    getSelectionRows: (...args) => innerRef.getSelectionRows(...args),
-    toggleRowSelection: (...args) => innerRef.toggleRowSelection(...args),
-    toggleAllSelection: (...args) => innerRef.toggleAllSelection(...args),
-    toggleRowExpansion: (...args) => innerRef.toggleRowExpansion(...args),
-    setCurrentRow: (...args) => innerRef.setCurrentRow(...args),
-    clearSort: (...args) => innerRef.clearSort(...args),
-    clearFilter: (...args) => innerRef.clearFilter(...args),
-    doLayout: (...args) => innerRef.doLayout(...args),
-    sort: (...args) => innerRef.sort(...args),
-    scrollTo: (...args) => innerRef.scrollTo(...args),
-    setScrollTop: (...args) => innerRef.setScrollTop(...args),
-    setScrollLeft: (...args) => innerRef.setScrollLeft(...args),
+    clearSelection: (...args) => innerRef.clearSelection(...(args as [])),
+    getSelectionRows: (...args) => innerRef.getSelectionRows(...(args as [])),
+    toggleRowSelection: (...args) => innerRef.toggleRowSelection(args[0], args[1]),
+    toggleAllSelection: (...args) => innerRef.toggleAllSelection(...(args as [])),
+    toggleRowExpansion: (...args) => innerRef.toggleRowExpansion(args as []),
+    setCurrentRow: (...args) => innerRef.setCurrentRow(args as []),
+    clearSort: (...args) => innerRef.clearSort(...(args as [])),
+    clearFilter: (...args) => innerRef.clearFilter(args as []),
+    doLayout: (...args) => innerRef.doLayout(...(args as [])),
+    sort: (...args) => innerRef.sort(args[0], args[1]),
+    scrollTo: (...args) => innerRef.scrollTo(args[0], args[1]),
+    setScrollTop: (...args) => innerRef.setScrollTop(...(args as [])),
+    setScrollLeft: (...args) => innerRef.setScrollLeft(...(args as [])),
   })
 </script>
 

@@ -1,19 +1,19 @@
 <script lang="ts" setup>
-  export interface CheckboxItem {
+  export interface CvueCheckboxItem {
     label: string
     value: string
     disabled?: boolean
   }
 
-  export interface CheckboxProps {
-    dic?: Array<CheckboxItem>
+  export interface CvueCheckboxProps {
+    dic?: Array<CvueCheckboxItem>
   }
 
   defineOptions({
     name: 'CvueCheckbox',
   })
 
-  const { dic = [] } = defineProps<CheckboxProps>()
+  const { dic = [] } = defineProps<CvueCheckboxProps>()
 </script>
 
 <template>

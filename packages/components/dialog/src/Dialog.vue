@@ -1,20 +1,14 @@
 <script setup lang="ts">
   import { ref } from 'vue'
 
-  interface DialogConfirm {
-    startLoading: () => void
-    stopLoading: () => void
-    done: () => void
-  }
-
-  interface DialogProps {
+  interface CvueDialogProps {
     modelValue?: any
     destroyOnClose?: boolean
   }
 
-  interface DialogEmits {
-    (e: 'update:modelValue', val: DialogProps['modelValue']): void
-    (e: 'confirm', val: DialogConfirm): void
+  interface CvueDialogEmits {
+    (e: 'update:modelValue', val: CvueDialogProps['modelValue']): void
+    (e: 'confirm', val: any): void
     (e: 'cancel'): void
     (e: 'close'): void
   }
@@ -23,8 +17,8 @@
     name: 'CvueDialog',
   })
 
-  const { modelValue, destroyOnClose = true } = defineProps<DialogProps>()
-  const emit = defineEmits<DialogEmits>()
+  const { modelValue, destroyOnClose = true } = defineProps<CvueDialogProps>()
+  const emit = defineEmits<CvueDialogEmits>()
 
   let innerModelValue = ref(modelValue)
 

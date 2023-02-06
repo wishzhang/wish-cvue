@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-  import Form, { FormProps } from '@wele/components/form'
+  import Form from '@wele/components/form'
   import { reactive, ref, watchEffect, computed } from 'vue'
   import { cloneDeep } from 'lodash-es'
 
   export interface QueryFilterProps {
     defaultColsNumber?: number
-    columns: FormProps['columns']
+    columns: any
   }
 
   export interface QueryFilterEmits {

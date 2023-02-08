@@ -3,10 +3,9 @@
     shadow?: 'always' | 'hover' | 'never'
   }
 
-  // defineOptions({
-  //   name: 'CvueCard',
-  // })
-  let aa = $ref('hihi')
+  defineOptions({
+    name: 'CvueCard',
+  })
   const { shadow = 'never' } = defineProps<CvueCardProps>()
 </script>
 

@@ -9,7 +9,6 @@
 
   defineOptions({
     name: 'CvueInput',
-    inheritAttrs: false,
   })
 
   const { placeholder = '请输入', clearable = true, rows = 4 } = defineProps<CVueInputProps>()

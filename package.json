@@ -24,6 +24,7 @@
     "@wele/docs": "workspace:*",
     "@wele/theme-chalk": "workspace:*",
     "@wele/utils": "workspace:*",
+    "@wele/cvue": "workspace:*",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
@@ -50,7 +51,7 @@
     "@vue/test-utils": "^2.2.7",
     "chalk": "4.1.2",
     "consola": "^2.15.3",
-    "element-plus": "^2.2.28",
+    "element-plus": "^2.2.29",
     "esbuild": "0.14.12",
     "eslint": "^8.31.0",
     "eslint-config-prettier": "^8.6.0",

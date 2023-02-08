@@ -7,11 +7,6 @@
   "globals": {
     "module": true,
     "arguments": true,
-    "$ref": "readonly",
-    "$computed": "readonly",
-    "$shallowRef": "readonly",
-    "$customRef": "readonly",
-    "$toRef": "readonly",
     "defineOptions": true
   },
   "extends": [

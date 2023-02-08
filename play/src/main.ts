@@ -5,13 +5,15 @@ import App from './App.vue'
 import Cvue from '@wele/cvue'
 import '@wele/theme-chalk/src/index.scss'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+// @ts-ignore
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 
 const app = createApp(App)
-app.use(ElementPlus, { zIndex: 3000, locale: zhCn })
+app.use(ElementPlus, {
+  locale: zhCn,
+})
 app.use(Cvue)
 
-// element icons
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }

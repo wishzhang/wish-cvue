@@ -1,7 +1,5 @@
 #
 packages:
   - 'packages/**'
-  - '!packages/cvue'
   - play
   - docs
-  - '!**/__tests__/**'

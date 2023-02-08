@@ -7,12 +7,10 @@
     "resolveJsonModule": true,
     "moduleResolution": "Node",
     "baseUrl": ".",
+    "paths": {
+      "@wele/*": ["packages/*"]
+    },
     "types": ["vue/ref-macros", "unplugin-vue-define-options/macros-global"]
   },
-  "include": ["**/*"],
-  "references": [
-    {
-      "path": "../tsconfig.json"
-    }
-  ]
+  "include": ["**/*"]
 }

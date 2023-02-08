@@ -1,21 +1,20 @@
 <script lang="ts" setup>
   import TableFooter from './TableFooter.vue'
-  import { ElTable, ElTableColumn, TableInstance, TableProps } from 'element-plus'
+  import { ElTable } from 'element-plus'
+  import type { TableColumnInstance, TableInstance } from 'element-plus'
   import TableSearch from './TableSearch.vue'
-  import { onMounted, reactive, watchEffect } from 'vue'
+  import { onMounted, reactive, watchEffect, ref } from 'vue'
   import TableMenu from './TableMenu.vue'
   import TableOperation from './TableOperation.vue'
   import { merge } from 'lodash-es'
   import type {} from 'vue/macros'
 
-  type ElTableColumnType = typeof ElTableColumn
-
-  interface CvueTableProps<T = any> extends TableProps<T> {
+  interface CvueTableProps {
     operation?: any
     menu?: any
     search?: any
     pagination?: any
-    columns: Array<ElTableColumnType>
+    columns: Array<TableColumnInstance>
     onLoad?: (params: Record<string, any>) => Promise<void>
   }
 
@@ -41,12 +40,12 @@
   } = defineProps<CvueTableProps>()
   const emit = defineEmits<TableEmits>()
 
-  let innerRef = $ref<TableInstance>()
-  let tableLoading = $ref(false)
-  let innerPagination: any = $ref({})
+  let innerRef = ref<TableInstance>()
+  let tableLoading = ref(false)
+  let innerPagination: any = ref({})
 
   watchEffect(() => {
-    innerPagination = merge(
+    innerPagination.value = merge(
       {},
       {
         currentPage: 1,
@@ -56,7 +55,7 @@
     )
   })
 
-  let searchFormValue = $ref({})
+  let searchFormValue = ref({})
   let params = reactive<object>({})
 
   const handleSizeChange = () => {}
@@ -64,20 +63,20 @@
   const handleCurrentChange = () => {}
 
   const innerOnLoad = async () => {
-    tableLoading = true
-    params = Object.assign(params, searchFormValue, innerPagination)
+    tableLoading.value = true
+    params = Object.assign(params, searchFormValue.value, innerPagination.value)
     await onLoad(params)
-    tableLoading = false
+    tableLoading.value = false
   }
 
   const handleSearchClick = (val) => {
-    innerPagination.currentPage = 1
-    searchFormValue = Object.assign(searchFormValue, val)
+    innerPagination.value.currentPage = 1
+    searchFormValue.value = Object.assign(searchFormValue.value, val)
     innerOnLoad()
   }
 
   const handleFooterChange = (page) => {
-    innerPagination = merge({}, innerPagination, {
+    innerPagination.value = merge({}, innerPagination, {
       currentPage: page.currentPage,
       pageSize: page.pageSize,
     })
@@ -94,19 +93,19 @@
 
   // ts-ignore
   defineExpose({
-    clearSelection: (...args) => innerRef.clearSelection(...(args as [])),
-    getSelectionRows: (...args) => innerRef.getSelectionRows(...(args as [])),
-    toggleRowSelection: (...args) => innerRef.toggleRowSelection(args[0], args[1]),
-    toggleAllSelection: (...args) => innerRef.toggleAllSelection(...(args as [])),
-    toggleRowExpansion: (...args) => innerRef.toggleRowExpansion(args as []),
-    setCurrentRow: (...args) => innerRef.setCurrentRow(args as []),
-    clearSort: (...args) => innerRef.clearSort(...(args as [])),
-    clearFilter: (...args) => innerRef.clearFilter(args as []),
-    doLayout: (...args) => innerRef.doLayout(...(args as [])),
-    sort: (...args) => innerRef.sort(args[0], args[1]),
-    scrollTo: (...args) => innerRef.scrollTo(args[0], args[1]),
-    setScrollTop: (...args) => innerRef.setScrollTop(...(args as [])),
-    setScrollLeft: (...args) => innerRef.setScrollLeft(...(args as [])),
+    clearSelection: (...args) => innerRef.value.clearSelection(...(args as [])),
+    getSelectionRows: (...args) => innerRef.value.getSelectionRows(...(args as [])),
+    toggleRowSelection: (...args) => innerRef.value.toggleRowSelection(args[0], args[1]),
+    toggleAllSelection: (...args) => innerRef.value.toggleAllSelection(...(args as [])),
+    toggleRowExpansion: (...args) => innerRef.value.toggleRowExpansion(args as []),
+    setCurrentRow: (...args) => innerRef.value.setCurrentRow(args as []),
+    clearSort: (...args) => innerRef.value.clearSort(...(args as [])),
+    clearFilter: (...args) => innerRef.value.clearFilter(args as []),
+    doLayout: (...args) => innerRef.value.doLayout(...(args as [])),
+    sort: (...args) => innerRef.value.sort(args[0], args[1]),
+    scrollTo: (...args) => innerRef.value.scrollTo(args[0], args[1]),
+    setScrollTop: (...args) => innerRef.value.setScrollTop(...(args as [])),
+    setScrollLeft: (...args) => innerRef.value.setScrollLeft(...(args as [])),
   })
 </script>
 

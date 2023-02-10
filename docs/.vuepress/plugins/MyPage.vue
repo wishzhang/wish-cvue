@@ -3,16 +3,10 @@
   import PageNav from '@theme/PageNav.vue'
   import { usePageData } from '@vuepress/client'
   import { computed, ref, onMounted, watch } from 'vue'
-  import { useRoute, onBeforeRouteUpdate } from 'vue-router'
 
   const page = usePageData()
 
   let activeHash = ref('')
-  // if(!__VUEPRESS_SSR__) {
-  //   onBeforeRouteUpdate((to) => {
-  //     activeHash.value = to.hash
-  //   })
-  // }
 
   onMounted(()=>{
     window.onscroll = (event) => {

@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-2c051dbb","path":"/guide/boot.html","title":"快速开始","lang":"zh-CN","frontmatter":{},"headers":[{"level":2,"title":"完整引入","slug":"完整引入","link":"#完整引入","children":[]}],"git":{"updatedTime":1672132204000,"contributors":[{"name":"wishzhang","email":"wishzhang.io@qq.com","commits":3}]},"filePathRelative":"guide/boot.md"}');export{t as data};

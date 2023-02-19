@@ -19,12 +19,13 @@
   "dependencies": {
     "@commitlint/cli": "^17.4.0",
     "@commitlint/config-conventional": "^17.4.0",
+    "@vueuse/core": "^9.13.0",
     "@wele/components": "workspace:*",
     "@wele/core": "workspace:*",
+    "@wele/cvue": "workspace:*",
     "@wele/docs": "workspace:*",
     "@wele/theme-chalk": "workspace:*",
     "@wele/utils": "workspace:*",
-    "@wele/cvue": "workspace:*",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {

@@ -1,0 +1,12 @@
+.cvue-select-dropdown-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0 5px 0;
+  color: var(--el-text-color-regular);
+
+  .cvue-select-dropdown-bottom-text {
+    display: inline-block;
+    margin-left: 4px;
+  }
+}

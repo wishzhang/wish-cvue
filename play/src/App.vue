@@ -1,81 +1,45 @@
 <template>
-  <cvue-table
-    :operation="{ width: 200 }"
-    :search="search"
-    :columns="columns"
-    :data="data"
-    @row-add="handleRowAdd"
-    :on-load="onLoad"
-  ></cvue-table>
+  <cvue-select
+    v-model="value"
+    :lazy-load="{
+      request: handleLazyLoadRequest,
+    }"
+    :dic="dic"
+    @change="handleChange"
+  ></cvue-select>
 </template>
 
 <script lang="ts" setup>
-  import { reactive } from 'vue'
+  import { ref } from 'vue'
 
-  const columns = reactive([
-    {
-      label: '姓名',
-      prop: 'date',
-    },
-    {
-      label: '性别',
-      prop: 'name',
-    },
-    {
-      label: '年龄',
-      prop: 'age',
-    },
-  ])
-  const data = reactive([
-    {
-      date: '2022-12-12',
-      name: 'wishzhang',
-      address: '广州',
-    },
-    {
-      date: '2022-12-12',
-      name: 'wishzhang',
-      address: '广州',
-    },
-    {
-      date: '2022-12-12',
-      name: 'wishzhang',
-      address: '广州',
-    },
-    {
-      date: '2022-12-12',
-      name: 'wishzhang',
-      address: '广州',
-    },
-    {
-      date: '2022-12-12',
-      name: 'wishzhang',
-      address: '广州',
-    },
-  ])
+  let value = ref()
 
-  const onLoad = (val: Record<string, any>) => {
+  let i = 0
+
+  async function fetchData(pageSize: number) {
+    return new Array(pageSize).fill(0).map(() => {
+      i++
+      return {
+        label: i + '',
+        value: i,
+      }
+    })
+  }
+
+  function handleChange(val: number) {
     console.log(val)
   }
 
-  const handleRowAdd = () => {
-    console.log('handleRowAdd')
+  function handleLazyLoadRequest(pageSize: number) {
+    return new Promise((resolve) => {
+      console.log('start load')
+      setTimeout(async () => {
+        let data = await fetchData(pageSize)
+        resolve({
+          total: 100,
+          data: data,
+        })
+      }, 2000)
+    })
   }
-
-  const search = reactive({
-    columns: [
-      {
-        label: '什么鬼的a',
-        prop: 'prop1',
-      },
-      {
-        label: 'label2',
-        prop: 'prop2',
-      },
-      {
-        label: 'label3',
-        prop: 'prop3',
-      },
-    ],
-  })
 </script>

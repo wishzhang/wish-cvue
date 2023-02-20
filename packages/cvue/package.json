@@ -17,21 +17,21 @@
   "license": "MIT",
   "main": "dist/index.full.js",
   "module": "dist/index.full.mjs",
-  "types": "es/packages/cvue/index.d.ts",
+  "types": "es/cvue/index.d.ts",
   "unpkg": "dist/index.full.js",
   "jsdelivr": "dist/index.full.js",
   "exports": {
     ".": {
-      "types": "./es/packages/cvue/index.d.ts",
-      "import": "./es/packages/cvue/index.mjs",
-      "require": "./lib/packages/cvue/index.js"
+      "types": "./es/cvue/index.d.ts",
+      "import": "./es/cvue/index.mjs",
+      "require": "./lib/cvue/index.js"
     },
-    "./es": "./es/packages/cvue/index.mjs",
-    "./lib": "./lib/packages/cvue/index.js",
-    "./es/*.mjs": "./es/packages/cvue/*.mjs",
-    "./es/*": "./es/packages/cvue/*.mjs",
-    "./lib/*.js": "./lib/packages/cvue/*.js",
-    "./lib/*": "./lib/packages/cvue/*.js",
+    "./es": "./es/cvue/index.mjs",
+    "./lib": "./lib/cvue/index.js",
+    "./es/*.mjs": "./es/cvue/*.mjs",
+    "./es/*": "./es/cvue/*.mjs",
+    "./lib/*.js": "./lib/cvue/*.js",
+    "./lib/*": "./lib/cvue/*.js",
     "./*": "./*"
   },
   "repository": {

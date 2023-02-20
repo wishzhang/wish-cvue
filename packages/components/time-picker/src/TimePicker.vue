@@ -39,5 +39,9 @@
 </script>
 
 <template>
-  <el-time-picker ref="timePicker" v-bind="$attrs" :placeholder="placeholder"></el-time-picker>
+  <el-time-picker
+    ref="timePicker"
+    v-bind="$attrs"
+    :placeholder="placeholder"
+  ></el-time-picker>
 </template>

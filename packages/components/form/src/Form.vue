@@ -126,11 +126,23 @@
 
 <template>
   <div class="avue-form">
-    <el-form v-bind="$attrs" ref="formRef" :model="formValue" :label-width="labelWidth">
+    <el-form
+      v-bind="$attrs"
+      ref="formRef"
+      :model="formValue"
+      :label-width="labelWidth"
+    >
       <el-row>
         <template v-for="item in innerColumns" :key="item.prop">
-          <el-col :span="item.span" :class="{ 'avue-form-item-hide': item.hide }">
-            <el-form-item :label="item.label" :prop="item.prop" :rules="item.rules ?? []">
+          <el-col
+            :span="item.span"
+            :class="{ 'avue-form-item-hide': item.hide }"
+          >
+            <el-form-item
+              :label="item.label"
+              :prop="item.prop"
+              :rules="item.rules ?? []"
+            >
               <component
                 v-bind="item"
                 :is="$cvue._getComponentName(item?.component)"
@@ -144,7 +156,10 @@
         <!-- operation -->
         <el-col v-if="showOperation">
           <el-form-item>
-            <el-button type="primary" :loading="submitLoading" @click="handleSubmit(formRef)"
+            <el-button
+              type="primary"
+              :loading="submitLoading"
+              @click="handleSubmit(formRef)"
               >提交
             </el-button>
             <el-button @click="handleReset(formRef)">重置</el-button>

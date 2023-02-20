@@ -53,9 +53,14 @@ export function copyThemeChalkBundle() {
  */
 
 export function copyThemeChalkSource() {
-  return src(path.resolve(__dirname, 'src/**')).pipe(dest(path.resolve(distBundle, 'src')))
+  return src(path.resolve(__dirname, 'src/**')).pipe(
+    dest(path.resolve(distBundle, 'src'))
+  )
 }
 
-export const build = parallel(copyThemeChalkSource, series(buildThemeChalk, copyThemeChalkBundle))
+export const build = parallel(
+  copyThemeChalkSource,
+  series(buildThemeChalk, copyThemeChalkBundle)
+)
 
 export default build

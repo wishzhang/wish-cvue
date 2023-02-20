@@ -12,7 +12,6 @@
 <template>
   <el-card class="cvue-card-box" v-bind="$attrs" :shadow="shadow">
     <template #header>
-      <div>{{ aa }}</div>
       <div class="cvue-card-header">
         <div class="cvue-card-header-left">
           <slot name="headerLeft"></slot>

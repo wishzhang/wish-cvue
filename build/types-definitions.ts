@@ -78,10 +78,8 @@ async function saveFiles(sourceFiles: SourceFile[]) {
     const outputFiles = emitOutput.getOutputFiles()
     for (const outputFile of outputFiles) {
       const filepath = outputFile.getFilePath()
-      console.log('filepath:' + filepath)
       await fs.promises.mkdir(path.dirname(filepath), { recursive: true })
       await fs.promises.writeFile(filepath, outputFile.getText(), 'utf8')
-      console.log(`Emitted ${filepath}`)
     }
   }
 }
@@ -102,9 +100,13 @@ async function addSourceFiles(project: Project) {
     ...files.map(async (file) => {
       const content = await fs.promises.readFile(file, 'utf8')
       if (file.endsWith('.ts')) {
-        const sourceFile = project.createSourceFile(path.relative(process.cwd(), file), content, {
-          overwrite: true,
-        })
+        const sourceFile = project.createSourceFile(
+          path.relative(process.cwd(), file),
+          content,
+          {
+            overwrite: true,
+          }
+        )
         sourceFiles.push(sourceFile)
         return
       }
@@ -125,13 +127,10 @@ async function addSourceFiles(project: Project) {
           if (scriptSetup.lang === 'ts') isTS = true
         }
         const p = path.relative(process.cwd(), file)
-        console.log('createSourceFile:')
-        console.log(p)
-        const sourceFile = project.createSourceFile(p + (isTS ? '.ts' : '.js'), content)
-        if (file.indexOf('Table.vue') !== -1) {
-          console.log(file)
-          console.log(content)
-        }
+        const sourceFile = project.createSourceFile(
+          p + (isTS ? '.ts' : '.js'),
+          content
+        )
         sourceFiles.push(sourceFile)
       }
     }),

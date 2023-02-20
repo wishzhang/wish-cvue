@@ -1,45 +1,48 @@
 <template>
-  <cvue-select
-    v-model="value"
-    :lazy-load="{
-      request: handleLazyLoadRequest,
-    }"
-    :dic="dic"
-    @change="handleChange"
-  ></cvue-select>
+  <!--  <cvue-select-->
+  <!--    :lazy-load="{-->
+  <!--      request: handleLazyLoadRequest,-->
+  <!--    }"-->
+  <!--  ></cvue-select>-->
+  <cvue-select :dic="[{ label: '1', value: 1 }]"></cvue-select>
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-
-  let value = ref()
-
-  let i = 0
-
-  async function fetchData(pageSize: number) {
-    return new Array(pageSize).fill(0).map(() => {
-      i++
-      return {
-        label: i + '',
-        value: i,
-      }
-    })
-  }
-
-  function handleChange(val: number) {
-    console.log(val)
-  }
-
-  function handleLazyLoadRequest(pageSize: number) {
-    return new Promise((resolve) => {
-      console.log('start load')
-      setTimeout(async () => {
-        let data = await fetchData(pageSize)
-        resolve({
-          total: 100,
-          data: data,
-        })
-      }, 2000)
-    })
-  }
+  // let i = 0
+  //
+  // let dataSource = new Array(1).fill(0).map(() => {
+  //   i++
+  //   return {
+  //     label: i + '',
+  //     value: i,
+  //   }
+  // })
+  //
+  // async function fetchData(params: any) {
+  //   let searchData = dataSource
+  //   if (params.filterValue) {
+  //     searchData = dataSource.filter((el: any) =>
+  //       el.label.includes(params.filterValue)
+  //     )
+  //   }
+  //   let startIndex = (params.pageIndex - 1) * params.pageSize
+  //   let data = searchData.slice(startIndex, startIndex + params.pageSize)
+  //   return {
+  //     data: data,
+  //     total: searchData.length,
+  //   }
+  // }
+  //
+  // function handleLazyLoadRequest(params: any) {
+  //   return new Promise((resolve) => {
+  //     console.log('start load')
+  //     setTimeout(async () => {
+  //       let res = await fetchData(params)
+  //       resolve({
+  //         total: res.total,
+  //         data: res.data,
+  //       })
+  //     }, 1000)
+  //   })
+  // }
 </script>

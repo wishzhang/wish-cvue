@@ -16,7 +16,8 @@
     name: 'CvueQueryFilter',
   })
 
-  const { columns = [], defaultColsNumber = 0 } = defineProps<QueryFilterProps>()
+  const { columns = [], defaultColsNumber = 0 } =
+    defineProps<QueryFilterProps>()
   const emit = defineEmits<QueryFilterEmits>()
 
   let innerColumns = reactive(cloneDeep(columns))
@@ -116,7 +117,9 @@
               "
               @click="collapse = !collapse"
             >
-              <span style="font-size: 15px">{{ collapse ? '展开' : '收起' }}</span>
+              <span style="font-size: 15px">{{
+                collapse ? '展开' : '收起'
+              }}</span>
               <i
                 :style="{
                   transform: collapse ? 'rotate(0)' : 'rotate(180deg)',

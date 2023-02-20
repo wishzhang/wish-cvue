@@ -39,12 +39,26 @@
 </script>
 
 <template>
-  <el-table-column v-if="show" v-bind="$attrs" :fixed="fixed" :label="label" :width="width">
+  <el-table-column
+    v-if="show"
+    v-bind="$attrs"
+    :fixed="fixed"
+    :label="label"
+    :width="width"
+  >
     <template #default>
-      <el-button link type="primary" size="small" @click="handleRowView">查看</el-button>
-      <el-button link type="primary" size="small" @click="handleRowAdd">新增</el-button>
-      <el-button link type="primary" size="small" @click="handleRowEdit">编辑</el-button>
-      <el-button link type="primary" size="small" @click="handleRowDelete">删除</el-button>
+      <el-button link type="primary" size="small" @click="handleRowView"
+        >查看</el-button
+      >
+      <el-button link type="primary" size="small" @click="handleRowAdd"
+        >新增</el-button
+      >
+      <el-button link type="primary" size="small" @click="handleRowEdit"
+        >编辑</el-button
+      >
+      <el-button link type="primary" size="small" @click="handleRowDelete"
+        >删除</el-button
+      >
     </template>
   </el-table-column>
 </template>

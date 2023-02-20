@@ -20,7 +20,9 @@
   <div class="avue-checkbox">
     <el-checkbox-group v-bind="$attrs">
       <template v-for="item in dic" :key="item.value">
-        <el-checkbox v-bind="item" :label="item.value">{{ item.label }} </el-checkbox>
+        <el-checkbox v-bind="item" :label="item.value"
+          >{{ item.label }}
+        </el-checkbox>
       </template>
     </el-checkbox-group>
   </div>

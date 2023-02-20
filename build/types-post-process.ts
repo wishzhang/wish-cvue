@@ -6,7 +6,7 @@ export async function typesPostProcess() {
   let option = {
     dir: path.resolve(buildOutput, 'types'),
     contentRegexp: '@wele/',
-    contentTarget: '@wele/cvue/es/packages/',
+    contentTarget: '@wele/cvue/es/',
   }
   await replaceFileContent(option)
 }

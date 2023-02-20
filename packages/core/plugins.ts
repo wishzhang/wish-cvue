@@ -3,7 +3,14 @@ import type { App } from 'vue'
 export function getOptionType(component = 'input') {
   component = component.toLowerCase().trim()
 
-  const cvueMap = ['input', 'select', 'radio', 'checkbox', 'date-picker', 'time-picker']
+  const cvueMap = [
+    'input',
+    'select',
+    'radio',
+    'checkbox',
+    'date-picker',
+    'time-picker',
+  ]
   const elMap = ['switch']
   if (cvueMap.includes(component)) {
     return `cvue-${component}`

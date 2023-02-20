@@ -24,7 +24,21 @@
   },
   "plugins": ["@typescript-eslint", "unused-imports", "vue", "prettier"],
   "rules": {
+    "eol-last": "off",
+    "max-len": [
+      "error",
+      {
+        "code": 80,
+        "tabWidth": 2,
+        "ignoreComments": true,
+        "comments": 80,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
     "prefer-const": "off",
+    "linebreak-style": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "unused-imports/no-unused-imports": "error",
     "vue/multi-word-component-names": "off",

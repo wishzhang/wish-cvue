@@ -7,12 +7,19 @@ import esbuild from 'rollup-plugin-esbuild'
 import replace from '@rollup/plugin-replace'
 import filesize from 'rollup-plugin-filesize'
 import { parallel } from 'gulp'
+// @ts-ignore
 import { version } from '../packages/cvue/version'
 import { cvueRoot, cvueOutput } from './utils/paths'
-import { formatBundleFilename, generateExternal, writeBundles } from './utils/rollup'
+import {
+  formatBundleFilename,
+  generateExternal,
+  writeBundles,
+} from './utils/rollup'
 import { withTaskName } from './utils/gulp'
 import { EP_BRAND_NAME } from './utils/constants'
 import { target } from './build-info'
+
+import type { TaskFunction } from 'gulp'
 
 const banner = `/*! ${EP_BRAND_NAME} v${version} */\n`
 
@@ -20,6 +27,7 @@ async function buildFullEntry(minify: boolean) {
   const bundle = await rollup({
     input: path.resolve(cvueRoot, 'index.ts'),
     plugins: [
+      // @ts-ignore
       vue({
         isProduction: true,
         reactivityTransform: true,
@@ -47,7 +55,11 @@ async function buildFullEntry(minify: boolean) {
   await writeBundles(bundle, [
     {
       format: 'umd',
-      file: path.resolve(cvueOutput, 'dist', formatBundleFilename('index.full', minify, 'js')),
+      file: path.resolve(
+        cvueOutput,
+        'dist',
+        formatBundleFilename('index.full', minify, 'js')
+      ),
       exports: 'named',
       name: 'Cvue',
       globals: {
@@ -58,7 +70,11 @@ async function buildFullEntry(minify: boolean) {
     },
     {
       format: 'esm',
-      file: path.resolve(cvueOutput, 'dist', formatBundleFilename('index.full', minify, 'mjs')),
+      file: path.resolve(
+        cvueOutput,
+        'dist',
+        formatBundleFilename('index.full', minify, 'mjs')
+      ),
       sourcemap: minify,
       banner,
     },
@@ -69,7 +85,7 @@ export const buildFull = (minify: boolean) => async () => {
   return Promise.all([buildFullEntry(minify)])
 }
 
-export const buildFullBundle = parallel(
+export const buildFullBundle: TaskFunction = parallel(
   withTaskName('buildFullMinified', buildFull(true)),
   withTaskName('buildFull', buildFull(false))
 )

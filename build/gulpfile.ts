@@ -1,6 +1,7 @@
 import path from 'path'
 import { mkdir, copyFile } from 'fs/promises'
-import { series, parallel, TaskFunction } from 'gulp'
+import { series, parallel } from 'gulp'
+import type { TaskFunction } from 'gulp'
 import { run } from './utils/process'
 import { withTaskName, runTask } from './utils/gulp'
 import { cvueOutput, projRoot, cvuePackage, buildOutput } from './utils/paths'
@@ -18,11 +19,14 @@ export const copyFullStyle = async () => {
 export const copyFiles = () =>
   Promise.all([
     copyFile(cvuePackage, path.join(cvueOutput, 'package.json')),
-    copyFile(path.resolve(projRoot, 'README.md'), path.resolve(cvueOutput, 'README.md')),
+    copyFile(
+      path.resolve(projRoot, 'README.md'),
+      path.resolve(cvueOutput, 'README.md')
+    ),
   ])
 
 export const copyTypesDefinitions: TaskFunction = (done) => {
-  const src = path.resolve(buildOutput, 'types')
+  const src = path.resolve(buildOutput, 'types/packages')
   const copyTypes = (module: Module) =>
     withTaskName(`copyTypes:${module}`, () =>
       copy(src, buildConfig[module].output.path, { recursive: true })
@@ -31,7 +35,7 @@ export const copyTypesDefinitions: TaskFunction = (done) => {
   return parallel(copyTypes('esm'), copyTypes('cjs'))(done)
 }
 
-export default series(
+const task: TaskFunction = series(
   withTaskName('clean', () => run('pnpm run clean')),
   withTaskName('createOutput', () => mkdir(cvueOutput, { recursive: true })),
 
@@ -40,13 +44,17 @@ export default series(
     runTask('buildFullBundle'),
     runTask('generateTypesDefinitions'),
     series(
-      withTaskName('buildThemeChalk', () => run('pnpm run -C packages/theme-chalk build')),
+      withTaskName('buildThemeChalk', () =>
+        run('pnpm run -C packages/theme-chalk build')
+      ),
       copyFullStyle
     )
   ),
   parallel(copyFiles),
   parallel(copyTypesDefinitions)
 )
+
+export default task
 
 export * from './full-bundle'
 export * from './modules'

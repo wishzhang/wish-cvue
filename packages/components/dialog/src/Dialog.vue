@@ -66,7 +66,12 @@
     <template #footer>
       <slot name="footer">
         <el-button @click="handleCancel">取消</el-button>
-        <el-button type="primary" :loading="confirmLoading" @click="handleConfirm">确定 </el-button>
+        <el-button
+          type="primary"
+          :loading="confirmLoading"
+          @click="handleConfirm"
+          >确定
+        </el-button>
       </slot>
     </template>
     <template #header="scope">

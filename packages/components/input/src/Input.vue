@@ -11,7 +11,11 @@
     name: 'CvueInput',
   })
 
-  const { placeholder = '请输入', clearable = true, rows = 4 } = defineProps<CVueInputProps>()
+  const {
+    placeholder = '请输入',
+    clearable = true,
+    rows = 4,
+  } = defineProps<CVueInputProps>()
 
   const innerRef = ref<any>(null)
 

@@ -94,10 +94,14 @@
   // ts-ignore
   defineExpose({
     clearSelection: (...args) => innerRef.value.clearSelection(...(args as [])),
-    getSelectionRows: (...args) => innerRef.value.getSelectionRows(...(args as [])),
-    toggleRowSelection: (...args) => innerRef.value.toggleRowSelection(args[0], args[1]),
-    toggleAllSelection: (...args) => innerRef.value.toggleAllSelection(...(args as [])),
-    toggleRowExpansion: (...args) => innerRef.value.toggleRowExpansion(args as []),
+    getSelectionRows: (...args) =>
+      innerRef.value.getSelectionRows(...(args as [])),
+    toggleRowSelection: (...args) =>
+      innerRef.value.toggleRowSelection(args[0], args[1]),
+    toggleAllSelection: (...args) =>
+      innerRef.value.toggleAllSelection(...(args as [])),
+    toggleRowExpansion: (...args) =>
+      innerRef.value.toggleRowExpansion(args as []),
     setCurrentRow: (...args) => innerRef.value.setCurrentRow(args as []),
     clearSort: (...args) => innerRef.value.clearSort(...(args as [])),
     clearFilter: (...args) => innerRef.value.clearFilter(args as []),

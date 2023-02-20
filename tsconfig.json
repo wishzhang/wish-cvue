@@ -14,7 +14,11 @@
     "composite": true,
     "jsx": "preserve",
     "lib": ["ES2018", "DOM", "DOM.Iterable"],
-    "types": ["vitest/globals", "vue/ref-macros", "unplugin-vue-define-options/macros-global"],
+    "types": [
+      "vitest/globals",
+      "vue/ref-macros",
+      "unplugin-vue-define-options/macros-global"
+    ],
     "paths": {
       "@wele/*": ["packages/*"]
     },
@@ -23,5 +27,5 @@
     "allowSyntheticDefaultImports": true
   },
   "include": ["packages", "typings", "build"],
-  "exclude": ["node_modules", "**/dist", "**/__tests__/**/*", "packages/test-utils", "**/*.md"]
+  "exclude": ["node_modules", "**/dist", "packages/test-utils", "**/*.md"]
 }

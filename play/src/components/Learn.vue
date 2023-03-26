@@ -1,19 +1,9 @@
 <script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const state = {
-    count: ref(0),
-  }
-
-  let b = state.count
-
-  const increase = () => {
-    b.value++
-  }
+  import InputDemo from '@root/docs/examples/InputDemo.vue'
+  import CardDemo from '@root/docs/examples/CardDemo.vue'
 </script>
 
 <template>
-  <button style="width: 200px" @click="increase">
-    {{ state.count }}
-  </button>
+  <InputDemo></InputDemo>
+  <CardDemo></CardDemo>
 </template>

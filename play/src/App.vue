@@ -4,7 +4,7 @@
   <!--      request: handleLazyLoadRequest,-->
   <!--    }"-->
   <!--  ></cvue-select>-->
-  <cvue-select :dic="[{ label: '1', value: 1 }]"></cvue-select>
+  <learn />
 </template>
 
 <script lang="ts" setup>
@@ -45,4 +45,5 @@
   //     }, 1000)
   //   })
   // }
+  import Learn from '@root/play/src/components/Learn.vue'
 </script>

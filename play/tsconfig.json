@@ -8,7 +8,8 @@
     "moduleResolution": "Node",
     "baseUrl": ".",
     "paths": {
-      "@wele/*": ["packages/*"]
+      "@wele/*": ["packages/*"],
+      "@root/*": ["../*"]
     },
     "types": ["vue/ref-macros", "unplugin-vue-define-options/macros-global"]
   },
